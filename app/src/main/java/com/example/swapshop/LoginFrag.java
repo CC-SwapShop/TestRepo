@@ -67,7 +67,7 @@ public class LoginFrag extends Fragment {
                         if (task.isSuccessful()) {
                             //Redirect to menu
                             Toast.makeText(getActivity(), "Logged in", Toast.LENGTH_SHORT).show();
-                            //TODO: startActivity(new Intent(getContext(), UserMenu.class));
+                            startActivity(new Intent(getContext(), UserMenu.class));
                             //finish();
                         } else {
                             //Error message
