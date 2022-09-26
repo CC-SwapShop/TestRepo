@@ -13,4 +13,12 @@
         <item name="android:statusBarColor">#BA696F</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.SwapShop.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SwapShop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SwapShop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
