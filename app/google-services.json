@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "378414154431",
+    "firebase_url": "https://swapshop-8094c-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "swapshop-8094c",
+    "storage_bucket": "swapshop-8094c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378414154431:android:f8b64d7f7c444064d57c0a",
+        "android_client_info": {
+          "package_name": "com.example.swapshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378414154431-q9ucalppu7m8r1jtbr85gv5rb5neffkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCChpk3OLHvZ3gO6AV9Qen83xpavVdv8q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378414154431-q9ucalppu7m8r1jtbr85gv5rb5neffkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378414154431:android:4019d465d1c41704d57c0a",
+        "android_client_info": {
+          "package_name": "com.example.swapshop2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378414154431-q9ucalppu7m8r1jtbr85gv5rb5neffkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCChpk3OLHvZ3gO6AV9Qen83xpavVdv8q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378414154431-q9ucalppu7m8r1jtbr85gv5rb5neffkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378414154431:android:31d2f852e53036aad57c0a",
+        "android_client_info": {
+          "package_name": "com.example.swapshopfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378414154431-q9ucalppu7m8r1jtbr85gv5rb5neffkm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCChpk3OLHvZ3gO6AV9Qen83xpavVdv8q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378414154431-q9ucalppu7m8r1jtbr85gv5rb5neffkm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
