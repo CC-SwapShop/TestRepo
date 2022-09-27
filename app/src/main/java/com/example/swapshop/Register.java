@@ -22,6 +22,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     private EditText edtFName, edtLName, edtEmail,edtPassword;
     private Button btnRegister;
 
+    public String unitTest = "True";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
-    private void registerUser(){
+    public void registerUser(){
         String name = edtFName.getText().toString().trim();
         String email = edtEmail.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
@@ -105,6 +107,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                                             }
                                             else{
                                                 Toast.makeText(Register.this,"Unsuccessful",Toast.LENGTH_LONG).show();
+                                                unitTest = "False";
                                             }
                                         }
                                     });

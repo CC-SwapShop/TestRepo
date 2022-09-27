@@ -36,6 +36,8 @@ public class UploadProduct extends AppCompatActivity {
     Button btnAPAdd;
     Uri imgUri;
 
+    String unitTest = "True";
+
     FirebaseStorage storage;
     StorageReference storageReference;
     private final int IMG_REQUEST_ID = 1;
@@ -63,7 +65,6 @@ public class UploadProduct extends AppCompatActivity {
         });
 
         btnAPAdd = findViewById(R.id.btnAUpload);
-        btnAPAdd.setEnabled(false);
         btnAPAdd.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +112,7 @@ public class UploadProduct extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(UploadProduct.this, "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                unitTest = "False";
                             }
                         });
                     }
@@ -118,6 +120,7 @@ public class UploadProduct extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(UploadProduct.this, "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        unitTest = "False";
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
