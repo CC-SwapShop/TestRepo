@@ -29,28 +29,33 @@ import java.util.List;
 
 
 public class Search extends Fragment {
+
+    //Variables for Search class
     EditText edtSProductName;
     LinearLayout llSearch;
     ImageButton btnSearchProduct;
     Button btnAll;
 
+    //Private variables
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
-
     private DatabaseReference reference;
     private List<Product> mUploads;
     private List<String> productIDs;
 
 
+    //Empty constructor needed for fragment
     public Search(){
         // require a empty public constructor
     }
 
+    //onCreateView method for fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_search, container, false);
 
+        //Finding the corresponding Views
         edtSProductName = view.findViewById(R.id.edtSProductName);
         //llSearch = view.findViewById(R.id.llSearchProduct);
         btnSearchProduct = view.findViewById(R.id.button);
@@ -58,9 +63,10 @@ public class Search extends Fragment {
         mRecyclerView = view.findViewById(R.id.recycler_view);
 
 
-
+        //Calling method
         listAll();
 
+        //Using the search function
         btnSearchProduct.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,12 +74,14 @@ public class Search extends Fragment {
             }
         });
 
+        //Using onClick for ListAll if user is in search
         btnAll.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listAll();
             }
         });
+        //Inflating view
         return view;
     }
 
@@ -81,15 +89,17 @@ public class Search extends Fragment {
     public void listAll()
     {
         //getting data from database
-
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        //Array lists
         mUploads = new ArrayList<>();
         productIDs = new ArrayList<>();
 
+        //reference to database
         reference = FirebaseDatabase.getInstance().getReference().child("Products");
 
+        //Finding items in database
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -105,9 +115,14 @@ public class Search extends Fragment {
 
                     Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
 
+                    //Adding product to list
                     mUploads.add(objProduct);
                 }
+
+                //Getting image
                 mAdapter = new ImageAdapter(getActivity(),mUploads);
+
+                //Getting product
                 mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
@@ -121,11 +136,13 @@ public class Search extends Fragment {
 
                     }
 
+                    //Wishlist
                     @Override
                     public void onWishlistClick(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                     }
 
+                    //Swapped
                     @Override
                     public void onSwapped(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();

@@ -22,23 +22,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserMenu extends AppCompatActivity {
+
+    //Variables for User Menu class
     ImageButton btnWatch;
     DatabaseReference wReference;
     List<String> productIDs;
     UserWatchlist objWatchlist;
 
-
+    //binding needed for fragment
     com.example.swapshop.databinding.ActivityUserMenuBinding binding;
 
+    //OnCreate method for UserMenu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //To use activity user menu xml
         setContentView(R.layout.activity_user_menu);
 
+        //Binding for fragment
         binding = com.example.swapshop.databinding.ActivityUserMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new Search());
 
+        //Switching fragments for user
         binding.bottomNavigationView2.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId())
@@ -60,12 +67,17 @@ public class UserMenu extends AppCompatActivity {
 
         });
 
+        //Watchlist to appear on all fragments
         objWatchlist = new UserWatchlist();
 
+        //Array list
         productIDs = new ArrayList<>();
+
+        //Getting references
         wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
+        //Event listener
         wReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -85,10 +97,12 @@ public class UserMenu extends AppCompatActivity {
             }
         });
 
+        //If btnWatch is clicked
         btnWatch = findViewById(R.id.btnWatch);
         btnWatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Moving to watchlist class
                 Intent intent = new Intent(getApplicationContext(), Watchlist.class);
                 intent.putExtra("Extra_Watchlist", objWatchlist);
                 startActivity(intent);
@@ -97,6 +111,7 @@ public class UserMenu extends AppCompatActivity {
 
     }
 
+    //Method to switch between fragments
     private void replaceFragment(Fragment fragment)
     {
 

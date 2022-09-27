@@ -28,6 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class ViewProduct extends AppCompatActivity {
+
+    //Variables for View product
     public Product objProduct;
     public String sPID;
     public boolean bLogin;
@@ -35,9 +37,12 @@ public class ViewProduct extends AppCompatActivity {
     ImageView imgVP_Prod;
     Button btnVP_swap, btnVP_AddWish;
 
+    //onCreate method for view product
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //using activity view product
         setContentView(R.layout.activity_view_product);
 
         //Pass Variables across
@@ -47,7 +52,6 @@ public class ViewProduct extends AppCompatActivity {
         bLogin = intent.getBooleanExtra("Extra_login",true);
 
         //Find ID with interface
-
         txtVP_Desc = findViewById(R.id.txtVP_Desc);
         txtVP_Name = findViewById(R.id.txtVP_Name);
         txtVP_Loc = findViewById(R.id.txtVP_Loc);
@@ -67,13 +71,13 @@ public class ViewProduct extends AppCompatActivity {
         //Load image from url
         Picasso.with(this).load(objProduct.img).fit().centerCrop().into(imgVP_Prod);
 
+        //To do if bLogin bool is false
         if(bLogin == false){
             btnVP_AddWish.setVisibility(View.INVISIBLE);
             btnVP_swap.setVisibility(View.INVISIBLE);
         }
 
-
-
+        //Do if swap product is clicked
         btnVP_swap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +85,7 @@ public class ViewProduct extends AppCompatActivity {
             }
         });
 
-
+        //Do if add to wish list is clicked
         btnVP_AddWish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,9 +94,11 @@ public class ViewProduct extends AppCompatActivity {
         });
     }
 
+    //Notification to users phone
     public void MakeandSendNotification(){
         Notification notification;
         NotificationManagerCompat notificationManagerCompat;
+
 
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel("myCh","My Channel", NotificationManager.IMPORTANCE_DEFAULT);
@@ -100,25 +106,32 @@ public class ViewProduct extends AppCompatActivity {
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
+
+        //What notification should include
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"myCh")
                 .setSmallIcon(android.R.mipmap.sym_def_app_icon)
                 .setContentTitle("Watchlist")
                 .setContentText("Product " + objProduct.name + " has been swapped");
 
+        //Build
         notification = builder.build();
 
         notificationManagerCompat = NotificationManagerCompat.from(this);
 
+        //Send notification
         notificationManagerCompat.notify(999,notification);
     }
 
+    //Function to mark product as swapped and send notification
     public void SwappProduct(){
         objProduct.setSwapped(true);
         FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("swapped").setValue(true);
 
+        //Database reference
         DatabaseReference wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
+        //Send notification
         wReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -135,19 +148,29 @@ public class ViewProduct extends AppCompatActivity {
 
             }
         });
+
+        //Go to chat class for user to chat with user //To be implemented in future sprints
         startActivity(new Intent(getApplicationContext(), Chat.class));
 
+        //Message to say product has been requested as confirmation
         Toast.makeText(ViewProduct.this,"Product has been requested for swap",Toast.LENGTH_SHORT).show();
     }
 
+    //Adding item to watch list
     public void AddtoWishList(){
+
+        //Firebase reference
         FirebaseDatabase.getInstance().getReference("Watchlist")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(sPID).setValue(objProduct)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+
+                        //If successful
                         if (task.isSuccessful()){
                             Toast.makeText(ViewProduct.this,"Product added to watchlist",Toast.LENGTH_SHORT).show();
+
+                        //If not successful
                         }else{
                             Toast.makeText(ViewProduct.this,"Unable to add to watchlist",Toast.LENGTH_SHORT).show();
                         }

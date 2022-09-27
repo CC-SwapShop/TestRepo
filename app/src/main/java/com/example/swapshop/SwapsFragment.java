@@ -11,11 +11,12 @@ import android.view.ViewGroup;
 
 public class SwapsFragment extends Fragment {
 
+    //empty constructor required for fragment
     public SwapsFragment() {
         // Required empty public constructor
     }
 
-
+    //onCreateView method
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
