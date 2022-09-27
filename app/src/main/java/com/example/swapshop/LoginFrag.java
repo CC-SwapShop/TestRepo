@@ -52,12 +52,14 @@ public class LoginFrag extends Fragment {
                 String email = edtLEmail.getText().toString().trim();
                 String pass = edtLPassword.getText().toString().trim();
                 //error messages
-                if (TextUtils.isEmpty(email)) {
+                if (Validation.StringEmpty(email)) {
                     edtLEmail.setError("Email is Required");
+                    edtLEmail.requestFocus();
                     return;
                 }
-                if (TextUtils.isEmpty(pass)) {
+                if (Validation.StringEmpty(pass)) {
                     edtLPassword.setError("Password is Required");
+                    edtLPassword.requestFocus();
                     return;
                 }
 
