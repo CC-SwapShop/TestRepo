@@ -24,6 +24,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     private EditText edtFName, edtLName, edtEmail,edtPassword;
     private Button btnRegister;
 
+
+    String unitTest = "True";
     //onCreate method Register class
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,14 +118,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                                             //If user successfully registered
                                             if (task.isSuccessful()){
                                                 Toast.makeText(Register.this,"Successful",Toast.LENGTH_LONG).show();
-
-                                                //Move to home class
                                                 startActivity(new Intent(getApplicationContext(), Home.class));
 
                                             }
                                             else{
-                                                //If error
                                                 Toast.makeText(Register.this,"Unsuccessful",Toast.LENGTH_LONG).show();
+                                                unitTest = "False";
                                             }
                                         }
                                     });
