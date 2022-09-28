@@ -57,9 +57,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
-    private void registerUser(){
-
-        //Views
+    //Views
+    public void registerUser(){
         String name = edtFName.getText().toString().trim();
         String email = edtEmail.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
