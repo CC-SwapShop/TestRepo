@@ -58,7 +58,7 @@ public class HomeTest {
         assertEquals(actual,expected);
         home.finish();
     }
-
+    @Test
     public void testLogin(){
         onView(withId(R.id.logIn)).perform(click());
     }
