@@ -9,8 +9,12 @@ import android.app.Instrumentation;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.ContentView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -41,6 +45,11 @@ public class HomeTest {
     }
 
     @Test
+    public void testSearch(){
+        onView(withId(R.id.search)).perform(click());
+    }
+
+    @Test
     public void TextSwapShopTextView(){
         TextView textViewTest = home.findViewById(R.id.textView);
         String actual = textViewTest.getText().toString();
@@ -48,6 +57,10 @@ public class HomeTest {
 
         assertEquals(actual,expected);
         home.finish();
+    }
+
+    public void testLogin(){
+        onView(withId(R.id.logIn)).perform(click());
     }
 
 }

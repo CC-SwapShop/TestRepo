@@ -107,13 +107,13 @@ public class RegisterTest extends TestCase {
         onView(withId(R.id.edtREmail)).perform(typeText(STRING_TO_BE_TYPED_EMAIL), closeSoftKeyboard());
         onView(withId(R.id.edtRPassword)).perform(typeText(STRING_TO_BE_TYPED_PASSWORD), closeSoftKeyboard());
 
-        onView(withId(R.id.btnRegister)).perform(click());
+        onView(withId(R.id.btnRegister)).perform(click(), closeSoftKeyboard());
         String check = register.unitTest;
         assertEquals(check,"True");
         register.finish();
     }
 
-    @Test
+    /*@Test
     public void testRegisterButton2(){
         onView(withId(R.id.btnRegister)).perform(click());
     }
@@ -206,7 +206,7 @@ public class RegisterTest extends TestCase {
         String check = register.unitTest;
         assertEquals(check,"True");
         register.finish();
-    }
+    }*/
 
     @After
     public void tearDown() throws Exception {
