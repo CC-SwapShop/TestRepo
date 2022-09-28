@@ -25,7 +25,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     private Button btnRegister;
 
 
-    String unitTest = "True";
+    public String unitTest = "True";
     //onCreate method Register class
     @Override
     protected void onCreate(Bundle savedInstanceState) {
