@@ -1,9 +1,5 @@
 package com.example.swapshop;
 
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import static org.junit.Assert.assertEquals;
@@ -22,33 +18,36 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
-public class ChatTest {
-    @Rule
-    public ActivityTestRule<Chat> chatActivityTestRule = new ActivityTestRule<>(Chat.class);
+public class HomeTest {
 
-    private Chat chat = null;
+    @Rule
+    public ActivityTestRule<Home> homeActivityTestRule = new ActivityTestRule<Home>(Home.class);
+
+    private Home home = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
+
     @Before
     public void setUp() throws Exception {
-        chat = chatActivityTestRule.getActivity();
-    }
-
-    @Test
-    public void ChatTextTest() {
-        View view = chat.findViewById(R.id.txtChatHeading);
-        assertNotNull(view);
+        home = homeActivityTestRule.getActivity();
     }
 
     @Test
     public void SwapShopTextView(){
-        TextView textViewTest = chat.findViewById(R.id.txtChatHeading);
+        View view =  home.findViewById(R.id.textView);
+        assertNotNull(view);
+
+    }
+
+    @Test
+    public void TextSwapShopTextView(){
+        TextView textViewTest = home.findViewById(R.id.textView);
         String actual = textViewTest.getText().toString();
         String expected = "SWAPSHOP";
 
         assertEquals(actual,expected);
-        chat.finish();
+        home.finish();
     }
 
 }
