@@ -73,12 +73,6 @@ public class UserMenuTest {
     }
 
     @Test
-    public void testSwaps(){
-        onView(withId(R.id.swaps)).perform(click());
-        getInstrumentation().waitForIdleSync();
-    }
-
-    @Test
     public void testChat(){
         onView(withId(R.id.chat)).perform(click());
         getInstrumentation().waitForIdleSync();
