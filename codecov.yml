@@ -11,3 +11,6 @@ ignore:
   - "**/WatchlistAdapter"
   - "**/UserWatchlist"
   - "**/ViewProduct"
+  - "**/Register"
+  - "**/ChatFragment"
+  - "**/UploadProduct"
