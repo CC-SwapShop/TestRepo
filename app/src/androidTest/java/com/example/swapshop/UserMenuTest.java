@@ -37,12 +37,6 @@ public class UserMenuTest {
         userMenu = userMenuActivityTestRule.getActivity();
     }
 
-    @After
-    public void tearDown(){
-        userMenu = null;
-
-    }
-
     @Test
     public void SwapShopTextView(){
         View view =  userMenu.findViewById(R.id.textView13);
@@ -60,23 +54,7 @@ public class UserMenuTest {
         userMenu.finish();
     }
 
-    @Test
-    public void testSearch(){
-        onView(withId(R.id.search)).perform(click());
-        getInstrumentation().waitForIdleSync();
-    }
 
-    @Test
-    public void testUpload(){
-        onView(withId(R.id.upload)).perform(click());
-        getInstrumentation().waitForIdleSync();
-    }
-
-    @Test
-    public void testChat(){
-        onView(withId(R.id.chat)).perform(click());
-        getInstrumentation().waitForIdleSync();
-    }
 
 
 
