@@ -7,16 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserWatchlist implements Parcelable {
+
+    //Variables for Watch list
     public List<String> ProductIDs;
+
+    //defining constructor for watch list
     public UserWatchlist(){
         ProductIDs = new ArrayList<>();
-
     }
 
+    //Products in watch list
     protected UserWatchlist(Parcel in) {
         ProductIDs = in.createStringArrayList();
     }
 
+    //Creating watchlist according to user
     public static final Creator<UserWatchlist> CREATOR = new Creator<UserWatchlist>() {
         @Override
         public UserWatchlist createFromParcel(Parcel in) {
@@ -29,6 +34,7 @@ public class UserWatchlist implements Parcelable {
         }
     };
 
+    //Products in watchlist
     @Override
     public int describeContents() {
         return 0;

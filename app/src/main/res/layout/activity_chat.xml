@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Chat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/g"
     tools:context=".Chat">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtChatHeading"
         android:layout_width="298dp"
         android:layout_height="95dp"
         android:layout_marginStart="4dp"
@@ -68,7 +69,6 @@
         android:layout_marginBottom="-600dp"
         android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-         />
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
     <!-- TODO: Update Upload Icon  app:srcCompat="@drawable/upload" -->
 </androidx.constraintlayout.widget.ConstraintLayout>

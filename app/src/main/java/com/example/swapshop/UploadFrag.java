@@ -36,42 +36,54 @@ import java.util.UUID;
 
 public class UploadFrag extends Fragment {
 
+    //Defining variables
     TextView edtAName, edtADecription, edtALocation, edtAreqProduct;
     ImageView imgSwap;
     Button btnAPAdd;
     Uri imgUri;
 
+    //Firebase variables
     FirebaseStorage storage;
     StorageReference storageReference;
     private final int IMG_REQUEST_ID = 1;
 
+    //Empty constructor for fragment
     public UploadFrag() {
         // Required empty public constructor
     }
 
 
-
+    //onCreateView methof for UploadFrag
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.activity_upload_product, container, false);
+
+        //Finding corresponding views
         edtAName = view.findViewById(R.id.edtAName);
         edtADecription = view.findViewById(R.id.edtADescription);
         edtALocation = view.findViewById(R.id.edtALocation);
         edtAreqProduct = view.findViewById(R.id.edtALreqProduct);
         imgSwap = view.findViewById(R.id.imgSwap);
 
+        //Firebase
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
+        //Image redirect to choose picture
         imgSwap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 choosePicture();
             }
         });
+
+        //Corresponding views for product information
         btnAPAdd = view.findViewById(R.id.btnAUpload);
         btnAPAdd.setEnabled(false);
+
+        //Add new product when clicked
         btnAPAdd.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,10 +91,11 @@ public class UploadFrag extends Fragment {
             }
         });
 
-
+        //returning views
         return view;
     }
 
+    //Method to add new product
     public void AddNewProduct(){
         //Getting variables
         String name = edtAName.getText().toString().trim();
@@ -91,11 +104,13 @@ public class UploadFrag extends Fragment {
         String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String sReqProduct = edtAreqProduct.getText().toString().trim();
 
+        //If image is chosen
         if (imgUri != null){
             final ProgressDialog progressDialog = new ProgressDialog(getContext());
             progressDialog.setTitle("Please wait...");
             progressDialog.show();
 
+            //reference to database
             StorageReference reference = storageReference.child("Item_Images/"+ UUID.randomUUID().toString());
 
             try {
@@ -104,6 +119,8 @@ public class UploadFrag extends Fragment {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
+
+                            //If successful
                             public void onSuccess(Uri uri) {
                                 //Uploading to database
                                 Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,false);
@@ -111,13 +128,18 @@ public class UploadFrag extends Fragment {
                                 String key = ref.push().getKey();
                                 ref.child(key).setValue(product);
 
+                                //dismiss the dialog
                                 progressDialog.dismiss();
 
+                                //If product is uploaded successfully
                                 Toast.makeText(getActivity(), "Saved Successfully", Toast.LENGTH_SHORT).show();
                                 //setContentView(R.layout.activity_home);
                                 startActivity(new Intent(getContext(), UserMenu.class));
                             }
+
+                            //if failed
                         }).addOnFailureListener(new OnFailureListener() {
+                            //error message
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(getActivity(), "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -125,12 +147,14 @@ public class UploadFrag extends Fragment {
                         });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
+                    //Error occured
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(getActivity(), "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
+                    //Saving
                     public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                         double Progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                         progressDialog.setMessage("Saving");
@@ -144,6 +168,7 @@ public class UploadFrag extends Fragment {
 
     }
 
+    //Method to choose picture
     private void choosePicture() {
         Intent intent = new Intent();
         intent.setType("image/*");

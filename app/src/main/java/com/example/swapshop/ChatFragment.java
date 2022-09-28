@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 
 public class ChatFragment extends Fragment {
 
+    //Empty public constructor
     public ChatFragment() {
         // Required empty public constructor
     }
 
 
 
-
+    //Used to create the view of the fragment to be used on the menu class
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

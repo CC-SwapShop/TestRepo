@@ -23,8 +23,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFrag extends Fragment {
 
+    //defining variables for class
     static boolean test= false;
 
+    //Required for fragment
     public LoginFrag() {
         // Required empty public constructor
     }
@@ -34,11 +36,14 @@ public class LoginFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        //Variables for class
         View view= inflater.inflate(R.layout.fragment_login, container, false);
         EditText edtLEmail,edtLPassword;
         Button btnLRegister;
         Button btnLogin;
         FirebaseAuth fAuth;
+
+        //Finding corresponding items from Login xml
         btnLRegister = view.findViewById(R.id.btnLRegister);
         edtLEmail = view.findViewById(R.id.edtLEmail);
         edtLPassword = view.findViewById(R.id.edtLPassword);
@@ -49,24 +54,34 @@ public class LoginFrag extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Getting email and password from user input
                 String email = edtLEmail.getText().toString().trim();
                 String pass = edtLPassword.getText().toString().trim();
+
                 //error messages
-                if (TextUtils.isEmpty(email)) {
+                //Validation for email
+                if (Validation.StringEmpty(email)) {
                     edtLEmail.setError("Email is Required");
+                    edtLEmail.requestFocus();
                     return;
                 }
-                if (TextUtils.isEmpty(pass)) {
+                //Validation for password
+                if (Validation.StringEmpty(pass)) {
                     edtLPassword.setError("Password is Required");
+                    edtLPassword.requestFocus();
                     return;
                 }
 
                 fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        //If the user is in database
                         if (task.isSuccessful()) {
                             //Redirect to menu
                             Toast.makeText(getActivity(), "Logged in", Toast.LENGTH_SHORT).show();
+
+                            //Direct to registered menu
                             startActivity(new Intent(getContext(), UserMenu.class));
                             //finish();
                         } else {
@@ -82,6 +97,7 @@ public class LoginFrag extends Fragment {
         btnLRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //If user needs to register, redirect
                 startActivity(new Intent(getActivity(), Register.class));
             }
         });

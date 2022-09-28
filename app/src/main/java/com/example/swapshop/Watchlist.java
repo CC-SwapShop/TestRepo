@@ -20,32 +20,43 @@ import java.util.List;
 
 public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnItemClickListener{
 
+    //Variables for watch list class
     private RecyclerView mRecyclerView;
     private WatchlistAdapter mAdapter;
 
+    //Firebase references
     private DatabaseReference reference;
     private DatabaseReference wReference;
+
+    //Lists
     private List<Product> mUploads;
     private List<String> productIDs;
     private UserWatchlist objWatchlist;
 
+    //OnCreate for watchlist
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Using watchlist class
         setContentView(R.layout.activity_watchlist);
 
+        //Adapter
         objWatchlist = getIntent().getParcelableExtra("Extra_Watchlist");
 
+        //Recyclers
         mRecyclerView = findViewById(R.id.recycler_view1);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //Array lists
         mUploads = new ArrayList<>();
         productIDs = new ArrayList<>();
 
+        //reference
         reference = FirebaseDatabase.getInstance().getReference().child("Products");
 
-
+        //Getting product
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -59,12 +70,16 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
                         Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                         String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
 
+                        //new Product
                         Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
 
+                        //Adding to list
                         mUploads.add(objProduct);
                     }
 
                 }
+
+                //Adapter
                 mAdapter = new WatchlistAdapter(Watchlist.this, mUploads);
                 mAdapter.setOnItemClickListener(Watchlist.this);
 
@@ -80,6 +95,7 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
 
     }
 
+    //If the item is clicked the user should be directed to view product
     @Override
     public void onItemClick(int position) {
         Product currProduct = mUploads.get(position);

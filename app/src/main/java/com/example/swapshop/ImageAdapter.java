@@ -18,17 +18,18 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder>{
+    //Variables
     private Context mContext;
     private List<Product> mUploads;
     private OnItemClickListener mListener;
 
+    //Constructor
     public ImageAdapter(Context context, List<Product> uploads){
         mContext = context;
         mUploads = uploads;
-
-
     }
 
+    //Inflate
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,6 +49,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 .into(holder.imageView);
     }
 
+    //item count
     @Override
     public int getItemCount() {
         return mUploads.size();
@@ -64,8 +66,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             imageView = itemView.findViewById(R.id.image_view_upload);
 
             itemView.setOnClickListener(this);
-
-
         }
 
         @Override

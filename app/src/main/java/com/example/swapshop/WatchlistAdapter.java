@@ -20,15 +20,16 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class WatchlistAdapter extends RecyclerView.Adapter<WatchlistAdapter.WatchlistHolder>{
+
+    //Variables for watch list adapter
     private Context mContext;
     private List<Product> mUploads;
     private OnItemClickListener mListener;
 
+    //constructor
     public WatchlistAdapter(Context context, List<Product> uploads){
         mContext = context;
         mUploads = uploads;
-
-
     }
 
     @NonNull
