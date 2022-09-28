@@ -101,7 +101,7 @@ public class RegisterTest extends TestCase {
         register.finish();
     }
 
-    @Test
+    /*@Test
     public void testRegisterButton(){
         onView(withId(R.id.edtRName)).perform(typeText(STRING_TO_BE_TYPED_FULL_NAME), closeSoftKeyboard());
         onView(withId(R.id.edtREmail)).perform(typeText(STRING_TO_BE_TYPED_EMAIL), closeSoftKeyboard());
@@ -113,7 +113,7 @@ public class RegisterTest extends TestCase {
         register.finish();
     }
 
-    /*@Test
+    @Test
     public void testRegisterButton2(){
         onView(withId(R.id.btnRegister)).perform(click());
     }
