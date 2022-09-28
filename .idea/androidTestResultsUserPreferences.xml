@@ -3,6 +3,20 @@
   <component name="AndroidTestResultsUserPreferences">
     <option name="androidTestResultsTableState">
       <map>
+        <entry key="-1620429680">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="EUH4C20609000321" value="120" />
+                  <entry key="HUAWEI&#10; MAR-LX1A" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-1405140001">
           <value>
             <AndroidTestResultsTableState>
@@ -17,7 +31,35 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-1190512435">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="EUH4C20609000321" value="120" />
+                  <entry key="HUAWEI&#10; MAR-LX1A" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="282951914">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="EUH4C20609000321" value="120" />
+                  <entry key="HUAWEI&#10; MAR-LX1A" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1090269393">
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
