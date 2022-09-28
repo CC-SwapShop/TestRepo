@@ -1,7 +1,9 @@
 package com.example.swapshop;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -9,12 +11,8 @@ import android.app.Instrumentation;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.ContentView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -61,6 +59,10 @@ public class HomeTest {
 
     public void testLogin(){
         onView(withId(R.id.logIn)).perform(click());
+    }
+
+    public void testsearch(){
+        onView(withId(R.id.search)).perform(click());
     }
 
 }
