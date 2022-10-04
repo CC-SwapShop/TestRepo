@@ -102,7 +102,7 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
     public void onItemClick(int position) {
         Product currProduct = mUploads.get(position);
         String pID = objWatchlist.ProductIDs.get(position);
-        Toast.makeText(Watchlist.this,"Wishlist click at: " + currProduct.checkSwapped(),Toast.LENGTH_SHORT).show();
+
         if(currProduct.checkSwapped()==true){
             FirebaseDatabase.getInstance().getReference("Watchlist")
                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -114,7 +114,7 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
         startActivity(intent);
     }
 
-    @Override
+    /*@Override
     public void onWishlistClick(int position) {
         Toast.makeText(Watchlist.this,"Wishlist click at: " + position,Toast.LENGTH_SHORT).show();
     }
@@ -122,6 +122,6 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
     @Override
     public void onSwapped(int position) {
         Toast.makeText(Watchlist.this,"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-    }
+    }*/
 
 }

@@ -89,7 +89,6 @@ public class UserMenu extends AppCompatActivity {
                     Boolean swappedView = (Boolean) postsnapshot.child("SwappedChecked").getValue();
                     if(swappedView==false){
                         objWatchlist.ProductIDs.add(postsnapshot.getKey());
-                        objWatchlist.ProductSwappedViewed.add(swappedView);
                     }
 
 

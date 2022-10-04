@@ -10,12 +10,10 @@ public class UserWatchlist implements Parcelable {
 
     //Variables for Watch list
     public List<String> ProductIDs;
-    public List<Boolean> ProductSwappedViewed;
 
     //defining constructor for watch list
     public UserWatchlist(){
         ProductIDs = new ArrayList<>();
-        ProductSwappedViewed = new ArrayList<>();
     }
 
     //Products in watch list

@@ -141,7 +141,7 @@ public class Search extends Fragment {
                     }
 
                     //Wishlist
-                    @Override
+                    /*@Override
                     public void onWishlistClick(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                     }
@@ -150,7 +150,7 @@ public class Search extends Fragment {
                     @Override
                     public void onSwapped(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);
@@ -237,7 +237,7 @@ public class Search extends Fragment {
 
                     }
 
-                    @Override
+                    /*@Override
                     public void onWishlistClick(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                     }
@@ -245,7 +245,7 @@ public class Search extends Fragment {
                     @Override
                     public void onSwapped(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);
