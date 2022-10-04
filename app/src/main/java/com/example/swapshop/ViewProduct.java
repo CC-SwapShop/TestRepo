@@ -161,7 +161,7 @@ public class ViewProduct extends AppCompatActivity {
 
         //Firebase reference
         FirebaseDatabase.getInstance().getReference("Watchlist")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(sPID).setValue(objProduct)
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(sPID).child("SwappedChecked").setValue(false)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

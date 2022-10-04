@@ -103,6 +103,7 @@ public class Search extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mUploads.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
 
                     String name = postsnapshot.child("name").getValue().toString();

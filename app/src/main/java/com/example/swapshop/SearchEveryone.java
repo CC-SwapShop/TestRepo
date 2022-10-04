@@ -111,9 +111,12 @@ public class SearchEveryone extends Fragment {
 
                     Product objProduct = new Product(name,description,location,reqProduct,img,UID,status);
 
-                    //Adding product to list
-                    productIDs.add(postsnapshot.getKey());
-                    mUploads.add(objProduct);
+                    //Adding product to list if item hasn't been swapped
+                    if(objProduct.checkSwapped() == false){
+                        productIDs.add(postsnapshot.getKey());
+                        mUploads.add(objProduct);
+                    }
+
                 }
 
                 //Getting image
