@@ -97,7 +97,8 @@ public class UploadProduct extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 //Uploading to database
-                                Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,false);
+                                Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,"");
+                                product.setStatusAvailable();
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products");
                                 String key = ref.push().getKey();
                                 ref.child(key).setValue(product);

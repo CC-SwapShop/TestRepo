@@ -6,8 +6,7 @@ import android.os.Parcelable;
 public class Product implements Parcelable {
 
     //Defining variables for product class
-    public String name, description, location,reqProduct, img, UID;
-    public Boolean swapped;
+    public String name, description, location,reqProduct, img, UID, status;
 
     //Required empty constructor
     public Product(){
@@ -16,14 +15,14 @@ public class Product implements Parcelable {
 
     //View of product
     //Attribute constructor
-    public Product(String name,String description, String location,String reqProduct, String img, String UID,Boolean swapped){
+    public Product(String name,String description, String location,String reqProduct, String img, String UID,String status){
         this.name = name;
         this.description = description;
         this.location = location;
         this.img = img;
         this.UID = UID;
-        this.swapped = swapped;
         this.reqProduct = reqProduct;
+        this.status = status;
     }
 
     protected Product(Parcel in) {
@@ -33,11 +32,10 @@ public class Product implements Parcelable {
         reqProduct = in.readString();
         img = in.readString();
         UID = in.readString();
-        byte tmpSwapped = in.readByte();
-        swapped = tmpSwapped == 0 ? null : tmpSwapped == 1;
+        status = in.readString();
     }
 
-    //Create product
+    //Parcelable implementation
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
         public Product createFromParcel(Parcel in) {
@@ -50,14 +48,37 @@ public class Product implements Parcelable {
         }
     };
 
+    //Setting status to Available on the product
+    public void setStatusAvailable(){
+        this.status = "available";
+    }
 
+    //Setting status to OfferMade on the product
+    public void setStatusOfferMade(){
+        this.status = "Offer Made";
+    }
 
+    //Setting status to swapped on the product
+    public void setStatusSwapped(){
+        this.status = "swapped";
+    }
+
+    public boolean checkSwapped(){
+        if(status.equals("swapped")){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //Parcelable implementation
     @Override
     public int describeContents() {
         return 0;
     }
 
-    //Writing to parcel to create product to add to database
+    //Parcelable implementation
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
@@ -66,11 +87,6 @@ public class Product implements Parcelable {
         parcel.writeString(reqProduct);
         parcel.writeString(img);
         parcel.writeString(UID);
-        parcel.writeByte((byte) (swapped == null ? 0 : swapped ? 1 : 2));
-    }
-
-    //Setting swapped to to true on the product to give notification to user
-    public void setSwapped(Boolean swapped){
-        this.swapped = swapped;
+        parcel.writeString(status);
     }
 }

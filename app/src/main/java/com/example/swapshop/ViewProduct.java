@@ -124,8 +124,8 @@ public class ViewProduct extends AppCompatActivity {
 
     //Function to mark product as swapped and send notification
     public void SwappProduct(){
-        objProduct.setSwapped(true);
-        FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("swapped").setValue(true);
+        objProduct.setStatusOfferMade();
+        FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("status").setValue("Offer Made");
 
         //Database reference
         DatabaseReference wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")

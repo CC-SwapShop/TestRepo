@@ -101,18 +101,18 @@ public class SearchEveryone extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mUploads.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
-                    productIDs.add(postsnapshot.getKey());
                     String name = postsnapshot.child("name").getValue().toString();
                     String description = postsnapshot.child("description").getValue().toString();
                     String location = postsnapshot.child("location").getValue().toString();
                     String img = postsnapshot.child("img").getValue().toString();
                     String UID = postsnapshot.child("UID").getValue().toString();
-                    Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
+                    String status = postsnapshot.child("status").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status);
 
                     //Adding product to list
+                    productIDs.add(postsnapshot.getKey());
                     mUploads.add(objProduct);
                 }
 
@@ -188,8 +188,9 @@ public class SearchEveryone extends Fragment {
                     String UID = postsnapshot.child("UID").getValue().toString();
                     Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
+                    String status = postsnapshot.child("status").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status);
                     if(name.contains(pName)){
                         //if found
                         //Displaying the product
