@@ -14,6 +14,7 @@ public class Home extends AppCompatActivity {
     com.example.swapshop.databinding.ActivityHomeBinding binding;
 
     //Menu
+    //test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
