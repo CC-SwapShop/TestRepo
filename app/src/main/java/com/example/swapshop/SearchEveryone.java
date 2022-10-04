@@ -197,9 +197,12 @@ public class SearchEveryone extends Fragment {
                     if(name.contains(pName)){
                         //if found
                         //Displaying the product
-                        iFound = 1;
-                        mUploads.add(objProduct);
-                        productIDs.add(postsnapshot.getKey());
+
+                        if(objProduct.checkSwapped() == false) {
+                            iFound = 1;
+                            mUploads.add(objProduct);
+                            productIDs.add(postsnapshot.getKey());
+                        }
                     }
 
 

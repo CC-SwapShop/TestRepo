@@ -117,8 +117,10 @@ public class Search extends Fragment {
                     Product objProduct = new Product(name,description,location,reqProduct,img,UID,status);
 
                     //Adding product to list
-                    productIDs.add(postsnapshot.getKey());
-                    mUploads.add(objProduct);
+                    if(objProduct.checkSwapped() == false){
+                        productIDs.add(postsnapshot.getKey());
+                        mUploads.add(objProduct);
+                    }
                 }
 
                 //Getting image
@@ -200,9 +202,11 @@ public class Search extends Fragment {
                     if(name.contains(pName)){
                         //if found
                         //Displaying the product
-                        iFound = 1;
-                        mUploads.add(objProduct);
-                        productIDs.add(postsnapshot.getKey());
+                        if(objProduct.checkSwapped() == false){
+                            iFound = 1;
+                            mUploads.add(objProduct);
+                            productIDs.add(postsnapshot.getKey());
+                        }
                     }
 
 

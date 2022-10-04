@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -101,6 +102,12 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
     public void onItemClick(int position) {
         Product currProduct = mUploads.get(position);
         String pID = objWatchlist.ProductIDs.get(position);
+        Toast.makeText(Watchlist.this,"Wishlist click at: " + currProduct.checkSwapped(),Toast.LENGTH_SHORT).show();
+        if(currProduct.checkSwapped()==true){
+            FirebaseDatabase.getInstance().getReference("Watchlist")
+                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    .child(pID).child("SwappedChecked").setValue(true);
+        }
         Intent intent = new Intent(getApplicationContext(), ViewProduct.class);
         intent.putExtra("Curr_Product", currProduct);
         intent.putExtra("Extra_ID",pID);

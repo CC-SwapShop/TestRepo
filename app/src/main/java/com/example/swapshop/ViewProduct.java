@@ -72,7 +72,7 @@ public class ViewProduct extends AppCompatActivity {
         Picasso.with(this).load(objProduct.img).fit().centerCrop().into(imgVP_Prod);
 
         //To do if bLogin bool is false
-        if(bLogin == false){
+        if(bLogin == false || objProduct.checkSwapped()==true){
             btnVP_AddWish.setVisibility(View.INVISIBLE);
             btnVP_swap.setVisibility(View.INVISIBLE);
         }
