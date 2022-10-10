@@ -54,7 +54,7 @@ public class SearchEveryone extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_search_everyone, container, false);
 
-
+        //pass data between fragments
         Bundle bundle = this.getArguments();
         sCategory = bundle.getString("sCategory");
 
