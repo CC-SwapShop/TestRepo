@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //Starting fragment to be opened upon unregistered menu
-        replaceFragment(new SearchEveryone());
+        replaceFragment(new CatergoryHomeFragment());
 
         //binding bottom navigation menu for unregistered menu
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -34,7 +34,7 @@ public class Home extends AppCompatActivity {
             {
                 //Search fragment for unregistered menu
                 case R.id.search:
-                    replaceFragment(new SearchEveryone());
+                    replaceFragment(new CatergoryHomeFragment());
                     break;
                 //LogIn fragment
                 case R.id.logIn:

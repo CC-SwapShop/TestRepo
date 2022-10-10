@@ -40,6 +40,7 @@ public class SearchEveryone extends Fragment {
     private DatabaseReference reference;
     private List<Product> mUploads;
     private List<String> productIDs;
+    private String sCategory;
 
     //Empty constructor needed for fragment
     public SearchEveryone() {
@@ -52,6 +53,10 @@ public class SearchEveryone extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_search_everyone, container, false);
+
+
+        Bundle bundle = this.getArguments();
+        sCategory = bundle.getString("sCategory");
 
         //Finding the corresponding Views
         edtSProductName1 = view.findViewById(R.id.edtSProductName1);
@@ -113,7 +118,7 @@ public class SearchEveryone extends Fragment {
                     Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
 
                     //Adding product to list if item hasn't been swapped
-                    if(objProduct.checkSwapped() == false){
+                    if(objProduct.checkSwapped() == false && category.equals(sCategory)){
                         productIDs.add(postsnapshot.getKey());
                         mUploads.add(objProduct);
                     }
