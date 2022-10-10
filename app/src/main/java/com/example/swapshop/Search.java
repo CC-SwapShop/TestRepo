@@ -42,6 +42,7 @@ public class Search extends Fragment {
     private DatabaseReference reference;
     private List<Product> mUploads;
     private List<String> productIDs;
+    private String sCategory;
 
 
     //Empty constructor needed for fragment
@@ -54,6 +55,11 @@ public class Search extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_search, container, false);
+
+
+        //pass data between fragments
+        Bundle bundle = this.getArguments();
+        sCategory = bundle.getString("sCategory");
 
         //Finding the corresponding Views
         edtSProductName = view.findViewById(R.id.edtSProductName);
@@ -103,20 +109,25 @@ public class Search extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mUploads.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
-                    productIDs.add(postsnapshot.getKey());
+
                     String name = postsnapshot.child("name").getValue().toString();
                     String description = postsnapshot.child("description").getValue().toString();
                     String location = postsnapshot.child("location").getValue().toString();
                     String img = postsnapshot.child("img").getValue().toString();
                     String UID = postsnapshot.child("UID").getValue().toString();
-                    Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
+                    String status = postsnapshot.child("status").getValue().toString();
+                    String category = postsnapshot.child("category").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
 
                     //Adding product to list
-                    mUploads.add(objProduct);
+                    if(objProduct.checkSwapped() == false && category.equals(sCategory) ){
+                        productIDs.add(postsnapshot.getKey());
+                        mUploads.add(objProduct);
+                    }
                 }
 
                 //Getting image
@@ -137,7 +148,7 @@ public class Search extends Fragment {
                     }
 
                     //Wishlist
-                    @Override
+                    /*@Override
                     public void onWishlistClick(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                     }
@@ -146,7 +157,7 @@ public class Search extends Fragment {
                     @Override
                     public void onSwapped(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);
@@ -191,16 +202,19 @@ public class Search extends Fragment {
                     String location = postsnapshot.child("location").getValue().toString();
                     String img = postsnapshot.child("img").getValue().toString();
                     String UID = postsnapshot.child("UID").getValue().toString();
-                    Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
+                    String status = postsnapshot.child("status").getValue().toString();
+                    String category = postsnapshot.child("category").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
                     if(name.contains(pName)){
                         //if found
                         //Displaying the product
-                        iFound = 1;
-                        mUploads.add(objProduct);
-                        productIDs.add(postsnapshot.getKey());
+                        if(objProduct.checkSwapped() == false){
+                            iFound = 1;
+                            mUploads.add(objProduct);
+                            productIDs.add(postsnapshot.getKey());
+                        }
                     }
 
 
@@ -231,7 +245,7 @@ public class Search extends Fragment {
 
                     }
 
-                    @Override
+                    /*@Override
                     public void onWishlistClick(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                     }
@@ -239,7 +253,7 @@ public class Search extends Fragment {
                     @Override
                     public void onSwapped(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);

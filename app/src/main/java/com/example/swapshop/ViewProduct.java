@@ -72,7 +72,7 @@ public class ViewProduct extends AppCompatActivity {
         Picasso.with(this).load(objProduct.img).fit().centerCrop().into(imgVP_Prod);
 
         //To do if bLogin bool is false
-        if(bLogin == false){
+        if(bLogin == false || objProduct.checkSwapped()==true){
             btnVP_AddWish.setVisibility(View.INVISIBLE);
             btnVP_swap.setVisibility(View.INVISIBLE);
         }
@@ -124,8 +124,8 @@ public class ViewProduct extends AppCompatActivity {
 
     //Function to mark product as swapped and send notification
     public void SwappProduct(){
-        objProduct.setSwapped(true);
-        FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("swapped").setValue(true);
+        objProduct.setStatusOfferMade();
+        FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("status").setValue("Offer Made");
 
         //Database reference
         DatabaseReference wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")
@@ -161,7 +161,7 @@ public class ViewProduct extends AppCompatActivity {
 
         //Firebase reference
         FirebaseDatabase.getInstance().getReference("Watchlist")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(sPID).setValue(objProduct)
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(sPID).child("SwappedChecked").setValue(false)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

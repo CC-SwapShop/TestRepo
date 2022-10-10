@@ -43,7 +43,7 @@ public class UserMenu extends AppCompatActivity {
         //Binding for fragment
         binding = com.example.swapshop.databinding.ActivityUserMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new Search());
+        replaceFragment(new UserCatergoryFragment());
 
         //Switching fragments for user
         binding.bottomNavigationView2.setOnItemSelectedListener(item -> {
@@ -51,7 +51,7 @@ public class UserMenu extends AppCompatActivity {
             switch (item.getItemId())
             {
                 case R.id.search:
-                    replaceFragment(new Search());
+                    replaceFragment(new UserCatergoryFragment());
                     break;
                 case R.id.upload:
                     replaceFragment(new UploadFrag());
@@ -86,7 +86,11 @@ public class UserMenu extends AppCompatActivity {
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
                     //String sKey = postsnapshot.getKey();
                     productIDs.add(postsnapshot.getKey());
-                    objWatchlist.ProductIDs.add(postsnapshot.getKey());
+                    Boolean swappedView = (Boolean) postsnapshot.child("SwappedChecked").getValue();
+                    if(swappedView==false){
+                        objWatchlist.ProductIDs.add(postsnapshot.getKey());
+                    }
+
 
                 }
             }
