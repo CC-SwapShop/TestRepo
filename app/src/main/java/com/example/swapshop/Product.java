@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class Product implements Parcelable {
 
     //Defining variables for product class
-    public String name, description, location,reqProduct, img, UID, status;
+    public String name, description, location,reqProduct, img, UID, status, category;
 
     //Required empty constructor
     public Product(){
@@ -15,7 +15,7 @@ public class Product implements Parcelable {
 
     //View of product
     //Attribute constructor
-    public Product(String name,String description, String location,String reqProduct, String img, String UID,String status){
+    public Product(String name,String description, String location,String reqProduct, String img, String UID,String status, String category){
         this.name = name;
         this.description = description;
         this.location = location;
@@ -23,6 +23,7 @@ public class Product implements Parcelable {
         this.UID = UID;
         this.reqProduct = reqProduct;
         this.status = status;
+        this.category = category;
     }
 
     protected Product(Parcel in) {
@@ -33,9 +34,9 @@ public class Product implements Parcelable {
         img = in.readString();
         UID = in.readString();
         status = in.readString();
+        category = in.readString();
     }
 
-    //Parcelable implementation
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
         public Product createFromParcel(Parcel in) {
@@ -72,13 +73,12 @@ public class Product implements Parcelable {
         }
     }
 
-    //Parcelable implementation
+
     @Override
     public int describeContents() {
         return 0;
     }
 
-    //Parcelable implementation
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
@@ -88,5 +88,6 @@ public class Product implements Parcelable {
         parcel.writeString(img);
         parcel.writeString(UID);
         parcel.writeString(status);
+        parcel.writeString(category);
     }
 }

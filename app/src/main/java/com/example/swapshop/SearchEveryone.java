@@ -108,8 +108,9 @@ public class SearchEveryone extends Fragment {
                     String UID = postsnapshot.child("UID").getValue().toString();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
                     String status = postsnapshot.child("status").getValue().toString();
+                    String category = postsnapshot.child("category").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
 
                     //Adding product to list if item hasn't been swapped
                     if(objProduct.checkSwapped() == false){
@@ -192,8 +193,9 @@ public class SearchEveryone extends Fragment {
                     Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
                     String status = postsnapshot.child("status").getValue().toString();
+                    String category = postsnapshot.child("category").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
                     if(name.contains(pName)){
                         //if found
                         //Displaying the product

@@ -123,7 +123,8 @@ public class UploadFrag extends Fragment {
                             //If successful
                             public void onSuccess(Uri uri) {
                                 //Uploading to database
-                                Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,"");
+                                //ToDo: add a dropdown for categories
+                                Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,"","Toys");
                                 product.setStatusAvailable();
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products");
                                 String key = ref.push().getKey();

@@ -71,9 +71,10 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
                         Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                         String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
                         String status = postsnapshot.child("status").getValue().toString();
+                        String category = postsnapshot.child("category").getValue().toString();
 
                         //new Product
-                        Product objProduct = new Product(name,description,location,reqProduct,img,UID,status);
+                        Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
 
                         //Adding to list
                         mUploads.add(objProduct);
