@@ -10,32 +10,40 @@
         android:id="@+id/btnHomeAplliances1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="232dp"
         android:text="Home &amp; Aplliances"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="232dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnToys1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="46dp"
         android:text="Toys"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="326dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHomeAplliances1" />
 
     <Button
         android:id="@+id/btnGames1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="53dp"
         android:text="Games"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="427dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnToys1" />
 
     <Button
         android:id="@+id/btnSport1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="34dp"
         android:text="Sport"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="509dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGames1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
