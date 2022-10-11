@@ -1,17 +1,1 @@
-ignore:
-  - "**/Watchlist"
-  - "**/MainActivity"
-  - "**/UploadFrag"
-  - "**/User"
-  - "**/WatchlistAdapter"
-  - "**/SwapsFragment"
-  - "**/Validation"
-  - "**/UserMenu"
-  - "**/Search"
-  - "**/WatchlistAdapter"
-  - "**/UserWatchlist"
-  - "**/ViewProduct"
-  - "**/Register"
-  - "**/ChatFragment"
-  - "**/UploadProduct"
-  - "**/LoginFrag"
+
