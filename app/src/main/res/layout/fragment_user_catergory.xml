@@ -1,49 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UserCatergoryFragment">
 
     <Button
         android:id="@+id/btnHomeAplliances1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="90dp"
         android:text="Home &amp; Aplliances"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="232dp" />
 
     <Button
         android:id="@+id/btnToys1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="46dp"
         android:text="Toys"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHomeAplliances1" />
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="326dp" />
 
     <Button
         android:id="@+id/btnGames1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="53dp"
         android:text="Games"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnToys1" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="427dp" />
 
     <Button
         android:id="@+id/btnSport1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="34dp"
         android:text="Sport"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGames1" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="509dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
