@@ -11,12 +11,14 @@
         <entry key="app/src/main/res/drawable-v24/ic_action_chat.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_swap.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_upload.xml" value="0.173" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_upload_product.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_user_menu.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/activity_view_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_watchlist.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_catergory_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_search_everyone.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.129981884057971" />
