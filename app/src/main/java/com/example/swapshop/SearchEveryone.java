@@ -33,7 +33,7 @@ public class SearchEveryone extends Fragment {
     EditText edtSProductName1;
     ImageButton btnSearchProduct1;
     Button btnAll;
-    Button btnHome3,btnToys3,btnGames3,btnSport3;
+    Button btnHome3,btnToys3,btnGames3,btnSport3,btnOther3;
 
     //Private variables
     private RecyclerView mRecyclerView3;
@@ -71,6 +71,7 @@ public class SearchEveryone extends Fragment {
         btnToys3 = view.findViewById(R.id.button7);
         btnGames3 = view.findViewById(R.id.button8);
         btnSport3 = view.findViewById(R.id.button9);
+        btnOther3 =view.findViewById(R.id.button10);
         //Calling method
         listAll();
         btnHome3.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +80,18 @@ public class SearchEveryone extends Fragment {
                 //change view
                Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Home & Appliance");
+
+                SearchEveryone fragment = new SearchEveryone();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
+            }
+        });
+        btnOther3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Other");
 
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);

@@ -12,11 +12,13 @@
         android:id="@+id/textView"
         android:layout_width="279dp"
         android:layout_height="69dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="30dp"
         android:text="SWAPSHOP"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="30dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/flFragment"

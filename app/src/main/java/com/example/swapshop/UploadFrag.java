@@ -76,7 +76,7 @@ public class UploadFrag extends Fragment {
 
         dropdown = view.findViewById(R.id.spinner2);
         //create a list of items for the spinner.
-        String[] items = new String[]{"Toys", "Home & Appliance", "Games","Sport"};
+        String[] items = new String[]{"Toys", "Home & Appliance", "Games","Sport","Other"};
 //create an adapter to describe how the items are displayed, adapters are used in several places in android.
 //There are multiple variations of this, but this is the basic variant.
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
