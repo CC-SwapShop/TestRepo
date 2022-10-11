@@ -57,10 +57,10 @@ public class user_home_test {
         assertEquals(actual,expected);
         Umenu.finish();
     }
-    @Test
-    public void testsearch(){
-        onView(withId(R.id.search)).perform(click());
-    }
+    //@Test
+   // public void testsearch(){
+    //    onView(withId(R.id.search)).perform(click());
+   //}
 
     @Test
     public void testupload(){
