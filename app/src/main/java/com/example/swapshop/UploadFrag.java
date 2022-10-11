@@ -15,8 +15,11 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +44,10 @@ public class UploadFrag extends Fragment {
     ImageView imgSwap;
     Button btnAPAdd;
     Uri imgUri;
+    Spinner dropdown;
+    ArrayAdapter<String> adapter;
+
+    String item;
 
     //Firebase variables
     FirebaseStorage storage;
@@ -66,6 +73,19 @@ public class UploadFrag extends Fragment {
         edtALocation = view.findViewById(R.id.edtALocation);
         edtAreqProduct = view.findViewById(R.id.edtALreqProduct);
         imgSwap = view.findViewById(R.id.imgSwap);
+
+        dropdown = view.findViewById(R.id.spinner2);
+        //create a list of items for the spinner.
+        String[] items = new String[]{"Toys", "Home & Appliance", "Games","Sport","Other"};
+//create an adapter to describe how the items are displayed, adapters are used in several places in android.
+//There are multiple variations of this, but this is the basic variant.
+        adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
+//set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
+item= adapter.toString();
+
+
+
 
         //Firebase
         storage = FirebaseStorage.getInstance();
@@ -95,6 +115,8 @@ public class UploadFrag extends Fragment {
         return view;
     }
 
+
+
     //Method to add new product
     public void AddNewProduct(){
         //Getting variables
@@ -103,6 +125,9 @@ public class UploadFrag extends Fragment {
         String location = edtALocation.getText().toString().trim();
         String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String sReqProduct = edtAreqProduct.getText().toString().trim();
+
+        //get the spinner from the xml.
+
 
         //If image is chosen
         if (imgUri != null){
@@ -124,11 +149,13 @@ public class UploadFrag extends Fragment {
                             public void onSuccess(Uri uri) {
                                 //Uploading to database
                                 //ToDo: add a dropdown for categories
-                                Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,"","Toys");
+                                Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,"",item);
                                 product.setStatusAvailable();
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products");
                                 String key = ref.push().getKey();
                                 ref.child(key).setValue(product);
+
+
 
                                 //dismiss the dialog
                                 progressDialog.dismiss();

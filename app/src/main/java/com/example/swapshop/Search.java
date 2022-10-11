@@ -35,6 +35,7 @@ public class Search extends Fragment {
     LinearLayout llSearch;
     ImageButton btnSearchProduct;
     Button btnAll;
+    Button btnHome1,btnToys1,btnGames1,btnSport1, btnOther1;
 
     //Private variables
     private RecyclerView mRecyclerView;
@@ -58,8 +59,10 @@ public class Search extends Fragment {
 
 
         //pass data between fragments
-        Bundle bundle = this.getArguments();
+
+       Bundle bundle = this.getArguments();
         sCategory = bundle.getString("sCategory");
+
 
         //Finding the corresponding Views
         edtSProductName = view.findViewById(R.id.edtSProductName);
@@ -67,10 +70,77 @@ public class Search extends Fragment {
         btnSearchProduct = view.findViewById(R.id.button);
         btnAll = view.findViewById(R.id.ded);
         mRecyclerView = view.findViewById(R.id.recycler_view);
-
+        btnHome1 = view.findViewById(R.id.button2);
+        btnToys1 = view.findViewById(R.id.button3);
+        btnGames1 = view.findViewById(R.id.button4);
+        btnSport1 = view.findViewById(R.id.button5);
+        btnOther1= view.findViewById(R.id.button11);
 
         //Calling method
         listAll();
+        btnOther1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Other");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+        btnHome1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Home & Appliance");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+
+        btnToys1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Toys");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+
+        btnGames1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Games");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+
+        btnSport1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Sport");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
 
         //Using the search function
         btnSearchProduct.setOnClickListener(new android.view.View.OnClickListener() {

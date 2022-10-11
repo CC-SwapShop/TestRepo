@@ -43,7 +43,18 @@ public class UserMenu extends AppCompatActivity {
         //Binding for fragment
         binding = com.example.swapshop.databinding.ActivityUserMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new UserCatergoryFragment());
+
+        Bundle bundle = new Bundle();
+        bundle.putString("sCategory","Toys");
+
+        Fragment fragment;
+        fragment = new Search();
+        fragment.setArguments(bundle);
+        FragmentManager fragmentManager= getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment2,fragment);
+        fragmentTransaction.commit();
+        //replaceFragment(new Search());
 
         //Switching fragments for user
         binding.bottomNavigationView2.setOnItemSelectedListener(item -> {
@@ -51,7 +62,17 @@ public class UserMenu extends AppCompatActivity {
             switch (item.getItemId())
             {
                 case R.id.search:
-                    replaceFragment(new UserCatergoryFragment());
+                    //replaceFragment(new Search());
+                    Bundle bundle2 = new Bundle();
+                    bundle2.putString("sCategory","Toys");
+
+                    Fragment fragment2;
+                    fragment2 = new Search();
+                    fragment2.setArguments(bundle2);
+                    FragmentManager fragmentManager2= getSupportFragmentManager();
+                    FragmentTransaction fragmentTransactio2n= fragmentManager2.beginTransaction();
+                    fragmentTransactio2n.replace(R.id.flFragment2,fragment2);
+                    fragmentTransactio2n.commit();
                     break;
                 case R.id.upload:
                     replaceFragment(new UploadFrag());
