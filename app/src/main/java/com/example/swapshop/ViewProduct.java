@@ -33,7 +33,7 @@ public class ViewProduct extends AppCompatActivity {
     public Product objProduct;
     public String sPID;
     public boolean bLogin;
-    TextView txtVP_Desc,txtVP_Name,txtVP_Loc,txtVP_UID,txtVP_ItemSwap;
+    TextView txtVP_Desc,txtVP_Name,txtVP_Loc,txtVP_UID,txtVP_ItemSwap, textStatus;
     ImageView imgVP_Prod;
     Button btnVP_swap, btnVP_AddWish;
 
@@ -57,6 +57,7 @@ public class ViewProduct extends AppCompatActivity {
         txtVP_Loc = findViewById(R.id.txtVP_Loc);
         txtVP_UID = findViewById(R.id.txtVP_UID);
         txtVP_ItemSwap = findViewById(R.id.txtVP_ItemSwap);
+        textStatus = findViewById(R.id.textStatus);
         imgVP_Prod = findViewById(R.id.imgVP_Prod);
         btnVP_swap = findViewById(R.id.btnVP_Swap);
         btnVP_AddWish = findViewById(R.id.btnVP_AddWishlist);
@@ -67,6 +68,8 @@ public class ViewProduct extends AppCompatActivity {
         txtVP_Desc.setText("Description:\n" + objProduct.description);
         txtVP_Loc.setText("Location:\n" + objProduct.location);
         txtVP_ItemSwap.setText("User would like:\n" + objProduct.reqProduct);
+        textStatus.setText("Status:\n" + objProduct.status);
+        //Do teh statu thing here
 
         //Load image from url
         Picasso.with(this).load(objProduct.img).fit().centerCrop().into(imgVP_Prod);
