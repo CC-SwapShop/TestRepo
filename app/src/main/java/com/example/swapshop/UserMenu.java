@@ -96,7 +96,7 @@ public class UserMenu extends AppCompatActivity {
 
         //Getting references
         wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                .child("U13UWwzr6uMtsZj2lHTDYMnlyDn2");
 
         //Event listener
         wReference.addValueEventListener(new ValueEventListener() {
