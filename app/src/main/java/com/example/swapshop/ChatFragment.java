@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PrimitiveIterator;
 
 
 public class ChatFragment extends Fragment {
@@ -37,6 +38,7 @@ public class ChatFragment extends Fragment {
     private List<String> onGoingSwapsIDs;
     private List<OnGoingSwaps> onGoingSwaps;
     private List<Product> arrproducts;
+    private TextView txtCFNoItems;
 
     //Empty public constructor
     public ChatFragment() {
@@ -53,6 +55,7 @@ public class ChatFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_chat, container, false);
 
         mRecyclerView = view.findViewById(R.id.recyclerView_Ongoing);
+        txtCFNoItems = view.findViewById(R.id.txtFCNoItems);
 
         arrproducts = new ArrayList<>();
         productIDs = new ArrayList<>();
@@ -89,27 +92,36 @@ public class ChatFragment extends Fragment {
                     }
 
                 }
+                if(onGoingSwapsIDs.isEmpty()){
+                    txtCFNoItems.setVisibility(View.VISIBLE);
+                    mRecyclerView.setVisibility(View.INVISIBLE);
+                }else {
+                    txtCFNoItems.setVisibility(View.INVISIBLE);
+                    mRecyclerView.setVisibility(View.VISIBLE);
 
-                mAdapter = new OngoingAdapter(getActivity(), onGoingSwaps);
+                    mAdapter = new OngoingAdapter(getActivity(), onGoingSwaps);
 
-                mAdapter.setOnItemClickListener(new OngoingAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        OnGoingSwaps currOnGoingSwaps = onGoingSwaps.get(position);
-                        String key = onGoingSwapsIDs.get(position);
-                        String sPID = currOnGoingSwaps.productId;
+                    mAdapter.setOnItemClickListener(new OngoingAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            OnGoingSwaps currOnGoingSwaps = onGoingSwaps.get(position);
+                            String key = onGoingSwapsIDs.get(position);
+                            String sPID = currOnGoingSwaps.productId;
 
-                        Intent intent = new Intent( getContext(), Chat2.class);
-                        intent.putExtra("Select_ID",sPID);
-                        intent.putExtra("Extra_ongoingID",key);
-                        intent.putExtra("Extra_ongoing",currOnGoingSwaps);
+                            Intent intent = new Intent( getContext(), Chat2.class);
+                            intent.putExtra("Select_ID",sPID);
+                            intent.putExtra("Extra_ongoingID",key);
+                            intent.putExtra("Extra_ongoing",currOnGoingSwaps);
 
-                        startActivity(intent);
+                            startActivity(intent);
 
-                    }
-                });
+                        }
+                    });
 
-                mRecyclerView.setAdapter(mAdapter);
+                    mRecyclerView.setAdapter(mAdapter);
+                }
+
+
             }
 
             @Override

@@ -195,38 +195,34 @@ public class SearchEveryone extends Fragment {
 
                 }
 
-                //Getting image
-                mAdapter = new ImageAdapter(getActivity(),mUploads);
+                if(productIDs.isEmpty()){
+                    Toast.makeText(getContext(),"empty",Toast.LENGTH_SHORT).show();
+                }else{
+                    //Getting image
+                    mAdapter = new ImageAdapter(getActivity(),mUploads);
 
-                //Getting product
-                mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        //Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                        Product currProduct = mUploads.get(position);
-                        String pID = productIDs.get(position);
-                        Intent intent = new Intent(getContext(), ViewProduct.class);
-                        intent.putExtra("Curr_Product", currProduct);
-                        intent.putExtra("Extra_ID",pID);
-                        intent.putExtra("Extra_login",false);
-                        startActivity(intent);
+                    //Getting product
+                    mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            //Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
+                            Product currProduct = mUploads.get(position);
+                            String pID = productIDs.get(position);
+                            Intent intent = new Intent(getContext(), ViewProduct.class);
+                            intent.putExtra("Curr_Product", currProduct);
+                            intent.putExtra("Extra_ID",pID);
+                            intent.putExtra("Extra_login",false);
+                            startActivity(intent);
 
-                    }
+                        }
 
-                    /*//Wishlist
-                    @Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
+                    });
 
-                    //Swapped
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
-                });
 
-                mRecyclerView3.setAdapter(mAdapter);
+                    mRecyclerView3.setAdapter(mAdapter);
+                }
+
+
 
             }
 

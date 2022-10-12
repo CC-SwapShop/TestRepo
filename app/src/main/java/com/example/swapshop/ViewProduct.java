@@ -112,6 +112,11 @@ public class ViewProduct extends AppCompatActivity {
             btnVP_swap.setVisibility(View.INVISIBLE);
         }
 
+        String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if(user.equals(objProduct.UID)){
+            btnVP_swap.setEnabled(false);
+        }
+
         //Do if swap product is clicked
         btnVP_swap.setOnClickListener(new View.OnClickListener() {
             @Override
