@@ -32,9 +32,9 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.OngoingA
     @Override
     public void onBindViewHolder(@NonNull OngoingAdapterHolder holder, int position) {
         OnGoingSwaps onGoingSwaps = mUploads.get(position);
-        holder.txtCvProvider.setText(onGoingSwaps.provider);
-        holder.txtCvProduct.setText(onGoingSwaps.productId);
-        holder.txtCvCustomer.setText(onGoingSwaps.customer);
+        holder.txtCvProvider.setText(onGoingSwaps.getProviderName());
+        holder.txtCvProduct.setText(onGoingSwaps.getProductName());
+        holder.txtCvCustomer.setText(onGoingSwaps.getCustomerName());
     }
 
     @Override
