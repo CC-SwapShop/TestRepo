@@ -6,7 +6,8 @@ import android.os.Parcelable;
 public class Product implements Parcelable {
 
     //Defining variables for product class
-    public String name, description, location,reqProduct, img, UID, status, category;
+    public String name, description, location,reqProduct, img, UID, status, category,swappedUID;
+    boolean ans;
 
     //Required empty constructor
     public Product(){
@@ -15,7 +16,7 @@ public class Product implements Parcelable {
 
     //View of product
     //Attribute constructor
-    public Product(String name,String description, String location,String reqProduct, String img, String UID,String status, String category){
+    public Product(String name,String description, String location,String reqProduct, String img, String UID,String status, String category,String swappedUID){
         this.name = name;
         this.description = description;
         this.location = location;
@@ -24,6 +25,7 @@ public class Product implements Parcelable {
         this.reqProduct = reqProduct;
         this.status = status;
         this.category = category;
+        this.swappedUID = swappedUID;
     }
 
     protected Product(Parcel in) {
@@ -35,6 +37,7 @@ public class Product implements Parcelable {
         UID = in.readString();
         status = in.readString();
         category = in.readString();
+        swappedUID = in.readString();
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -89,5 +92,6 @@ public class Product implements Parcelable {
         parcel.writeString(UID);
         parcel.writeString(status);
         parcel.writeString(category);
+        parcel.writeString(swappedUID);
     }
 }

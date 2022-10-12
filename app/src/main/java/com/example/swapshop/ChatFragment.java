@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,11 +80,14 @@ public class ChatFragment extends Fragment {
                     OnGoingSwaps objOnGoingSwaps = new OnGoingSwaps(customer,provider,productId,ongoing);
                     if (ongoing == true ){
                         if(user.equals(customer)||user.equals(provider)){
+
                             onGoingSwaps.add(objOnGoingSwaps);
                             onGoingSwapsIDs.add(postsnapshot.getKey());
+
                         }
 
                     }
+
                 }
 
                 mAdapter = new OngoingAdapter(getActivity(), onGoingSwaps);
@@ -102,9 +106,6 @@ public class ChatFragment extends Fragment {
                         intent.putExtra("Extra_ongoing",currOnGoingSwaps);
 
                         startActivity(intent);
-
-
-
 
                     }
                 });
