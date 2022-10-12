@@ -95,7 +95,6 @@ public class ChatFragment extends Fragment {
                 mAdapter.setOnItemClickListener(new OngoingAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-                        Toast.makeText(getContext(),"click at: " + position,Toast.LENGTH_SHORT).show();
                         OnGoingSwaps currOnGoingSwaps = onGoingSwaps.get(position);
                         String key = onGoingSwapsIDs.get(position);
                         String sPID = currOnGoingSwaps.productId;
