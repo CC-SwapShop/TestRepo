@@ -3,6 +3,8 @@ package com.example.swapshop;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.database.DatabaseReference;
+
 public class OnGoingSwaps implements Parcelable {
     public String customer, provider,productId;
     public boolean ongoing;
@@ -45,5 +47,9 @@ public class OnGoingSwaps implements Parcelable {
         parcel.writeString(provider);
         parcel.writeString(productId);
         parcel.writeByte((byte) (ongoing ? 1 : 0));
+    }
+
+    public String getCustomerName(){
+        return customer;
     }
 }
