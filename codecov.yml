@@ -8,3 +8,5 @@ ignore:
   - "**/ChatFragment"
   - "**/CatergoryHomeFragment"
   - "**/UserCatergoryFragment"
+  - "**/UploadProduct"
+  - "**/Search_Activity"

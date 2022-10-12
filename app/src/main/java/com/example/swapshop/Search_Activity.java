@@ -42,12 +42,15 @@ public class Search_Activity extends AppCompatActivity {
         private List<Product> mUploads;
         private List<String> productIDs;
         private String sCategory;
+        public String unitTest = "True";
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.fragment_login);
 
+            //Bundle bundle = this.getArguments();
+            //sCategory = bundle.getString("sCategory");
 
             //Finding the corresponding Views
             edtSProductName = findViewById(R.id.edtSProductName);
@@ -311,6 +314,7 @@ public class Search_Activity extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
                     Toast.makeText(Search_Activity.this,"error",Toast.LENGTH_SHORT).show();
+                    unitTest = "False";
                 }
             });
         }

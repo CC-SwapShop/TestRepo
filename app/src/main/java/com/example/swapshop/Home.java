@@ -74,8 +74,4 @@ public class Home extends AppCompatActivity {
         fragmentTransaction.replace(R.id.flFragment,fragment);
         fragmentTransaction.commit();
     }
-
-    public static String TestUnit(String Name){
-        return Name;
-    }
 }
