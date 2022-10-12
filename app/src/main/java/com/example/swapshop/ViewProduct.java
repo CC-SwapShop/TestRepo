@@ -61,18 +61,15 @@ public class ViewProduct extends AppCompatActivity {
         imgVP_Prod = findViewById(R.id.imgVP_Prod);
         btnVP_swap = findViewById(R.id.btnVP_Swap);
         btnVP_AddWish = findViewById(R.id.btnVP_AddWishlist);
+
+        //initialise the texts on the interface
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users")
                 .child(objProduct.UID);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot postsnapshot: snapshot.getChildren()){
-                    String sKey = postsnapshot.getKey();
-                    if(sKey.equals("name")){
-                        txtVP_UID.setText("User:\n" + postsnapshot.getValue().toString());
-                    }
-                }
+                txtVP_UID.setText("User:\n" + snapshot.child("name").getValue().toString());
             }
 
             @Override
@@ -80,17 +77,34 @@ public class ViewProduct extends AppCompatActivity {
 
             }
         });
-        //initialise the texts on the interface
+
+        DatabaseReference initialise_reference = FirebaseDatabase.getInstance().getReference("Products")
+                .child(sPID);
+
+        initialise_reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //Load image from url
+                Picasso.with(ViewProduct.this).load(snapshot.child("img").getValue().toString())
+                        .fit().centerCrop().into(imgVP_Prod);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
         //txtVP_UID.setText("User ID:\n" + objProduct.UID);
         txtVP_Name.setText("name:\n" + objProduct.name);
         txtVP_Desc.setText("Description:\n" + objProduct.description);
         txtVP_Loc.setText("Location:\n" + objProduct.location);
         txtVP_ItemSwap.setText("User would like:\n" + objProduct.reqProduct);
         textStatus.setText("Status:\n" + objProduct.status);
-        //Do teh statu thing here
 
-        //Load image from url
-        Picasso.with(this).load(objProduct.img).fit().centerCrop().into(imgVP_Prod);
+
 
         //To do if bLogin bool is false
         if(bLogin == false || objProduct.checkSwapped()==true){
