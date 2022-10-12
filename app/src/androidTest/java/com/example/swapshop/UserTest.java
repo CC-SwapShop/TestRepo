@@ -17,10 +17,12 @@ public class UserTest extends TestCase {
     public String name="Jared", email="jaredmccallum@gmail.com";
 
     private User user = null;
+    private User userEmpty = null;
 
     @Before
     public void setUp() throws Exception {
         user = new User(name, email);
+        userEmpty = new User();
     }
 
     @Test
