@@ -1,5 +1,6 @@
 package com.example.swapshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -89,6 +90,13 @@ public class ChatFragment extends Fragment {
                         OnGoingSwaps currOnGoingSwaps = onGoingSwaps.get(position);
                         String key = onGoingSwapsIDs.get(position);
                         String sPID = currOnGoingSwaps.productId;
+
+                        Intent intent = new Intent( getContext(), Chat2.class);
+                        intent.putExtra("Select_ID",sPID);
+                        intent.putExtra("Extra_ongoingID",key);
+                        intent.putExtra("Extra_ongoing",currOnGoingSwaps);
+
+                        startActivity(intent);
 
 
 
