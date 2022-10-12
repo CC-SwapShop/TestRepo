@@ -1,5 +1,8 @@
 package com.example.swapshop;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import junit.framework.TestCase;
@@ -14,11 +17,13 @@ public class ProductTest extends TestCase {
 
     Product product = null;
     Product Emptyproduct = null;
+    Product ProductParcel = null;
 
     @Before
     public void setUp() throws Exception {
         product = new Product("Bed", "Sleep on", "Joburg", "money", "bedimg", "123", "swapped", "Home");
         Emptyproduct = new Product();
+
     }
 
     @Test

@@ -26,28 +26,6 @@ public class Product implements Parcelable {
         this.category = category;
     }
 
-    protected Product(Parcel in) {
-        name = in.readString();
-        description = in.readString();
-        location = in.readString();
-        reqProduct = in.readString();
-        img = in.readString();
-        UID = in.readString();
-        status = in.readString();
-        category = in.readString();
-    }
-
-    public static final Creator<Product> CREATOR = new Creator<Product>() {
-        @Override
-        public Product createFromParcel(Parcel in) {
-            return new Product(in);
-        }
-
-        @Override
-        public Product[] newArray(int size) {
-            return new Product[size];
-        }
-    };
 
     //Setting status to Available on the product
     public void setStatusAvailable(){
