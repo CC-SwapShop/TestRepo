@@ -11,3 +11,5 @@ ignore:
   - "**/CatergoryHomeFragment"
   - "**/UserCatergoryFragment"
   - "**/Search_Activity"
+  - "**/UploadProduct"
+  - "**/ViewProduct"
