@@ -2,6 +2,7 @@ package com.example.swapshop;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +45,7 @@ public class Chat2 extends AppCompatActivity {
     DatabaseReference reference;
     DatabaseReference pReference;
     DatabaseReference referenceChat;
+    CardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,15 @@ public class Chat2 extends AppCompatActivity {
         fbtnMSend = findViewById(R.id.fbtnMSend1);
         btnMAccept = findViewById(R.id.btnMAccept1);
         btnMDecline = findViewById(R.id.btnMDecline1);
+        cardView = findViewById(R.id.cvButtons1);
 
+
+        String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+        if(user.equals(objOnGoingSwap.provider)==false){
+            cardView.setVisibility(View.INVISIBLE);
+        }
 
         mRecyclerView = findViewById(R.id.recyclerView_message1);
         mRecyclerView.setHasFixedSize(true);
@@ -163,6 +173,9 @@ public class Chat2 extends AppCompatActivity {
 
         FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("status")
                 .setValue("swapped");
+
+        FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("swappedUID")
+                .setValue(objOnGoingSwap.customer);
 
         //Set all ongoing offers for product to false
         for (String temp : productOngoing) {

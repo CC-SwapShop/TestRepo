@@ -2,6 +2,7 @@ package com.example.swapshop;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ public class Chat extends AppCompatActivity {
     List<String> productOngoing;
     DatabaseReference reference;
     DatabaseReference referenceChat;
+    CardView cardView;
+
     @Override
     //Java class for chat function to be implemented in future
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +62,17 @@ public class Chat extends AppCompatActivity {
         fbtnMSend = findViewById(R.id.fbtnMSend);
         btnMAccept = findViewById(R.id.btnMAccept);
         btnMDecline = findViewById(R.id.btnMDecline);
+        cardView = findViewById(R.id.cvButtons);
 
         //initialise the texts on the interface
         txtMProdName.setText("Car");
         txtMProdDesc.setText("Drives");
+
+        String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        if(user.equals(objOnGoingSwap.provider)==false){
+            cardView.setVisibility(View.INVISIBLE);
+        }
 
         //populate array for ongoing
         productOngoing = new ArrayList<>();
