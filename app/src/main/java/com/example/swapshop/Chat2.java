@@ -74,8 +74,9 @@ public class Chat2 extends AppCompatActivity {
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
-        if(user.equals(objOnGoingSwap.provider)==false){
-            cardView.setVisibility(View.INVISIBLE);
+        if(user.equals(objOnGoingSwap.customer)){
+            btnMAccept.setVisibility(View.INVISIBLE);
+            btnMDecline.setVisibility(View.INVISIBLE);
         }
 
         mRecyclerView = findViewById(R.id.recyclerView_message1);
@@ -106,7 +107,7 @@ public class Chat2 extends AppCompatActivity {
         });
 
 
-        arrMesssages =  new ArrayList<>();
+        /*arrMesssages =  new ArrayList<>();
 
         referenceChat = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
 
@@ -133,7 +134,7 @@ public class Chat2 extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
 
         //actions
