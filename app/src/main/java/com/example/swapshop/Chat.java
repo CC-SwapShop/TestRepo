@@ -153,7 +153,7 @@ public class Chat extends AppCompatActivity {
         if(user.equals(provider)){
             provider = objOnGoingSwap.customer;
         }
-        ChatMessage chatMessage = new ChatMessage(user,sMessage,provider);
+        //ChatMessage chatMessage = new ChatMessage(user,sMessage,provider);
 
 
 
@@ -162,5 +162,13 @@ public class Chat extends AppCompatActivity {
         ref.child(key).child("message").setValue(sMessage);
         ref.child(key).child("from").setValue(user);
         ref.child(key).child("to").setValue(provider);
+
+
+        Intent intent = new Intent( getApplicationContext(), Chat2.class);
+        intent.putExtra("Select_ID",sPID);
+        intent.putExtra("Extra_ongoingID",sOGID);
+        intent.putExtra("Extra_ongoing",objOnGoingSwap);
+
+        startActivity(intent);
     }
 }
