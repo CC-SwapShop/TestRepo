@@ -106,6 +106,28 @@ public class Chat2 extends AppCompatActivity {
             }
         });
 
+        //populate array for ongoing
+        productOngoing = new ArrayList<>();
+
+        reference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                productOngoing.clear();
+                for(DataSnapshot  postsnapshot: snapshot.getChildren()){
+                    String oID = postsnapshot.child("productId").getValue().toString();
+                    if(oID.equals(sPID)){
+                        productOngoing.add(postsnapshot.getKey());
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         /*arrMesssages =  new ArrayList<>();
 
