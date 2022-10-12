@@ -45,6 +45,13 @@ public class SwapsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_swaps, container, false);
 
         mRecyclerView = view.findViewById(R.id.recyclerview_CompletedSwaps);
+
+
+        listAllSwaps();
+        return  view;
+    }
+
+    public void listAllSwaps(){
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -93,7 +100,6 @@ public class SwapsFragment extends Fragment {
                 mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-                        //Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                         Product currProduct = mUploads.get(position);
                         String pID = productIDs.get(position);
                         Intent intent = new Intent(getContext(), ViewProduct.class);
@@ -103,18 +109,6 @@ public class SwapsFragment extends Fragment {
                         startActivity(intent);
 
                     }
-
-                    //Wishlist
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    //Swapped
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);
@@ -126,9 +120,6 @@ public class SwapsFragment extends Fragment {
                 Toast.makeText(getActivity(),"error",Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        return  view;
     }
 
 }

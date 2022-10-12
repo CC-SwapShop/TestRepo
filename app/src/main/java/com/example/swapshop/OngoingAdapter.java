@@ -9,6 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 
 public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.OngoingAdapterHolder> {
@@ -32,9 +38,46 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.OngoingA
     @Override
     public void onBindViewHolder(@NonNull OngoingAdapterHolder holder, int position) {
         OnGoingSwaps onGoingSwaps = mUploads.get(position);
-        holder.txtCvProvider.setText(onGoingSwaps.getProviderName());
-        holder.txtCvProduct.setText(onGoingSwaps.getProductName());
-        holder.txtCvCustomer.setText(onGoingSwaps.getCustomerName());
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products").child(onGoingSwaps.productId);
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                holder.txtCvProduct.setText("Product Name: "+snapshot.child("name").getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        DatabaseReference refs = FirebaseDatabase.getInstance().getReference().child("Users").child(onGoingSwaps.provider);
+        refs.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                holder.txtCvProvider.setText("Product owner: "+snapshot.child("name").getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        DatabaseReference refc = FirebaseDatabase.getInstance().getReference().child("Users").child(onGoingSwaps.customer);
+        refc.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                holder.txtCvCustomer.setText("Customer: "+snapshot.child("name").getValue());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override
