@@ -62,10 +62,10 @@ public class user_home_test {
     //    onView(withId(R.id.search)).perform(click());
    //}
 
-    @Test
-    public void testupload(){
-        onView(withId(R.id.upload)).perform(click());
-    }
+    //@Test
+    //public void testupload(){
+    //    onView(withId(R.id.upload)).perform(click());
+    //}
 
     @Test
     public void testswaps(){
