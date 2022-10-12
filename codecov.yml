@@ -1,1 +1,10 @@
-
+ignore:
+  - "**/UploadFrag"
+  - "**/WatchlistAdapter"
+  - "**/Validation"
+  - "**/Search"
+  - "**/UserWatchlist"
+  - "**/Register"
+  - "**/ChatFragment"
+  - "**/CatergoryHomeFragment"
+  - "**/UserCatergoryFragment"
