@@ -24,6 +24,8 @@ public class Login_Activity extends AppCompatActivity {
     //defining variables for class
     static boolean test= false;
 
+    public String unitTest = "True";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +80,7 @@ public class Login_Activity extends AppCompatActivity {
                         } else {
                             //Error message
                             Toast.makeText(Login_Activity.this, "Error occurred!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            unitTest = "False";
                         }
                     }
                 });
