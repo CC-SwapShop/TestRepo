@@ -36,8 +36,9 @@ public class WatchlistTest extends TestCase {
     }
 
     @Test
-    public void registerPageBtnTest() {
+    public void ItemclickedTest() {
         onView(withId(R.id.recycler_view1)).perform(click());
+        watchlist.finish();
     }
 
     @After
