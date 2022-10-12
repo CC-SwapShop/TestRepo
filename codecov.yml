@@ -2,6 +2,7 @@ ignore:
   - "**/UploadFrag"
   - "**/LoginFrag"
   - "**/WatchlistAdapter"
+  - "**/Watchlist"
   - "**/Validation"
   - "**/Search"
   - "**/UserWatchlist"
