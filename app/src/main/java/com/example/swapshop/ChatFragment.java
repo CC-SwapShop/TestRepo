@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -73,11 +74,15 @@ public class ChatFragment extends Fragment {
                     String productId = postsnapshot.child("productId").getValue().toString();
                     String provider = postsnapshot.child("provider").getValue().toString();
                     boolean ongoing = (boolean) postsnapshot.child("ongoing").getValue();
+                    String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                     OnGoingSwaps objOnGoingSwaps = new OnGoingSwaps(customer,provider,productId,ongoing);
-                    if (ongoing == true){
-                        onGoingSwaps.add(objOnGoingSwaps);
-                        onGoingSwapsIDs.add(postsnapshot.getKey());
+                    if (ongoing == true ){
+                        if(user.equals(customer)||user.equals(provider)){
+                            onGoingSwaps.add(objOnGoingSwaps);
+                            onGoingSwapsIDs.add(postsnapshot.getKey());
+                        }
+
                     }
                 }
 

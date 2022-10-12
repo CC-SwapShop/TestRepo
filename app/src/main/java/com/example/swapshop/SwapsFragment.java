@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,13 +70,17 @@ public class SwapsFragment extends Fragment {
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
                     String status = postsnapshot.child("status").getValue().toString();
                     String category = postsnapshot.child("category").getValue().toString();
+                    String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                     Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
 
                     //Adding product to list
                     if(objProduct.checkSwapped() == true){
-                        productIDs.add(postsnapshot.getKey());
-                        mUploads.add(objProduct);
+                        if(user.equals(UID)){{
+                            productIDs.add(postsnapshot.getKey());
+                            mUploads.add(objProduct);
+                        }}
+
                     }
                 }
 
