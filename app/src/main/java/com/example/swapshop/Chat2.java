@@ -2,6 +2,8 @@ package com.example.swapshop;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,12 +31,16 @@ public class Chat2 extends AppCompatActivity {
     private String sPID,sOGID;
     private Product objProduct;
     private OnGoingSwaps objOnGoingSwap;
+    private RecyclerView mRecyclerView;
+    private MessageAdapter mAdapter;
+
     TextView txtMProdName, txtMProdDesc;
     ImageView imgMProduct;
     EditText edtMessage;
     FloatingActionButton fbtnMSend;
     Button btnMDecline, btnMAccept;
     List<String> productOngoing;
+    List<String> arrMesssages;
     DatabaseReference reference;
     DatabaseReference pReference;
     DatabaseReference referenceChat;
@@ -61,6 +67,11 @@ public class Chat2 extends AppCompatActivity {
         btnMAccept = findViewById(R.id.btnMAccept1);
         btnMDecline = findViewById(R.id.btnMDecline1);
 
+
+        mRecyclerView = findViewById(R.id.recyclerView_message1);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager((this)));
+
         //initialise the texts on the interface
         pReference = FirebaseDatabase.getInstance().getReference().child("Products");
         pReference.addValueEventListener(new ValueEventListener() {
@@ -85,22 +96,29 @@ public class Chat2 extends AppCompatActivity {
         });
 
 
-        //populate array for ongoing
-        productOngoing = new ArrayList<>();
+        arrMesssages =  new ArrayList<>();
 
-        reference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+        referenceChat = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
 
-        reference.addValueEventListener(new ValueEventListener() {
+        referenceChat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                productOngoing.clear();
-                for(DataSnapshot  postsnapshot: snapshot.getChildren()){
-                    String oID = postsnapshot.child("productId").getValue().toString();
-                    if(oID.equals(sPID)){
-                        productOngoing.add(postsnapshot.getKey());
-                    }
+                for(DataSnapshot postsnapshot: snapshot.getChildren()){
+                    String to = postsnapshot.child("to").getValue().toString();
+                    String sMessage = postsnapshot.child("message").getValue().toString();
+                    String from = postsnapshot.child("from").getValue().toString();
+                    //ChatMessage chatMessage = new ChatMessage(from,sMessage,to);
+                    //arrChatMessages.add(chatMessage);
+                    //Toast.makeText(Chat2.this,sMessage,Toast.LENGTH_SHORT).show();
+                    arrMesssages.add(sMessage);
+
                 }
+
+                mAdapter = new MessageAdapter(Chat2.this,arrMesssages);
+
+                mRecyclerView.setAdapter(mAdapter);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -172,7 +190,7 @@ public class Chat2 extends AppCompatActivity {
         if(user.equals(provider)){
             provider = objOnGoingSwap.customer;
         }
-        ChatMessage chatMessage = new ChatMessage(user,sMessage,provider);
+
 
 
 
@@ -181,5 +199,12 @@ public class Chat2 extends AppCompatActivity {
         ref.child(key).child("message").setValue(sMessage);
         ref.child(key).child("from").setValue(user);
         ref.child(key).child("to").setValue(provider);
+
+        Intent intent = new Intent( getApplicationContext(), Chat2.class);
+        intent.putExtra("Select_ID",sPID);
+        intent.putExtra("Extra_ongoingID",sOGID);
+        intent.putExtra("Extra_ongoing",objOnGoingSwap);
+
+        startActivity(intent);
     }
 }
