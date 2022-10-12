@@ -129,17 +129,18 @@ public class Chat2 extends AppCompatActivity {
         });
 
 
-        /*arrMesssages =  new ArrayList<>();
+        arrMesssages =  new ArrayList<>();
 
         referenceChat = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
 
         referenceChat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                arrMesssages.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
-                    String to = postsnapshot.child("to").getValue().toString();
+                    //String to = postsnapshot.child("to").getValue().toString();
                     String sMessage = postsnapshot.child("message").getValue().toString();
-                    String from = postsnapshot.child("from").getValue().toString();
+                    //String from = postsnapshot.child("from").getValue().toString();
                     //ChatMessage chatMessage = new ChatMessage(from,sMessage,to);
                     //arrChatMessages.add(chatMessage);
                     //Toast.makeText(Chat2.this,sMessage,Toast.LENGTH_SHORT).show();
@@ -156,7 +157,7 @@ public class Chat2 extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
 
         //actions
@@ -236,11 +237,11 @@ public class Chat2 extends AppCompatActivity {
         ref.child(key).child("from").setValue(user);
         ref.child(key).child("to").setValue(provider);
 
-        Intent intent = new Intent( getApplicationContext(), Chat2.class);
+        /*Intent intent = new Intent( getApplicationContext(), Chat2.class);
         intent.putExtra("Select_ID",sPID);
         intent.putExtra("Extra_ongoingID",sOGID);
         intent.putExtra("Extra_ongoing",objOnGoingSwap);
 
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }
