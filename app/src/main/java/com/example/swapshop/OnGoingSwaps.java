@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class OnGoingSwaps implements Parcelable {
     public String customer, provider,productId;
@@ -50,6 +51,8 @@ public class OnGoingSwaps implements Parcelable {
     }
 
     public String getCustomerName(){
+
+
         return customer;
     }
 }
