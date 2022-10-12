@@ -92,6 +92,7 @@ public class SwapsFragment extends Fragment {
                         Intent intent = new Intent(getContext(), ViewProduct.class);
                         intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
+                        intent.putExtra("Extra_login",false);
                         startActivity(intent);
 
                     }
