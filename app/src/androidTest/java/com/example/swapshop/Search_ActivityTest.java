@@ -46,11 +46,6 @@ public class Search_ActivityTest extends TestCase {
     }
 
     @Test
-    public void btnToys1Test() {
-        onView(withId(R.id.button3)).perform(click());
-    }
-
-    @Test
     public void btnGames1Test() {
         onView(withId(R.id.button4)).perform(click());
     }
@@ -63,16 +58,6 @@ public class Search_ActivityTest extends TestCase {
     @Test
     public void btnSearchProductTest() {
         onView(withId(R.id.button)).perform(click());
-    }
-
-    @Test
-    public void btnAllTest() {
-        onView(withId(R.id.ded)).perform(click());
-    }
-
-    @Test
-    public void ListAllTest() {
-        onView(withId(R.id.ded)).perform(click());
     }
 
     @After

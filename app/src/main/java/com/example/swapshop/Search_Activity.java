@@ -64,8 +64,6 @@ public class Search_Activity extends AppCompatActivity {
             btnSport1 = findViewById(R.id.button5);
             btnOther1= findViewById(R.id.button11);
 
-            //Calling method
-            listAll();
             btnOther1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -78,17 +76,6 @@ public class Search_Activity extends AppCompatActivity {
                 }
             });
 
-            btnToys1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //change view
-                    Bundle bundle = new Bundle();
-                    bundle.putString("sCategory","Toys");
-
-                    com.example.swapshop.Search fragment = new com.example.swapshop.Search();
-                    fragment.setArguments(bundle);
-                }
-            });
 
             btnGames1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -122,101 +109,7 @@ public class Search_Activity extends AppCompatActivity {
                 }
             });
 
-            //Using onClick for ListAll if user is in search
-            btnAll.setOnClickListener(new android.view.View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listAll();
-                }
-            });
         }
-
-
-        public void listAll()
-        {
-            //getting data from database
-            mRecyclerView.setHasFixedSize(true);
-            mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-            //Array list
-            mUploads = new ArrayList<>();
-            productIDs = new ArrayList<>();
-
-            //reference to database
-            reference = FirebaseDatabase.getInstance().getReference().child("Products");
-
-            //Finding items in database
-            reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    mUploads.clear();
-                    for(DataSnapshot postsnapshot: snapshot.getChildren()){
-
-                        String name = postsnapshot.child("name").getValue().toString();
-                        String description = postsnapshot.child("description").getValue().toString();
-                        String location = postsnapshot.child("location").getValue().toString();
-                        String img = postsnapshot.child("img").getValue().toString();
-                        String UID = postsnapshot.child("UID").getValue().toString();
-                        String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
-                        String status = postsnapshot.child("status").getValue().toString();
-                        String category = postsnapshot.child("category").getValue().toString();
-
-                        Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
-
-                        //Adding product to list
-                        if(objProduct.checkSwapped() == false && category.equals(sCategory) ){
-                            productIDs.add(postsnapshot.getKey());
-                            mUploads.add(objProduct);
-                        }
-                    }
-
-                    //Getting image
-                    mAdapter = new ImageAdapter(Search_Activity.this,mUploads);
-
-                    //Getting product
-                    mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(int position) {
-                            //Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                            Product currProduct = mUploads.get(position);
-                            String pID = productIDs.get(position);
-                            Intent intent = new Intent(Search_Activity.this, ViewProduct.class);
-                            intent.putExtra("Extra_ID",pID);
-                            startActivity(intent);
-
-                        }
-
-                        //Wishlist
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    //Swapped
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
-                    });
-
-                    mRecyclerView.setAdapter(mAdapter);
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(Search_Activity.this,"error",Toast.LENGTH_SHORT).show();
-                }
-            });
-
-
-
-
-
-        }
-
-
-
 
 
         public void findProduct(){
