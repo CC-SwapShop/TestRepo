@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/Search2.xml" value="0.31068840579710144" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_chat.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_home.xml" value="0.178125" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_main.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_register.xml" value="0.30104166666666665" />
@@ -12,8 +13,10 @@
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_user_menu.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_view_product.xml" value="0.36186594202898553" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_watchlist.xml" value="0.36186594202898553" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/fragment_chat.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/fragment_login.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/fragment_search.xml" value="0.31068840579710144" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/fragment_search_everyone.xml" value="0.33" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/fragment_swaps.xml" value="0.31068840579710144" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/fragment_upload.xml" value="0.31068840579710144" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/watchlist_item.xml" value="0.36186594202898553" />

@@ -37,6 +37,7 @@ public class Chat extends AppCompatActivity {
     List<String> productOngoing;
     DatabaseReference reference;
     DatabaseReference referenceChat;
+    String UnitTest = "true";
     @Override
     //Java class for chat function to be implemented in future
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +120,7 @@ public class Chat extends AppCompatActivity {
 
         //Message to say product has been declined
         Toast.makeText(Chat.this,"Offer has been declined",Toast.LENGTH_SHORT).show();
+        UnitTest = "true";
     }
 
     public void AcceptOffer(){
@@ -142,6 +144,7 @@ public class Chat extends AppCompatActivity {
 
         //Message to say product has been declined
         Toast.makeText(Chat.this,"Offer has been Accepted",Toast.LENGTH_SHORT).show();
+        UnitTest = "true";
     }
 
     public void SendMessage(){
@@ -162,5 +165,6 @@ public class Chat extends AppCompatActivity {
         ref.child(key).child("message").setValue(sMessage);
         ref.child(key).child("from").setValue(user);
         ref.child(key).child("to").setValue(provider);
+        UnitTest = "true";
     }
 }
