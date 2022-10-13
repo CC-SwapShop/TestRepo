@@ -29,12 +29,14 @@ import java.util.List;
 
 public class Chat2 extends AppCompatActivity {
 
+    //Variables
     private String sPID,sOGID;
     private Product objProduct;
     private OnGoingSwaps objOnGoingSwap;
     private RecyclerView mRecyclerView;
     private MessageAdapter mAdapter;
 
+    //Views
     TextView txtMProdName, txtMProdDesc;
     ImageView imgMProduct;
     EditText edtMessage;
@@ -52,8 +54,7 @@ public class Chat2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat2);
 
-
-
+        //From previous class
         Intent intent = getIntent();
         //objProduct = intent.getParcelableExtra("Select_Product");
         sPID = intent.getStringExtra("Select_ID");
@@ -70,7 +71,7 @@ public class Chat2 extends AppCompatActivity {
         btnMDecline = findViewById(R.id.btnMDecline1);
         cardView = findViewById(R.id.cvButtons1);
 
-
+        //Getting user
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
@@ -79,6 +80,7 @@ public class Chat2 extends AppCompatActivity {
             btnMDecline.setVisibility(View.INVISIBLE);
         }
 
+        //message view
         mRecyclerView = findViewById(R.id.recyclerView_message1);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager((this)));
@@ -109,8 +111,8 @@ public class Chat2 extends AppCompatActivity {
         //populate array for ongoing
         productOngoing = new ArrayList<>();
 
+        //Database reference
         reference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
-
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -128,11 +130,9 @@ public class Chat2 extends AppCompatActivity {
             }
         });
 
-
+        //Array list
         arrMesssages =  new ArrayList<>();
-
         referenceChat = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
-
         referenceChat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -148,6 +148,7 @@ public class Chat2 extends AppCompatActivity {
 
                 }
 
+                //Adapter
                 mAdapter = new MessageAdapter(Chat2.this,arrMesssages);
 
                 mRecyclerView.setAdapter(mAdapter);
@@ -168,6 +169,7 @@ public class Chat2 extends AppCompatActivity {
             }
         });
 
+        //accept
         btnMAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -175,6 +177,7 @@ public class Chat2 extends AppCompatActivity {
             }
         });
 
+        //send
         fbtnMSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -184,6 +187,7 @@ public class Chat2 extends AppCompatActivity {
 
     }
 
+    //Functions
     public void DeclineOffer(){
         FirebaseDatabase.getInstance().getReference("OngoingSwaps").child(sOGID)
                 .child("ongoing").setValue(false);
@@ -220,7 +224,7 @@ public class Chat2 extends AppCompatActivity {
 
     public void SendMessage(){
         String sMessage = edtMessage.getText().toString().trim();
-
+        //Database references
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String provider= objOnGoingSwap.provider;
 

@@ -28,11 +28,11 @@ import java.util.PrimitiveIterator;
 
 public class ChatFragment extends Fragment {
 
+    //Variables
     private RecyclerView mRecyclerView;
     private OngoingAdapter mAdapter;
     private DatabaseReference reference;
     private DatabaseReference wReference;
-
     private List<Product> mUploads;
     private List<String> productIDs;
     private List<String> onGoingSwapsIDs;
@@ -53,24 +53,18 @@ public class ChatFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_chat, container, false);
-
         mRecyclerView = view.findViewById(R.id.recyclerView_Ongoing);
         txtCFNoItems = view.findViewById(R.id.txtFCNoItems);
-
         arrproducts = new ArrayList<>();
         productIDs = new ArrayList<>();
-
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         mUploads = new ArrayList<>();
         onGoingSwapsIDs = new ArrayList<>();
         onGoingSwaps = new ArrayList<>();
-
-
         wReference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
-
         wReference.addValueEventListener(new ValueEventListener() {
+            //From database
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
@@ -80,6 +74,7 @@ public class ChatFragment extends Fragment {
                     boolean ongoing = (boolean) postsnapshot.child("ongoing").getValue();
                     String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+                    //Ongoing chat reference
                     OnGoingSwaps objOnGoingSwaps = new OnGoingSwaps(customer,provider,productId,ongoing);
                     if (ongoing == true ){
                         if(user.equals(customer)||user.equals(provider)){
@@ -92,15 +87,19 @@ public class ChatFragment extends Fragment {
                     }
 
                 }
+                //If the chat is empty
                 if(onGoingSwapsIDs.isEmpty()){
                     txtCFNoItems.setVisibility(View.VISIBLE);
                     mRecyclerView.setVisibility(View.INVISIBLE);
                 }else {
+                    //Setting Visibility
                     txtCFNoItems.setVisibility(View.INVISIBLE);
                     mRecyclerView.setVisibility(View.VISIBLE);
 
+                    //Adapter
                     mAdapter = new OngoingAdapter(getActivity(), onGoingSwaps);
 
+                    //Starting chat2 with parsing
                     mAdapter.setOnItemClickListener(new OngoingAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(int position) {

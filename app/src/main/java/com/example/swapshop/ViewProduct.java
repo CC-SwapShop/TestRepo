@@ -195,9 +195,9 @@ public class ViewProduct extends AppCompatActivity {
             }
         });
 
-        //Go to chat class for user to chat with user //To be implemented in future sprints
 
-        //Go to chat class for user to chat with user //To be implemented in future sprints
+
+        //Go to chat class for user to chat with user
         Intent intent = new Intent(getApplicationContext(), Chat.class);
         intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);

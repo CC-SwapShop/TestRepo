@@ -74,6 +74,8 @@ public class SearchEveryone extends Fragment {
         btnOther3 =view.findViewById(R.id.button10);
         //Calling method
         listAll();
+
+        //Home and appliances
         btnHome3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,11 +83,14 @@ public class SearchEveryone extends Fragment {
                Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Home & Appliance");
 
+                //New fragment with arguments
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
             }
         });
+
+        //Other
         btnOther3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,12 +98,14 @@ public class SearchEveryone extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Other");
 
+                //New fragment with arguments
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
             }
         });
 
+        //Toys
         btnToys3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,12 +113,14 @@ public class SearchEveryone extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Toys");
 
+                //New fragment with arguments
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
             }
         });
 
+        //Games
         btnGames3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,12 +128,14 @@ public class SearchEveryone extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Games");
 
+                //New fragment with arguments
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
             }
         });
 
+        //Sport
         btnSport3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,6 +143,7 @@ public class SearchEveryone extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Sport");
 
+                //New fragment with arguments
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
@@ -156,6 +168,7 @@ public class SearchEveryone extends Fragment {
         return view;
     }
 
+    //List all
     public void listAll()
     {
         //getting data from database

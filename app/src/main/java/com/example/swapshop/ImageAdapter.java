@@ -37,6 +37,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return new ImageViewHolder(v);
     }
 
+    //Binding
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         Product currProduct = mUploads.get(position);
@@ -55,6 +56,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return mUploads.size();
     }
 
+    //Image holder
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView textViewName;
         public ImageView imageView;
@@ -67,6 +69,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             itemView.setOnClickListener(this);
         }
 
+        //Positions
         @Override
         public void onClick(View v){
             if(mListener != null){

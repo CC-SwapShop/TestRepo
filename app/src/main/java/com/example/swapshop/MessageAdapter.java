@@ -12,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageAdapterHolder>{
+
+    //Variables
     private Context mContext;
     private List<String> mChatMessages;
 
+    //Constructor
     public MessageAdapter(Context context, List<String> ChatMessages){
         mContext = context;
         mChatMessages = ChatMessages;
@@ -23,12 +26,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageA
 
     @NonNull
     @Override
+    //Inflating view
     public MessageAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.message_item,parent
                 ,false);
         return new MessageAdapterHolder(view);
     }
 
+
+    //Binding
     @Override
     public void onBindViewHolder(@NonNull MessageAdapterHolder holder, int position) {
         //ChatMessage chatMessageCurrent = mChatMessages.get(position);
@@ -37,11 +43,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageA
         holder.txtMessage.setText(currMessage);
     }
 
+    //Message size
     @Override
     public int getItemCount() {
         return mChatMessages.size();
     }
 
+    //Adapter
     public class MessageAdapterHolder extends RecyclerView.ViewHolder {
         public TextView txtMessage;
 

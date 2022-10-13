@@ -13,6 +13,7 @@ import android.widget.Button;
 public class UserCatergoryFragment extends Fragment {
     Button btnHome1,btnToys1,btnGames1,btnSport1;
 
+    //NOT IN USE
     public UserCatergoryFragment() {
         // Required empty public constructor
     }
