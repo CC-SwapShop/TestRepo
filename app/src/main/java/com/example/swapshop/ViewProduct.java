@@ -180,10 +180,8 @@ public class ViewProduct extends AppCompatActivity {
 
         //Go to chat class for user to chat with user //To be implemented in future sprints
         Intent intent = new Intent(getApplicationContext(), Chat.class);
-        intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);
         intent.putExtra("Extra_ongoingID",key);
-        intent.putExtra("Extra_ongoing",onGoingSwaps);
         startActivity(intent);
 
         //Message to say product has been requested as confirmation

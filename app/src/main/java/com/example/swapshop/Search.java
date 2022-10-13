@@ -211,7 +211,6 @@ public class Search extends Fragment {
                         Product currProduct = mUploads.get(position);
                         String pID = productIDs.get(position);
                         Intent intent = new Intent(getContext(), ViewProduct.class);
-                        intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
                         startActivity(intent);
 
@@ -309,7 +308,6 @@ public class Search extends Fragment {
                         String pID = productIDs.get(position);
                         Toast.makeText(getContext(), currProduct.name + " " + pID,Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getContext(), ViewProduct.class);
-                        intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
                         startActivity(intent);
 

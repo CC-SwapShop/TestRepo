@@ -110,7 +110,6 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
                     .child(pID).child("SwappedChecked").setValue(true);
         }
         Intent intent = new Intent(getApplicationContext(), ViewProduct.class);
-        intent.putExtra("Curr_Product", currProduct);
         intent.putExtra("Extra_ID",pID);
         startActivity(intent);
     }

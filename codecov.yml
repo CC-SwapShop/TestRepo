@@ -2,3 +2,4 @@ ignore:
   - "**/Validation"
   - "**/CatergoryHomeFragment"
   - "**/UserCatergoryFragment"
+  - "**/Search"

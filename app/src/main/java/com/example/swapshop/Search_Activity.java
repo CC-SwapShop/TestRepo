@@ -47,7 +47,7 @@ public class Search_Activity extends AppCompatActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.fragment_login);
+            setContentView(R.layout.fragment_search);
 
             //Bundle bundle = this.getArguments();
             //sCategory = bundle.getString("sCategory");
@@ -72,17 +72,6 @@ public class Search_Activity extends AppCompatActivity {
                     //change view
                     Bundle bundle = new Bundle();
                     bundle.putString("sCategory","Other");
-
-                    com.example.swapshop.Search fragment = new com.example.swapshop.Search();
-                    fragment.setArguments(bundle);
-                }
-            });
-            btnHome1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //change view
-                    Bundle bundle = new Bundle();
-                    bundle.putString("sCategory","Home & Appliance");
 
                     com.example.swapshop.Search fragment = new com.example.swapshop.Search();
                     fragment.setArguments(bundle);
@@ -192,7 +181,6 @@ public class Search_Activity extends AppCompatActivity {
                             Product currProduct = mUploads.get(position);
                             String pID = productIDs.get(position);
                             Intent intent = new Intent(Search_Activity.this, ViewProduct.class);
-                            intent.putExtra("Curr_Product", currProduct);
                             intent.putExtra("Extra_ID",pID);
                             startActivity(intent);
 
@@ -290,7 +278,6 @@ public class Search_Activity extends AppCompatActivity {
                             String pID = productIDs.get(position);
                             Toast.makeText(Search_Activity.this, currProduct.name + " " + pID,Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Search_Activity.this, ViewProduct.class);
-                            intent.putExtra("Curr_Product", currProduct);
                             intent.putExtra("Extra_ID",pID);
                             startActivity(intent);
 

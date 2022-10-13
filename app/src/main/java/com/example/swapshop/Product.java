@@ -3,7 +3,7 @@ package com.example.swapshop;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Product implements Parcelable {
+public class Product{
 
     //Defining variables for product class
     public String name, description, location,reqProduct, img, UID, status, category;
@@ -25,30 +25,6 @@ public class Product implements Parcelable {
         this.status = status;
         this.category = category;
     }
-
-
-    protected Product(Parcel in) {
-        name = in.readString();
-        description = in.readString();
-        location = in.readString();
-        reqProduct = in.readString();
-        img = in.readString();
-        UID = in.readString();
-        status = in.readString();
-        category = in.readString();
-    }
-
-    public static final Creator<Product> CREATOR = new Creator<Product>() {
-        @Override
-        public Product createFromParcel(Parcel in) {
-            return new Product(in);
-        }
-
-        @Override
-        public Product[] newArray(int size) {
-            return new Product[size];
-        }
-    };
 
     //Setting status to Available on the product
     public void setStatusAvailable(){
@@ -74,21 +50,8 @@ public class Product implements Parcelable {
         }
     }
 
-
-    @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(description);
-        parcel.writeString(location);
-        parcel.writeString(reqProduct);
-        parcel.writeString(img);
-        parcel.writeString(UID);
-        parcel.writeString(status);
-        parcel.writeString(category);
-    }
 }
