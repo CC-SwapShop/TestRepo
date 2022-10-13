@@ -59,8 +59,7 @@ public class Search extends Fragment {
 
 
         //pass data between fragments
-
-       Bundle bundle = this.getArguments();
+        Bundle bundle = this.getArguments();
         sCategory = bundle.getString("sCategory");
 
 
@@ -85,6 +84,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Other");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -97,6 +97,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Home & Appliance");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -110,6 +111,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Toys");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -122,7 +124,7 @@ public class Search extends Fragment {
                 //change view
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Games");
-
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -136,6 +138,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Sport");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -162,6 +165,7 @@ public class Search extends Fragment {
     }
 
 
+    //Listing all
     public void listAll()
     {
         //getting data from database

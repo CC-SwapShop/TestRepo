@@ -18,27 +18,34 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.OngoingAdapterHolder> {
+
+    //Variables
     private Context mContext;
     private List<OnGoingSwaps> mUploads;
-
     private OnItemClickListener mListener;
 
+    //Constructor
     public OngoingAdapter(Context context, List<OnGoingSwaps> uploads){
         mContext = context;
         mUploads = uploads;
     }
 
+    //Adapter
     @NonNull
     @Override
     public OngoingAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //Inflating view
         View view = LayoutInflater.from(mContext).inflate(R.layout.ongoing_item,parent,false);
         return new OngoingAdapterHolder(view);
     }
 
+    //Bind
     @Override
     public void onBindViewHolder(@NonNull OngoingAdapterHolder holder, int position) {
+        //Position of onGoingSwap
         OnGoingSwaps onGoingSwaps = mUploads.get(position);
 
+        //Database reference
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products").child(onGoingSwaps.productId);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -52,6 +59,7 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.OngoingA
             }
         });
 
+        //Database reference
         DatabaseReference refs = FirebaseDatabase.getInstance().getReference().child("Users").child(onGoingSwaps.provider);
         refs.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,6 +73,7 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.OngoingA
             }
         });
 
+        //Database reference
         DatabaseReference refc = FirebaseDatabase.getInstance().getReference().child("Users").child(onGoingSwaps.customer);
         refc.addValueEventListener(new ValueEventListener() {
             @Override
@@ -80,17 +89,20 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.OngoingA
 
     }
 
+    //Item count function
     @Override
     public int getItemCount() {
         return mUploads.size();
     }
 
+    //Class
     public class  OngoingAdapterHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView txtCvProvider, txtCvCustomer,txtCvProduct;
 
         public OngoingAdapterHolder(@NonNull View itemView) {
             super(itemView);
 
+            //Item views
             txtCvCustomer = itemView.findViewById(R.id.txtCvCustomer);
             txtCvProduct = itemView.findViewById(R.id.txtCvProduct);
             txtCvProvider = itemView.findViewById(R.id.txtCvProvider);
