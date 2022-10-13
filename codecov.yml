@@ -3,3 +3,5 @@ ignore:
   - "**/CatergoryHomeFragment"
   - "**/UserCatergoryFragment"
   - "**/Search"
+  - "**/Watchlist"
+  - "**/WatchlistAdapter"
