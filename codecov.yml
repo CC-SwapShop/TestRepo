@@ -6,3 +6,7 @@ ignore:
   - "**/Watchlist"
   - "**/WatchlistAdapter"
   - "**/Register"
+  - "**/UserWatchlist"
+  - "**/UploadProduct"
+  - "**/ViewProduct"
+  - "**/UploadFrag"
