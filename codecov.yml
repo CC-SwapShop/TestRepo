@@ -15,3 +15,4 @@ ignore:
   - "**/Search_Activity"
   - "**/UploadProduct"
   - "**/ViewProduct"
+  - "**/OnGoingSwaps"
