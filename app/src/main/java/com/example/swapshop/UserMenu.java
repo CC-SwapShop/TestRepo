@@ -84,6 +84,9 @@ public class UserMenu extends AppCompatActivity {
                 case R.id.chat:
                     replaceFragment(new ChatFragment());
                     break;
+                case R.id.userInfo:
+                    replaceFragment(new UserInfoFragment());
+                    break;
             }
             return true;
 
