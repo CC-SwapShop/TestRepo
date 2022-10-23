@@ -46,17 +46,27 @@
                 android:id="@+id/recyclerView_UserInfo"
                 android:layout_width="match_parent"
                 android:layout_height="447dp"
-                android:layout_marginTop="11dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtUI_name" />
+                tools:layout_editor_absoluteX="-68dp"
+                tools:layout_editor_absoluteY="222dp" />
 
             <Button
                 android:id="@+id/btnSignout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="144dp"
+                android:layout_marginStart="76dp"
                 android:text="SignOut"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView_UserInfo" />
+
+            <Button
+                android:id="@+id/btnupdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="47dp"
+                android:layout_marginEnd="94dp"
+                android:text="CHANGE DETAILS"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnSignout"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView_UserInfo" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

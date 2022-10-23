@@ -29,7 +29,7 @@ import java.util.List;
 
 public class UserInfoFragment extends Fragment {
     TextView txtUI_name;
-    Button btnSignOut;
+    Button btnSignOut, btnupdate;
     private RecyclerView mRecyclerView;
     private UserInfoAdapter mAdapter;
     private DatabaseReference reference;
@@ -49,6 +49,7 @@ public class UserInfoFragment extends Fragment {
         //find view components
         txtUI_name = view.findViewById(R.id.txtUI_name);
         btnSignOut = view.findViewById(R.id.btnSignout);
+        btnupdate = view.findViewById(R.id.btnupdate);
         mRecyclerView = view.findViewById(R.id.recyclerView_UserInfo);
 
         //initialise values
@@ -129,6 +130,13 @@ public class UserInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 SignUserOut();
+            }
+        });
+
+        btnupdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), update_details_activity.class));
             }
         });
 

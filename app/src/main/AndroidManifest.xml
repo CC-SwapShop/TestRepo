@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SwapShop"
         tools:targetApi="31">
         <activity
+            android:name=".update_details_activity"
+            android:exported="false" />
+        <activity
             android:name=".Chat2"
             android:exported="false">
             <meta-data
