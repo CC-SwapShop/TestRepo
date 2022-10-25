@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,7 @@ import java.util.List;
 
 public class UserInfoFragment extends Fragment {
     TextView txtUI_name;
+    ImageView imgUIimage;
     Button btnSignOut, btnupdate;
     private RecyclerView mRecyclerView;
     private UserInfoAdapter mAdapter;
@@ -51,6 +54,7 @@ public class UserInfoFragment extends Fragment {
         btnSignOut = view.findViewById(R.id.btnSignout);
         btnupdate = view.findViewById(R.id.btnupdate);
         mRecyclerView = view.findViewById(R.id.recyclerView_UserInfo);
+        imgUIimage = view.findViewById(R.id.imgYIimage);
 
         //initialise values
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -59,6 +63,8 @@ public class UserInfoFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 txtUI_name.setText(snapshot.child("name").getValue().toString());
+                Picasso.with(getContext()).load(snapshot.child("img").getValue().toString())
+                        .fit().centerCrop().into(imgUIimage);
             }
 
             @Override

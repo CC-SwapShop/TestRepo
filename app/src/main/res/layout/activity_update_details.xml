@@ -56,4 +56,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtsndemail" />
+
+    <ImageView
+        android:id="@+id/imgpicture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="173dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnsendemail"
+        app:srcCompat="@drawable/image_to_upload"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnuploaddp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="120dp"
+        android:text="upload profile picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgpicture" />
 </androidx.constraintlayout.widget.ConstraintLayout>
