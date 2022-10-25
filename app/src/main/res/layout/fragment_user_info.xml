@@ -21,7 +21,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imgYIimage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="141dp"
@@ -40,7 +40,7 @@
                 android:layout_marginTop="22dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintTop_toBottomOf="@+id/imgYIimage" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_UserInfo"
