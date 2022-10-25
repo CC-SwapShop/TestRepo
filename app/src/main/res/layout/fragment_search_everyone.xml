@@ -9,35 +9,37 @@
 
     <ImageButton
         android:id="@+id/btnSEsearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:background="@android:color/transparent"
+        android:layout_width="73dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="17dp"
+
+        android:background="#F6B85B"
         app:layout_constraintStart_toEndOf="@+id/edtSProductName1"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_search" />
+        app:srcCompat="@android:drawable/ic_menu_search"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/edtSProductName1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="211dp"
+        android:layout_height="43dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:hint="Product Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/ded1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#808080"
+        android:layout_width="123dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="9dp"
+        android:background="@android:color/transparent"
         android:text="List all"
         app:layout_constraintStart_toEndOf="@+id/btnSEsearch"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,8 +48,8 @@
         android:id="@+id/recycler_view3"
         android:layout_width="384dp"
         android:layout_height="580dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
@@ -104,5 +106,17 @@
                 android:text="Home And Appliance" />
         </LinearLayout>
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/txtSENoItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
+        android:text="No Items found"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler_view3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

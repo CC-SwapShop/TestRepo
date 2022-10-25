@@ -16,6 +16,9 @@
             android:name=".update_details_activity"
             android:exported="false" />
         <activity
+            android:name=".OtherUserProfile"
+            android:exported="false" />
+        <activity
             android:name=".Chat2"
             android:exported="false">
             <meta-data

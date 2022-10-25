@@ -35,7 +35,7 @@ public class ViewProduct extends AppCompatActivity {
     public boolean bLogin;
     TextView txtVP_Desc,txtVP_Name,txtVP_Loc,txtVP_UID,txtVP_ItemSwap, textStatus;
     ImageView imgVP_Prod;
-    Button btnVP_swap, btnVP_AddWish;
+    Button btnVP_swap, btnVP_AddWish, btnOtherUser;
 
     //onCreate method for view product
     @Override
@@ -61,6 +61,7 @@ public class ViewProduct extends AppCompatActivity {
         imgVP_Prod = findViewById(R.id.imgVP_Prod);
         btnVP_swap = findViewById(R.id.btnVP_Swap);
         btnVP_AddWish = findViewById(R.id.btnVP_AddWishlist);
+        btnOtherUser=findViewById(R.id.btnVP_Swap2);
 
         //initialise the texts on the interface
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users")
@@ -69,7 +70,7 @@ public class ViewProduct extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                txtVP_UID.setText("User:\n" + snapshot.child("name").getValue().toString());
+                txtVP_UID.setText("" + snapshot.child("name").getValue().toString());
             }
 
             @Override
@@ -98,10 +99,10 @@ public class ViewProduct extends AppCompatActivity {
 
 
         //txtVP_UID.setText("User ID:\n" + objProduct.UID);
-        txtVP_Name.setText("name:\n" + objProduct.name);
-        txtVP_Desc.setText("Description:\n" + objProduct.description);
+        txtVP_Name.setText("" + objProduct.name);
+        txtVP_Desc.setText("About this product:\n" + objProduct.description);
         txtVP_Loc.setText("Location:\n" + objProduct.location);
-        txtVP_ItemSwap.setText("User would like:\n" + objProduct.reqProduct);
+        txtVP_ItemSwap.setText("" + objProduct.reqProduct);
         textStatus.setText("Status:\n" + objProduct.status);
 
 
@@ -125,6 +126,13 @@ public class ViewProduct extends AppCompatActivity {
             }
         });
 
+        btnOtherUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                otherProfile();
+            }
+        });
+
         //Do if add to wish list is clicked
         btnVP_AddWish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +140,21 @@ public class ViewProduct extends AppCompatActivity {
                 AddtoWishList();
             }
         });
+    }
+    public void otherProfile()
+    {
+        OnGoingSwaps onGoingSwaps = new OnGoingSwaps(FirebaseAuth.getInstance().getCurrentUser().getUid()
+                ,objProduct.UID,sPID,true);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+        String key = ref.push().getKey();
+        ref.child(key).setValue(onGoingSwaps);
+
+        Intent intent = new Intent(getApplicationContext(), OtherUserProfile.class);
+        intent.putExtra("Select_Product",objProduct);
+        intent.putExtra("Select_ID",sPID);
+        intent.putExtra("Extra_ongoingID",key);
+        intent.putExtra("Extra_ongoing",onGoingSwaps);
+        startActivity(intent);
     }
 
     //Notification to users phone
@@ -223,7 +246,7 @@ public class ViewProduct extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Toast.makeText(ViewProduct.this,"Product added to watchlist",Toast.LENGTH_SHORT).show();
 
-                        //If not successful
+                            //If not successful
                         }else{
                             Toast.makeText(ViewProduct.this,"Unable to add to watchlist",Toast.LENGTH_SHORT).show();
                         }
