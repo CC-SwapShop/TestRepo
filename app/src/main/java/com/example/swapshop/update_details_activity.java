@@ -128,6 +128,12 @@ public class update_details_activity extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         String emailAddress = edtsemail.getText().toString().trim();
 
+        if(emailAddress.equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())==false){
+            edtsemail.setError("enter yor email address");
+            edtsemail.requestFocus();
+            return;
+        }
+
         auth.sendPasswordResetEmail(emailAddress)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -137,6 +143,8 @@ public class update_details_activity extends AppCompatActivity {
                         }
                     }
                 });
+
+        edtsemail.setText("");
     }
 
     private void choosePicture() {

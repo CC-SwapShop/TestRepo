@@ -28,10 +28,12 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class UserInfoFragment extends Fragment {
-    TextView txtUI_name;
-    ImageView imgUIimage;
+    TextView txtUI_name,txtEmailOther;
+    CircleImageView imgUIimage;
     Button btnSignOut, btnupdate;
     private RecyclerView mRecyclerView;
     private UserInfoAdapter mAdapter;
@@ -55,6 +57,7 @@ public class UserInfoFragment extends Fragment {
         btnupdate = view.findViewById(R.id.btnupdate);
         mRecyclerView = view.findViewById(R.id.recyclerView_UserInfo);
         imgUIimage = view.findViewById(R.id.imgYIimage);
+        txtEmailOther=view.findViewById(R.id.txtEmailOther2);
 
         //initialise values
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -63,6 +66,7 @@ public class UserInfoFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 txtUI_name.setText(snapshot.child("name").getValue().toString());
+                txtEmailOther.setText(snapshot.child("email").getValue().toString());
                 Picasso.with(getContext()).load(snapshot.child("img").getValue().toString())
                         .fit().centerCrop().into(imgUIimage);
             }

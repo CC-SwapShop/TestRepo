@@ -32,7 +32,7 @@ public class SearchEveryone extends Fragment {
     //Variables for Search everyone class
     EditText edtSProductName1;
     ImageButton btnSearchProduct1;
-    Button btnAll;
+    ImageButton btnAll;
     Button btnHome3,btnToys3,btnGames3,btnSport3,btnOther3;
 
     //Private variables
@@ -64,7 +64,7 @@ public class SearchEveryone extends Fragment {
         //Finding the corresponding Views
         edtSProductName1 = view.findViewById(R.id.edtSProductName1);
         //llSearch = view.findViewById(R.id.llSearchProduct);
-        btnSearchProduct1 = view.findViewById(R.id.btnSEsearch);
+        btnSearchProduct1 = view.findViewById(R.id.ded1);
         btnAll = view.findViewById(R.id.ded1);
         mRecyclerView3 = view.findViewById(R.id.recycler_view3);
         btnHome3 = view.findViewById(R.id.button6);

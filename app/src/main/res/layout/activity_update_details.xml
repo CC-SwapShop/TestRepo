@@ -1,76 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/g"
+    android:orientation="vertical"
     tools:context=".update_details_activity">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_marginTop="24dp"
+        android:text="Input new username"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/edit_newname"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edtsndemail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="9dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnchguname" />
+        tools:hint="Name" />
 
     <Button
         android:id="@+id/btnchguname"
-        android:layout_width="wrap_content"
+        android:layout_width="281dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginTop="9dp"
-        android:text="change username"
+        android:backgroundTint="#77572A"
+        android:text="change username" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Enter email for password reset"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_newname" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edtsndemail"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
     <Button
         android:id="@+id/btnsendemail"
-        android:layout_width="wrap_content"
+        android:layout_width="281dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
+        android:backgroundTint="#77572A"
         android:layout_marginTop="18dp"
-        android:text="send password reset email"
+        android:text="send password reset email" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Enter email for password reset"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtsndemail" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/imgpicture"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="173dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnsendemail"
-        app:srcCompat="@drawable/image_to_upload"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_width="382dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/image_to_upload" />
 
     <Button
         android:id="@+id/btnuploaddp"
-        android:layout_width="wrap_content"
+        android:layout_width="283dp"
+        android:backgroundTint="#77572A"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="120dp"
-        android:text="upload profile picture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgpicture" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="18dp"
+        android:text="Change display picture" />
+
+</LinearLayout>
