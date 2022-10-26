@@ -28,10 +28,12 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class UserInfoFragment extends Fragment {
     TextView txtUI_name;
-    ImageView imgUIimage;
+    CircleImageView imgUIimage;
     Button btnSignOut, btnupdate;
     private RecyclerView mRecyclerView;
     private UserInfoAdapter mAdapter;
