@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_action_upload.xml" value="0.173" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_other_user_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_update_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_upload_product.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_user_menu.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/activity_view_product.xml" value="0.25" />
@@ -26,7 +27,7 @@
         <entry key="app/src/main/res/layout/fragment_search_everyone.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_user_catergory.xml" value="0.129981884057971" />
-        <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.25" />
         <entry key="app/src/main/res/layout/image_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/watchlist_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.215625" />
