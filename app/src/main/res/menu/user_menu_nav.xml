@@ -19,6 +19,6 @@
         android:icon="@drawable/ic_action_chat"/>
     <item
         android:id="@+id/userInfo"
-        android:title="User"
-        android:icon="@drawable/ic_action_chat"/>
+        android:icon="@drawable/user_image"
+        android:title="User" />
 </menu>

@@ -8,16 +8,28 @@
     android:orientation="vertical"
     tools:context=".update_details_activity">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_marginTop="24dp"
+        android:text="Input new username"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <EditText
         android:id="@+id/edit_newname"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        tools:hint="Name" />
 
     <Button
         android:id="@+id/btnchguname"
@@ -25,7 +37,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginTop="9dp"
+        android:backgroundTint="#77572A"
         android:text="change username" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Enter email for password reset"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/edtsndemail"
@@ -43,18 +68,33 @@
         android:layout_width="281dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
+        android:backgroundTint="#77572A"
         android:layout_marginTop="18dp"
         android:text="send password reset email" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Enter email for password reset"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/imgpicture"
         android:layout_width="382dp"
         android:layout_height="109dp"
-        app:srcCompat="@drawable/profile" />
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/image_to_upload" />
 
     <Button
         android:id="@+id/btnuploaddp"
         android:layout_width="283dp"
+        android:backgroundTint="#77572A"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginTop="18dp"

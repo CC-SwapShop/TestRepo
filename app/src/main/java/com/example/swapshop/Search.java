@@ -34,7 +34,7 @@ public class Search extends Fragment {
     EditText edtSProductName;
     LinearLayout llSearch;
     ImageButton btnSearchProduct;
-    Button btnAll;
+    ImageButton btnAll;
     Button btnHome1,btnToys1,btnGames1,btnSport1, btnOther1;
 
     //Private variables
