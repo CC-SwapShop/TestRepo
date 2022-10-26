@@ -28,6 +28,7 @@ public class Product implements Parcelable {
         this.swappedUID = swappedUID;
     }
 
+    //From parcel
     protected Product(Parcel in) {
         name = in.readString();
         description = in.readString();
@@ -40,6 +41,7 @@ public class Product implements Parcelable {
         swappedUID = in.readString();
     }
 
+    //Creating product
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
         public Product createFromParcel(Parcel in) {
@@ -67,6 +69,7 @@ public class Product implements Parcelable {
         this.status = "swapped";
     }
 
+    //Checking if item is swapped
     public boolean checkSwapped(){
         if(status.equals("swapped")){
             return true;
@@ -82,6 +85,7 @@ public class Product implements Parcelable {
         return 0;
     }
 
+    //Writing to parcel
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);

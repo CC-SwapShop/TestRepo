@@ -3,7 +3,8 @@ package com.example.swapshop;
 public class User {
 
     //Variables to use
-    public String name, email;
+    public String name, email, img;
+
 
     //Empty constructor required
     public User(){
@@ -11,8 +12,9 @@ public class User {
     }
 
     //Populated constructor
-    public User(String name, String email){
+    public User(String name, String email, String img){
         this.name = name;
         this.email = email;
+        this.img = img;
     }
 }

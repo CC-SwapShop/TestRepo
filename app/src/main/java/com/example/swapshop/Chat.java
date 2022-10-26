@@ -123,6 +123,7 @@ public class Chat extends AppCompatActivity {
 
     }
 
+    //Decline offer
     public void DeclineOffer(){
         FirebaseDatabase.getInstance().getReference("OngoingSwaps").child(sOGID)
                 .child("ongoing").setValue(false);
@@ -131,6 +132,7 @@ public class Chat extends AppCompatActivity {
         Toast.makeText(Chat.this,"Offer has been declined",Toast.LENGTH_SHORT).show();
     }
 
+    //Accept offer
     public void AcceptOffer(){
         //Change status of product
         objProduct.setStatusSwapped();
@@ -154,6 +156,7 @@ public class Chat extends AppCompatActivity {
         Toast.makeText(Chat.this,"Offer has been Accepted",Toast.LENGTH_SHORT).show();
     }
 
+    //Sending message
     public void SendMessage(){
         String sMessage = edtMessage.getText().toString().trim();
 
@@ -164,9 +167,7 @@ public class Chat extends AppCompatActivity {
             provider = objOnGoingSwap.customer;
         }
         //ChatMessage chatMessage = new ChatMessage(user,sMessage,provider);
-
-
-
+        //Database references
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
         String key = ref.push().getKey();
         ref.child(key).child("message").setValue(sMessage);
@@ -174,6 +175,7 @@ public class Chat extends AppCompatActivity {
         ref.child(key).child("to").setValue(provider);
 
 
+        //Starting chat 2
         Intent intent = new Intent( getApplicationContext(), Chat2.class);
         intent.putExtra("Select_ID",sPID);
         intent.putExtra("Extra_ongoingID",sOGID);

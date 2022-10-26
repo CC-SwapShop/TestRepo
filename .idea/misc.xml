@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_home.xml" value="0.35280797101449274" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_register.xml" value="0.35280797101449274" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_update_details.xml" value="0.35280797101449274" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/fragment_user_info.xml" value="0.35280797101449274" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_register.xml" value="0.30104166666666665" />
         <entry key="app/src/debug/res/drawable-anydpi/ic_swap.xml" value="0.173" />
         <entry key="app/src/debug/res/drawable-mdpi/ic_action_name.xml" value="0.173" />
@@ -11,18 +15,19 @@
         <entry key="app/src/main/res/drawable-v24/ic_action_chat.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_swap.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_upload.xml" value="0.173" />
-        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_other_user_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_update_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_upload_product.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_user_menu.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/activity_view_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_watchlist.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_catergory_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_search_everyone.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_user_catergory.xml" value="0.129981884057971" />
+        <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.25" />
         <entry key="app/src/main/res/layout/image_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/watchlist_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.215625" />

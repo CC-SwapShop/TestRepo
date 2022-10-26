@@ -82,11 +82,13 @@ public class UploadProduct extends AppCompatActivity {
         String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String sReqProduct = edtAreqProduct.getText().toString().trim();
 
+        //If image not yet loaded
         if (imgUri != null){
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Please wait...");
             progressDialog.show();
 
+            //Database reference
             StorageReference reference = storageReference.child("Item_Images/"+ UUID.randomUUID().toString());
 
             try {
@@ -139,6 +141,7 @@ public class UploadProduct extends AppCompatActivity {
 
     }
 
+    //Choosing picture of item
     private void choosePicture() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -153,6 +156,7 @@ public class UploadProduct extends AppCompatActivity {
             imgUri = data.getData();
 
             try {
+                //Storing
                 Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), imgUri);
                 imgSwap.setImageBitmap(bitmapImg);
                 btnAPAdd.setEnabled(true);

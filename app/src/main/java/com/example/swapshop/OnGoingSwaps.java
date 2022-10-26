@@ -12,10 +12,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class OnGoingSwaps implements Parcelable {
+
+    //Variables
     public String customer, provider,productId;
     public boolean ongoing;
     String sCustomer,sprovider,sproductname;
 
+    //Constructor
     public OnGoingSwaps(String customer,String provider,String productId, boolean ongoing){
         this.customer = customer;
         this.provider = provider;
@@ -24,6 +27,7 @@ public class OnGoingSwaps implements Parcelable {
 
     }
 
+    //OnGoing swaps values from previous class
     protected OnGoingSwaps(Parcel in) {
         customer = in.readString();
         provider = in.readString();
@@ -31,12 +35,14 @@ public class OnGoingSwaps implements Parcelable {
         ongoing = in.readByte() != 0;
     }
 
+    //Creator function
     public static final Creator<OnGoingSwaps> CREATOR = new Creator<OnGoingSwaps>() {
         @Override
         public OnGoingSwaps createFromParcel(Parcel in) {
             return new OnGoingSwaps(in);
         }
 
+        //new Array returning size
         @Override
         public OnGoingSwaps[] newArray(int size) {
             return new OnGoingSwaps[size];
@@ -48,6 +54,7 @@ public class OnGoingSwaps implements Parcelable {
         return 0;
     }
 
+    //Writing values to parcel
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(customer);
@@ -56,6 +63,7 @@ public class OnGoingSwaps implements Parcelable {
         parcel.writeByte((byte) (ongoing ? 1 : 0));
     }
 
+    //Getting customer name to swap item with owner of item
     public String getCustomerName(){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(customer);
         ref.addValueEventListener(new ValueEventListener() {
@@ -77,6 +85,7 @@ public class OnGoingSwaps implements Parcelable {
         return "Customer: " + sCustomer;
     }
 
+    //Owner of item information
     public String getProviderName(){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(provider);
         ref.addValueEventListener(new ValueEventListener() {
@@ -98,6 +107,7 @@ public class OnGoingSwaps implements Parcelable {
         return "Product owner: " +  sprovider;
     }
 
+    //Getting name of item to be swapped
     public String getProductName(){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products").child(productId);
         ref.addValueEventListener(new ValueEventListener() {

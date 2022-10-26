@@ -47,6 +47,7 @@ public class UserMenu extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("sCategory","Toys");
 
+        //Starting fragment
         Fragment fragment;
         fragment = new Search();
         fragment.setArguments(bundle);
@@ -65,7 +66,7 @@ public class UserMenu extends AppCompatActivity {
                     //replaceFragment(new Search());
                     Bundle bundle2 = new Bundle();
                     bundle2.putString("sCategory","Toys");
-
+                    //Category implementation to start search frag
                     Fragment fragment2;
                     fragment2 = new Search();
                     fragment2.setArguments(bundle2);
@@ -82,6 +83,9 @@ public class UserMenu extends AppCompatActivity {
                     break;
                 case R.id.chat:
                     replaceFragment(new ChatFragment());
+                    break;
+                case R.id.userInfo:
+                    replaceFragment(new UserInfoFragment());
                     break;
             }
             return true;
