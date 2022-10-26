@@ -22,6 +22,13 @@
         <entry key="app/src/main/res/drawable-v24/ic_action_chat.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_swap.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_upload.xml" value="0.173" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_image_search_24.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable-v24/ic_search_background.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable-v24/ic_search_foreground.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable-v24/ic_upload_background.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable-v24/ic_upload_foreground.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1685" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/activity_other_user_profile.xml" value="0.25" />
