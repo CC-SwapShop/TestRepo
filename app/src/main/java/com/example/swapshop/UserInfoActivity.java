@@ -151,8 +151,7 @@ public class UserInfoActivity extends AppCompatActivity {
     }
 
     public void SignUserOut(){
-        //FirebaseAuth.getInstance().signOut();
-        //startActivity(new Intent(UserInfoActivity.this, Home.class));
+
     }
 
     public void FillStars(long rated){
