@@ -6,10 +6,12 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import android.app.Instrumentation;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
@@ -87,6 +89,19 @@ public class UserInfoTest {
     public void testUpdateButton(){
         onView(withId(R.id.btnupdate)).perform(click());
         userInfoActivity.finish();
+    }
+
+    @Test
+    public void testZeroStarts(){
+        userInfoActivity.FillStars(0);
+        ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU1);
+        assertNotNull(star);
+    }
+
+    @Test
+    public void aAtestSignOutButton(){
+        RecyclerView recyclerView = userInfoActivity.findViewById(R.id.recyclerView_UserInfo);
+        assertNotNull(recyclerView);
     }
 
 

@@ -109,14 +109,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnUI_Signout"
-        android:layout_width="199dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="89dp"
+        android:id="@+id/btnUI_SignOut1"
+        android:layout_width="209dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="22dp"
         android:backgroundTint="#77572A"
         android:text="SignOut"
         app:layout_constraintStart_toEndOf="@+id/btnupdate"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailOther2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_star_CU1"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -136,21 +136,22 @@
         android:layout_width="402dp"
         android:layout_height="40dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="55dp"
         android:background="#FF9800"
         android:gravity="center"
         android:text="Your products"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUI_Signout" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUI_SignOut1" />
 
     <ScrollView
         android:layout_width="391dp"
         android:layout_height="353dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
@@ -165,7 +166,6 @@
                 android:layout_height="356dp" />
         </LinearLayout>
     </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
