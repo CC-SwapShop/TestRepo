@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ public class Chat2 extends AppCompatActivity {
     Button done, cancel;
     ImageButton star1, star2, star3, star4, star5;
     int rating = 5;
+    int rcount=1;
 
     //Views
     TextView txtMProdName, txtMProdDesc;
@@ -57,6 +60,7 @@ public class Chat2 extends AppCompatActivity {
     DatabaseReference pReference;
     DatabaseReference referenceChat;
     CardView cardView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -237,6 +241,7 @@ public class Chat2 extends AppCompatActivity {
     public void createNewRatingDialog(){
         dialogBuilder = new AlertDialog.Builder(this);
         final View ratingPopup = getLayoutInflater().inflate(R.layout.rating_popup, null);
+        ratingPopup.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
 
         dialogBuilder.setView((ratingPopup));
         dialog = dialogBuilder.create();
@@ -311,6 +316,28 @@ public class Chat2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //set new user rating based off this rating
+
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        rcount = (int) snapshot.child("rcount").getValue();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                FirebaseDatabase.getInstance().getReference("Users")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rating").setValue(rating/(rcount+1));
+
+                FirebaseDatabase.getInstance().getReference("Users")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rcount").setValue(rcount+1);
+
+
             }
         });
 
