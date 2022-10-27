@@ -46,7 +46,7 @@ public class Chat2 extends AppCompatActivity {
     Button done, cancel;
     ImageButton star1, star2, star3, star4, star5;
     int rating = 5;
-    int rcount=1;
+    int rcount=1, currrating;
 
     //Views
     TextView txtMProdName, txtMProdDesc;
@@ -323,6 +323,7 @@ public class Chat2 extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         rcount = (int) snapshot.child("rcount").getValue();
+                        currrating = (int) snapshot.child("rating").getValue();
                     }
 
                     @Override
@@ -332,7 +333,7 @@ public class Chat2 extends AppCompatActivity {
                 });
 
                 FirebaseDatabase.getInstance().getReference("Users")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rating").setValue(rating/(rcount+1));
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rating").setValue((currrating+rating)/(rcount+1));
 
                 FirebaseDatabase.getInstance().getReference("Users")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rcount").setValue(rcount+1);
