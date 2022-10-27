@@ -106,7 +106,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             //Registering new user
-                            User user = new User(name,email, "https://firebasestorage.googleapis.com/v0/b/swapshop-8094c.appspot.com/o/userImage.png?alt=media&token=a48bffe3-668a-486c-9128-91b3f968c257", 5, 1);
+                            User user = new User(name,email, "https://firebasestorage.googleapis.com/v0/b/swapshop-8094c.appspot.com/o/userImage.png?alt=media&token=a48bffe3-668a-486c-9128-91b3f968c257", 5, 1, 5);
                             //Firebase connection
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

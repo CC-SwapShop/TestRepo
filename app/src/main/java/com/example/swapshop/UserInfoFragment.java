@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +42,8 @@ public class UserInfoFragment extends Fragment {
     private DatabaseReference reference;
     private List<Product> mUploads;
     private List<String> productIDs;
+    ImageButton star1, star2, star3, star4, star5;
+    long rating=5;
 
     public UserInfoFragment() {
         // Required empty public constructor
@@ -59,6 +63,12 @@ public class UserInfoFragment extends Fragment {
         imgUIimage = view.findViewById(R.id.imgYIimage);
         txtEmailOther=view.findViewById(R.id.txtEmailOther2);
 
+        star1 = view.findViewById(R.id.btn_star_CU1);
+        star2 = view.findViewById(R.id.btn_star_CU2);
+        star3 = view.findViewById(R.id.btn_star_CU3);
+        star4 = view.findViewById(R.id.btn_star_CU4);
+        star5 = view.findViewById(R.id.btn_star_CU5);
+
         //initialise values
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference refs = FirebaseDatabase.getInstance().getReference().child("Users").child(user);
@@ -69,6 +79,8 @@ public class UserInfoFragment extends Fragment {
                 txtEmailOther.setText(snapshot.child("email").getValue().toString());
                 Picasso.with(getContext()).load(snapshot.child("img").getValue().toString())
                         .fit().centerCrop().into(imgUIimage);
+                rating = (long) snapshot.child("rating").getValue(Long.class);
+                FillStars(rating);
             }
 
             @Override
@@ -76,7 +88,6 @@ public class UserInfoFragment extends Fragment {
 
             }
         });
-
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false));
@@ -156,5 +167,30 @@ public class UserInfoFragment extends Fragment {
     public void SignUserOut(){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getContext(), Home.class));
+    }
+
+    public void FillStars(long rated){
+        int rating = (int) Math.round(rated);
+        star1.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
+        star2.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
+        star3.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
+        star4.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
+        star5.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
+
+        if(rating < 5){
+            star5.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_off));
+            if(rating < 4){
+                star4.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_off));
+                if(rating < 3){
+                    star3.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_off));
+                    if(rating < 2){
+                        star2.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_off));
+                        if(rating < 1){
+                            star1.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_off));
+                        }
+                    }
+                }
+            }
+        }
     }
 }
