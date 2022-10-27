@@ -92,14 +92,49 @@ public class UserInfoTest {
     }
 
     @Test
-    public void testZeroStarts(){
+    public void testZeroStars(){
         userInfoActivity.FillStars(0);
         ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU1);
         assertNotNull(star);
     }
 
     @Test
-    public void aAtestSignOutButton(){
+    public void testOneStars(){
+        userInfoActivity.FillStars(1);
+        ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU1);
+        assertNotNull(star);
+    }
+
+    @Test
+    public void testTwoStars(){
+        userInfoActivity.FillStars(2);
+        ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU2);
+        assertNotNull(star);
+    }
+
+    @Test
+    public void testThreeStars(){
+        userInfoActivity.FillStars(3);
+        ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU3);
+        assertNotNull(star);
+    }
+
+    @Test
+    public void testFourStars(){
+        userInfoActivity.FillStars(4);
+        ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU4);
+        assertNotNull(star);
+    }
+
+    @Test
+    public void testFiveStars(){
+        userInfoActivity.FillStars(4);
+        ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU5);
+        assertNotNull(star);
+    }
+
+    @Test
+    public void testRecycleView(){
         RecyclerView recyclerView = userInfoActivity.findViewById(R.id.recyclerView_UserInfo);
         assertNotNull(recyclerView);
     }

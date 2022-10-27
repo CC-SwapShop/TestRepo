@@ -17,7 +17,6 @@ import java.util.List;
 public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserInfoHolder> {
     private Context mContext;
     private List<Product> mUploads;
-    private OnItemClickListener mListener;
 
     public UserInfoAdapter(Context context, List<Product> uploads){
         mContext = context;
@@ -50,7 +49,7 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserIn
         return mUploads.size();
     }
 
-    public class UserInfoHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class UserInfoHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView txtName;
 
@@ -59,28 +58,12 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserIn
 
             imageView = itemView.findViewById(R.id.UICV_product_image);
             txtName = itemView.findViewById(R.id.UICV_product_title);
-            itemView.setOnClickListener(this);
+
         }
 
-        @Override
-        public void onClick(View view) {
-            if(mListener != null){
-                int position = getAdapterPosition();
-                if(position != RecyclerView.NO_POSITION){
-                    mListener.onItemClick(position);
-                }
-            }
-        }
-    }
-
-    public interface OnItemClickListener{
-        void onItemClick(int position);
 
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
-        mListener = listener;
-    }
 
 
 }

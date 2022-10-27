@@ -10,3 +10,4 @@ ignore:
   - "**/UploadProduct"
   - "**/ViewProduct"
   - "**/UploadFrag"
+  - "**/LoginFrag"
