@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class Product{
 
     //Defining variables for product class
-    public String name, description, location,reqProduct, img, UID, status, category;
+    public String name, description, location,reqProduct, img, UID, status, category,swappedUID;
 
     //Required empty constructor
     public Product(){
@@ -15,7 +15,7 @@ public class Product{
 
     //View of product
     //Attribute constructor
-    public Product(String name,String description, String location,String reqProduct, String img, String UID,String status, String category){
+    public Product(String name,String description, String location,String reqProduct, String img, String UID,String status, String category,String swappedUID){
         this.name = name;
         this.description = description;
         this.location = location;
@@ -24,6 +24,7 @@ public class Product{
         this.reqProduct = reqProduct;
         this.status = status;
         this.category = category;
+        this.swappedUID = swappedUID;
     }
 
     //Setting status to Available on the product

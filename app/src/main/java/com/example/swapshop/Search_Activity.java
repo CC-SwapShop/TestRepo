@@ -137,8 +137,9 @@ public class Search_Activity extends AppCompatActivity {
                         String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
                         String status = postsnapshot.child("status").getValue().toString();
                         String category = postsnapshot.child("category").getValue().toString();
+                        String swappedUID = postsnapshot.child("swappedUID").getValue().toString();
 
-                        Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category);
+                        Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category,swappedUID);
                         if(name.contains(pName)){
                             //if found
                             //Displaying the product

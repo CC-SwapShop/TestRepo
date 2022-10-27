@@ -21,7 +21,7 @@ public class ProductTest extends TestCase {
 
     @Before
     public void setUp() throws Exception {
-        product = new Product("Bed", "Sleep on", "Joburg", "money", "bedimg", "123", "swapped", "Home");
+        product = new Product("Bed", "Sleep on", "Joburg", "money", "bedimg", "123", "swapped", "Home","");
         Emptyproduct = new Product();
 
     }
