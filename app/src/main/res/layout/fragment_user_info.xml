@@ -7,6 +7,62 @@
     android:background="@drawable/g"
     tools:context=".UserInfoFragment">
 
+    <ImageButton
+        android:id="@+id/btn_star_CU1"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="18dp"
+        android:background="#00ffffff"
+        android:clickable="false"
+        app:layout_constraintStart_toEndOf="@+id/imgYIimage"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star_CU5"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="#00ffffff"
+        android:clickable="false"
+        app:layout_constraintStart_toEndOf="@+id/btn_star_CU4"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailOther2"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star_CU4"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="#00ffffff"
+        android:clickable="false"
+        app:layout_constraintStart_toEndOf="@+id/btn_star_CU3"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailOther2"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star_CU3"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="#00ffffff"
+        android:clickable="false"
+        app:layout_constraintStart_toEndOf="@+id/btn_star_CU2"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailOther2"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star_CU2"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="18dp"
+        android:background="#00ffffff"
+        android:clickable="false"
+        app:layout_constraintStart_toEndOf="@+id/btn_star_CU1"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:srcCompat="@android:drawable/btn_star" />
+
     <TextView
         android:id="@+id/txtEmailOther2"
         android:layout_width="140dp"

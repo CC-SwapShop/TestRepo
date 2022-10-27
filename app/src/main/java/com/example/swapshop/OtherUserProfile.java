@@ -1,12 +1,17 @@
 package com.example.swapshop;
 
+import static androidx.test.InstrumentationRegistry.getContext;
+
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +39,8 @@ public class OtherUserProfile extends AppCompatActivity {
     private DatabaseReference reference;
     private List<Product> mUploads;
     private List<String> productIDs;
+    ImageButton star1, star2, star3, star4, star5;
+    long rating=5;
 
 
     @Override
@@ -55,6 +62,12 @@ public class OtherUserProfile extends AppCompatActivity {
         user_profile = findViewById(R.id.profile_image);
         mRecyclerView = findViewById(R.id.recycle_view_OtherUser);
 
+        star1 = findViewById(R.id.btn_star_OU1);
+        star2 = findViewById(R.id.btn_star_OU2);
+        star3 = findViewById(R.id.btn_star_OU3);
+        star4 = findViewById(R.id.btn_star_OU4);
+        star5 = findViewById(R.id.btn_star_OU5);
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users")
                 .child(objProduct.UID);
         reference.addValueEventListener(new ValueEventListener() {
@@ -64,7 +77,8 @@ public class OtherUserProfile extends AppCompatActivity {
                 uEmail.setText("" + snapshot.child("email").getValue().toString());
                 Picasso.with(OtherUserProfile.this).load(snapshot.child("img").getValue().toString())
                         .fit().centerCrop().into(user_profile);
-
+                rating = (long) snapshot.child("rating").getValue(Long.class);
+                FillStars(rating);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -131,4 +145,28 @@ public class OtherUserProfile extends AppCompatActivity {
 
 
         }
+    public void FillStars(long rated){
+        int rating = (int) Math.round(rated);
+        star1.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
+        star2.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
+        star3.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
+        star4.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
+        star5.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
+
+        if(rating < 5){
+            star5.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
+            if(rating < 4){
+                star4.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
+                if(rating < 3){
+                    star3.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
+                    if(rating < 2){
+                        star2.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
+                        if(rating < 1){
+                            star1.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

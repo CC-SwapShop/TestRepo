@@ -7,13 +7,22 @@
         <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_register.xml" value="0.35280797101449274" />
         <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_update_details.xml" value="0.35280797101449274" />
         <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/fragment_user_info.xml" value="0.35280797101449274" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/drawable/btn_img_background.xml" value="0.219" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/drawable/custom_button.xml" value="0.219" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_chat.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_chat2.xml" value="0.2749094202898551" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_home.xml" value="0.2520833333333333" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_other_user_profile.xml" value="0.2" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_update_details.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_upload_product.xml" value="0.2520833333333333" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_user_menu.xml" value="0.190625" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/activity_view_product.xml" value="0.2749094202898551" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/fragment_catergory_home.xml" value="0.2520833333333333" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/fragment_swaps.xml" value="0.2484375" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/fragment_upload.xml" value="0.2484375" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/fragment_user_catergory.xml" value="0.2520833333333333" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/fragment_user_info.xml" value="0.2520833333333333" />
-        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/rating_popup.xml" value="0.2749094202898551" />
+        <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/FinalRepo/app/src/main/res/layout/rating_popup.xml" value="0.264" />
         <entry key="..\:/Users/jarid/Desktop/CompSci_2022/Semester 2/COMS3011A - SDP/TestRepo/app/src/main/res/layout/activity_register.xml" value="0.30104166666666665" />
         <entry key="app/src/debug/res/drawable-anydpi/ic_swap.xml" value="0.173" />
         <entry key="app/src/debug/res/drawable-mdpi/ic_action_name.xml" value="0.173" />
@@ -22,34 +31,19 @@
         <entry key="app/src/main/res/drawable-v24/ic_action_chat.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_swap.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_upload.xml" value="0.173" />
-        <entry key="app/src/main/res/drawable-v24/ic_baseline_image_search_24.xml" value="0.1685" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1685" />
-        <entry key="app/src/main/res/drawable-v24/ic_search_background.xml" value="0.1685" />
-        <entry key="app/src/main/res/drawable-v24/ic_search_foreground.xml" value="0.1685" />
-        <entry key="app/src/main/res/drawable-v24/ic_upload_background.xml" value="0.1685" />
-        <entry key="app/src/main/res/drawable-v24/ic_upload_foreground.xml" value="0.1685" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1685" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/activity_other_user_profile.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_update_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_upload_product.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_user_menu.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/activity_view_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_watchlist.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_catergory_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.12364130434782608" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_search_everyone.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_swaps.xml" value="0.12364130434782608" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_search_everyone.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_user_catergory.xml" value="0.129981884057971" />
-        <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.165" />
         <entry key="app/src/main/res/layout/image_item.xml" value="0.129981884057971" />
-        <entry key="app/src/main/res/layout/message_item.xml" value="0.12364130434782608" />
-        <entry key="app/src/main/res/layout/userproduct_item.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/watchlist_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.215625" />
         <entry key="app/src/main/res/menu/user_menu_nav.xml" value="0.215625" />

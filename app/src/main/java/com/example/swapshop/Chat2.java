@@ -46,7 +46,7 @@ public class Chat2 extends AppCompatActivity {
     Button done, cancel;
     ImageButton star1, star2, star3, star4, star5;
     int rating = 5;
-    int rcount=1, currrating;
+    int rcount=1, curr_totalrating=5;
 
     //Views
     TextView txtMProdName, txtMProdDesc;
@@ -59,6 +59,7 @@ public class Chat2 extends AppCompatActivity {
     DatabaseReference reference;
     DatabaseReference pReference;
     DatabaseReference referenceChat;
+    DatabaseReference referenceRate;
     CardView cardView;
 
 
@@ -256,17 +257,13 @@ public class Chat2 extends AppCompatActivity {
         done = (Button) ratingPopup.findViewById(R.id.btnDone);
         cancel = (Button) ratingPopup.findViewById(R.id.btnCancel);
 
-        star1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                star1.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_on));
-                star2.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
-                star3.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
-                star4.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
-                star5.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
-                rating = 1;
-            }
-        });
+        star1.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_on));
+        star2.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
+        star3.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
+        star4.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
+        star5.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),android.R.drawable.btn_star_big_off));
+        rating = 1;
+
         star2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -317,34 +314,45 @@ public class Chat2 extends AppCompatActivity {
             public void onClick(View view) {
                 //set new user rating based off this rating
 
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-
-                reference.addValueEventListener(new ValueEventListener() {
+                referenceRate = FirebaseDatabase.getInstance().getReference().child("Users");
+                referenceRate.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        rcount = (int) snapshot.child("rcount").getValue();
-                        currrating = (int) snapshot.child("rating").getValue();
+                        for(DataSnapshot postsnapshot: snapshot.getChildren()){
+                            if(postsnapshot.getKey().equals(objOnGoingSwap.customer)){
+                                rcount = (int) postsnapshot.child("rcount").getValue(Integer.class);
+                                curr_totalrating = (int) postsnapshot.child("totalratings").getValue(Integer.class);
+
+                                FirebaseDatabase.getInstance().getReference().child(("Users"))
+                                        .child(objOnGoingSwap.customer).child("rating").setValue((curr_totalrating+rating)/(rcount+1));
+
+                                FirebaseDatabase.getInstance().getReference().child(("Users"))
+                                        .child(objOnGoingSwap.customer).child("totalratings").setValue((curr_totalrating+rating));
+
+                                FirebaseDatabase.getInstance().getReference().child("Users")
+                                        .child(objOnGoingSwap.customer).child("rcount").setValue(rcount+1);
+
+                                Toast.makeText(Chat2.this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
+                                //setContentView(R.layout.activity_home);
+                                startActivity(new Intent(getApplicationContext(), UserMenu.class));
+                            }
+                        }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        Toast.makeText(Chat2.this, "Tansaction Failed", Toast.LENGTH_SHORT).show();
+                        //setContentView(R.layout.activity_home);
+                        startActivity(new Intent(getApplicationContext(), UserMenu.class));
                     }
                 });
-
-                FirebaseDatabase.getInstance().getReference("Users")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rating").setValue((currrating+rating)/(rcount+1));
-
-                FirebaseDatabase.getInstance().getReference("Users")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("rcount").setValue(rcount+1);
-
-
             }
         });
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(Chat2.this, "Rating dismissed", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
