@@ -1,6 +1,5 @@
 package com.example.swapshop;
 
-import static android.content.Intent.getIntent;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -9,9 +8,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import android.app.Instrumentation;
-import android.os.Bundle;
 
-import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -24,35 +21,47 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
-public class ChatTest extends TestCase {
+public class Search_ActivityTest extends TestCase {
 
     @Rule
-    public ActivityTestRule<Chat> ChatActivityTestRule = new ActivityTestRule<>(Chat.class);
+    public ActivityTestRule<Search_Activity> SearchActivityTestRule = new ActivityTestRule<Search_Activity>(Search_Activity.class);
 
-    private Chat chat = null;
+    private Search_Activity search_activity = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
-    public static final String STRING_TO_BE_TYPED_ProdDesc = "drives";
-    public static final String STRING_TO_BE_TYPED_ProdName = "car";
-    public static final String STRING_TO_BE_TYPED_Message = "sup";
-    public static final String STRING_TO_BE_TYPED_MSend = "sup";
-    public static final String STRING_TO_BE_TYPED_Accept = "accept";
-    public static final String STRING_TO_BE_TYPED_Decline = "decline";
-
     @Before
     public void setUp() throws Exception {
-        chat = ChatActivityTestRule.getActivity();
+        search_activity = SearchActivityTestRule.getActivity();
     }
 
     @Test
     public void isActivityInView(){
-        onView(withId(R.id.Chat)).check(matches(isDisplayed()));
+        onView(withId(R.id.frameLayout)).check(matches(isDisplayed()));
     }
 
+    @Test
+    public void btnOther1Test() {
+        onView(withId(R.id.button11)).perform(click());
+    }
+
+    @Test
+    public void btnGames1Test() {
+        onView(withId(R.id.button4)).perform(click());
+    }
+
+    @Test
+    public void btnSport1Test() {
+        onView(withId(R.id.button5)).perform(click());
+    }
+
+    @Test
+    public void btnSearchProductTest() {
+        onView(withId(R.id.button)).perform(click());
+    }
 
     @After
     public void tearDown() throws Exception {
-        chat = null;
+        search_activity = null;
     }
 }

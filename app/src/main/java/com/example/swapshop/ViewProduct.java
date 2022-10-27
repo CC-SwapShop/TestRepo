@@ -33,7 +33,7 @@ public class ViewProduct extends AppCompatActivity {
     public Product objProduct;
     public String sPID;
     public boolean bLogin;
-    TextView txtVP_Desc,txtVP_Name,txtVP_Loc,txtVP_UID,txtVP_ItemSwap;
+    TextView txtVP_Desc,txtVP_Name,txtVP_Loc,txtVP_UID,txtVP_ItemSwap, textStatus;
     ImageView imgVP_Prod;
     Button btnVP_swap, btnVP_AddWish;
 
@@ -57,22 +57,43 @@ public class ViewProduct extends AppCompatActivity {
         txtVP_Loc = findViewById(R.id.txtVP_Loc);
         txtVP_UID = findViewById(R.id.txtVP_UID);
         txtVP_ItemSwap = findViewById(R.id.txtVP_ItemSwap);
+        textStatus = findViewById(R.id.textStatus);
         imgVP_Prod = findViewById(R.id.imgVP_Prod);
         btnVP_swap = findViewById(R.id.btnVP_Swap);
         btnVP_AddWish = findViewById(R.id.btnVP_AddWishlist);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users")
+                .child(objProduct.UID);
 
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot postsnapshot: snapshot.getChildren()){
+                    String sKey = postsnapshot.getKey();
+                    if(sKey.equals("name")){
+                        txtVP_UID.setText("User:\n" + postsnapshot.getValue().toString());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         //initialise the texts on the interface
-        txtVP_UID.setText("User ID:\n" + objProduct.UID);
+        //txtVP_UID.setText("User ID:\n" + objProduct.UID);
         txtVP_Name.setText("name:\n" + objProduct.name);
         txtVP_Desc.setText("Description:\n" + objProduct.description);
         txtVP_Loc.setText("Location:\n" + objProduct.location);
         txtVP_ItemSwap.setText("User would like:\n" + objProduct.reqProduct);
+        textStatus.setText("Status:\n" + objProduct.status);
+        //Do teh statu thing here
 
         //Load image from url
         Picasso.with(this).load(objProduct.img).fit().centerCrop().into(imgVP_Prod);
 
         //To do if bLogin bool is false
-        if(bLogin == false){
+        if(bLogin == false || objProduct.checkSwapped()==true){
             btnVP_AddWish.setVisibility(View.INVISIBLE);
             btnVP_swap.setVisibility(View.INVISIBLE);
         }
@@ -124,9 +145,15 @@ public class ViewProduct extends AppCompatActivity {
 
     //Function to mark product as swapped and send notification
     public void SwappProduct(){
-        objProduct.setSwapped(true);
-        FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("swapped").setValue(true);
+        objProduct.setStatusOfferMade();
+        FirebaseDatabase.getInstance().getReference("Products").child(sPID).child("status").setValue("Offer Made");
 
+        //Add to OngoingSwaps table
+        OnGoingSwaps onGoingSwaps = new OnGoingSwaps(FirebaseAuth.getInstance().getCurrentUser().getUid()
+                ,objProduct.UID,sPID,true);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+        String key = ref.push().getKey();
+        ref.child(key).setValue(onGoingSwaps);
         //Database reference
         DatabaseReference wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -150,7 +177,12 @@ public class ViewProduct extends AppCompatActivity {
         });
 
         //Go to chat class for user to chat with user //To be implemented in future sprints
-        startActivity(new Intent(getApplicationContext(), Chat.class));
+
+        //Go to chat class for user to chat with user //To be implemented in future sprints
+        Intent intent = new Intent(getApplicationContext(), Chat.class);
+        intent.putExtra("Select_ID",sPID);
+        intent.putExtra("Extra_ongoingID",key);
+        startActivity(intent);
 
         //Message to say product has been requested as confirmation
         Toast.makeText(ViewProduct.this,"Product has been requested for swap",Toast.LENGTH_SHORT).show();
@@ -161,7 +193,7 @@ public class ViewProduct extends AppCompatActivity {
 
         //Firebase reference
         FirebaseDatabase.getInstance().getReference("Watchlist")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(sPID).setValue(objProduct)
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(sPID).child("SwappedChecked").setValue(false)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

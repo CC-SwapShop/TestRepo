@@ -1,0 +1,12 @@
+ignore:
+  - "**/Validation"
+  - "**/CatergoryHomeFragment"
+  - "**/UserCatergoryFragment"
+  - "**/Search"
+  - "**/Watchlist"
+  - "**/WatchlistAdapter"
+  - "**/Register"
+  - "**/UserWatchlist"
+  - "**/UploadProduct"
+  - "**/ViewProduct"
+  - "**/UploadFrag"

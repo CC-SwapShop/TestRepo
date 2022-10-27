@@ -55,8 +55,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return mUploads.size();
     }
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
-            View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
+    public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView textViewName;
         public ImageView imageView;
         public ImageViewHolder(@NonNull View itemView) {
@@ -78,7 +77,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             }
         }
 
-        @Override
+        /*@Override
         public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
             contextMenu.setHeaderTitle("Select Action");
             MenuItem AddWishlist = contextMenu.add(Menu.NONE,1,1,"Add to Wishlist");
@@ -102,15 +101,15 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 }
             }
             return false;
-        }
+        }*/
     }
 
     public interface OnItemClickListener{
         void onItemClick(int position);
 
-        void onWishlistClick(int position);
+        //void onWishlistClick(int position);
 
-        void onSwapped(int position);
+        //void onSwapped(int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){

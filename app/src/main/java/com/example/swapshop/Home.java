@@ -14,6 +14,7 @@ public class Home extends AppCompatActivity {
     com.example.swapshop.databinding.ActivityHomeBinding binding;
 
     //Menu
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,17 @@ public class Home extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //Starting fragment to be opened upon unregistered menu
-        replaceFragment(new SearchEveryone());
+        Bundle bundle = new Bundle();
+        bundle.putString("sCategory","Toys");
+
+        Fragment fragment;
+        fragment = new SearchEveryone();
+        fragment.setArguments(bundle);
+        FragmentManager fragmentManager= getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.flFragment,fragment);
+        fragmentTransaction.commit();
+        //replaceFragment(new SearchEveryone());
 
         //binding bottom navigation menu for unregistered menu
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -33,7 +44,17 @@ public class Home extends AppCompatActivity {
             {
                 //Search fragment for unregistered menu
                 case R.id.search:
-                    replaceFragment(new SearchEveryone());
+                    //replaceFragment(new SearchEveryone());
+                    Bundle bundle2 = new Bundle();
+                    bundle2.putString("sCategory","Toys");
+
+                    Fragment fragment2;
+                    fragment2 = new SearchEveryone();
+                    fragment2.setArguments(bundle2);
+                    FragmentManager fragmentManager2= getSupportFragmentManager();
+                    FragmentTransaction fragmentTransactio2n= fragmentManager2.beginTransaction();
+                    fragmentTransactio2n.replace(R.id.flFragment,fragment2);
+                    fragmentTransactio2n.commit();
                     break;
                 //LogIn fragment
                 case R.id.logIn:
@@ -52,9 +73,5 @@ public class Home extends AppCompatActivity {
         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.flFragment,fragment);
         fragmentTransaction.commit();
-    }
-
-    public static String TestUnit(String Name){
-        return Name;
     }
 }

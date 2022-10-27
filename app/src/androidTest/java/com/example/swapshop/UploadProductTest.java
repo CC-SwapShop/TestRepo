@@ -63,6 +63,15 @@ public class UploadProductTest extends TestCase {
     }
 
     @Test
+    public void Testimgadd(){
+        onView(withId(R.id.edtAName)).perform(typeText(STRING_TO_BE_TYPED_PRODUCT), closeSoftKeyboard());
+        onView(withId(R.id.edtADescription)).perform(typeText(STRING_TO_BE_TYPED_DESCRIPTION), closeSoftKeyboard());
+        onView(withId(R.id.edtALocation)).perform(typeText(STRING_TO_BE_TYPED_LOCATION), closeSoftKeyboard());
+        onView(withId(R.id.edtALreqProduct)).perform(typeText(STRING_TO_BE_TYPED_REQ_PRODUCT), closeSoftKeyboard());
+        onView(withId(R.id.btnAUpload)).perform(click());
+    }
+
+    @Test
     public void ProductTextView(){
         View view = uploadProduct.findViewById(R.id.edtAName);
         assertNotNull(view);
