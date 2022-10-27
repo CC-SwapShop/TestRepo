@@ -91,7 +91,7 @@ public class UserInfoTest {
         userInfoActivity.finish();
     }
 
-    @Test
+    /*@Test
     public void testZeroStars(){
         userInfoActivity.FillStars(0);
         ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU1);
@@ -131,7 +131,7 @@ public class UserInfoTest {
         userInfoActivity.FillStars(4);
         ImageButton star = userInfoActivity.findViewById(R.id.btn_star_CU5);
         assertNotNull(star);
-    }
+    }*/
 
     @Test
     public void testRecycleView(){
