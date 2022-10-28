@@ -5,15 +5,19 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     tools:context=".SwapsFragment">
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="326dp"
         android:layout_height="38dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="28dp"
+        android:fontFamily="serif"
         android:text="List of swaps completed "
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

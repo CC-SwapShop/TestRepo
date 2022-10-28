@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     tools:context=".UserInfoFragment">
 
     <ImageButton
@@ -69,6 +69,8 @@
         android:layout_height="20dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="56dp"
+        android:fontFamily="serif"
+        android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="parent" />
@@ -79,7 +81,9 @@
         android:layout_height="19dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="serif"
         android:text="Email:"
+        android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintStart_toEndOf="@+id/imgYIimage"
         app:layout_constraintTop_toBottomOf="@+id/txtUI_name" />
@@ -102,8 +106,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="serif"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imgYIimage"
         app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +119,8 @@
         android:layout_width="199dp"
         android:layout_height="47dp"
         android:layout_marginTop="89dp"
-        android:backgroundTint="#77572A"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="SignOut"
         app:layout_constraintStart_toEndOf="@+id/btnupdate"
         app:layout_constraintTop_toBottomOf="@+id/txtEmailOther2"
@@ -125,7 +132,8 @@
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="25dp"
-        android:backgroundTint="#77572A"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="CHANGE DETAILS"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgYIimage"
@@ -137,10 +145,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="3dp"
-        android:background="#FF9800"
+        android:background="#0E387A"
+        android:fontFamily="serif"
         android:gravity="center"
         android:text="Your products"
-        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignout" />
 
