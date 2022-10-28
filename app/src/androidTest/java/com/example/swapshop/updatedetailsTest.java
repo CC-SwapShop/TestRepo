@@ -35,7 +35,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 @RunWith(AndroidJUnit4.class)
 public class updatedetailsTest extends TestCase{
-
+/*
 
         @Rule
         public ActivityTestRule<update_details_activity> updatedetailsActivityTestRule = new ActivityTestRule<Register>(update_details_activity.class);
@@ -101,4 +101,7 @@ public class updatedetailsTest extends TestCase{
             register = null;
         }
     }
+
+
+ */
 }
