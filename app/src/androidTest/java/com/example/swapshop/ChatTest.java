@@ -10,6 +10,7 @@ import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentat
 
 import android.app.Instrumentation;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -45,10 +46,17 @@ public class ChatTest extends TestCase {
         chat = ChatActivityTestRule.getActivity();
     }
 
+    //@Test
+    //public void isActivityInView(){
+    //    onView(withId(R.id.chat)).check(matches(isDisplayed()));
+    //}
+
     @Test
-    public void isActivityInView(){
-        onView(withId(R.id.chat)).check(matches(isDisplayed()));
+    public void testTextView(){
+        TextView textView = chat.findViewById(R.id.txtMProdDesc1);
+        assertNotNull(textView);
     }
+
 
 
     @After

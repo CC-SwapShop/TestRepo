@@ -106,7 +106,7 @@ public class SearchEveryone extends Fragment {
         btnSport3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(),OtherUserProfile.class));
+
             }
         });
         //Using the search function
