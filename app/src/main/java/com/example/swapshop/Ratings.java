@@ -43,7 +43,7 @@ public class Ratings extends AppCompatActivity {
         setContentView(R.layout.activity_chat2);
 
         //CreateRatingsDialog
-        //createNewRatingDialog();
+        createNewRatingDialog();
     }
 
     //rating class

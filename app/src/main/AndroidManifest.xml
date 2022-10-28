@@ -20,6 +20,12 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".OtherUserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Ratings"
+            android:exported="false" />
+        <activity
             android:name=".Watchlist"
             android:exported="false">
             <meta-data
