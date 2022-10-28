@@ -5,7 +5,7 @@
     android:id="@+id/upload_product"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     tools:context=".UploadProduct">
 
     <ScrollView
@@ -33,33 +33,41 @@
                 android:layout_width="392dp"
                 android:layout_height="62dp"
                 android:ems="10"
+                android:fontFamily="serif"
                 android:hint="Product Name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/edtADescription"
                 android:layout_width="392dp"
                 android:layout_height="60dp"
                 android:ems="10"
+                android:fontFamily="serif"
                 android:gravity="start|top"
                 android:hint="Description"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/edtALocation"
                 android:layout_width="392dp"
                 android:layout_height="59dp"
                 android:ems="10"
+                android:fontFamily="serif"
                 android:hint="Location"
-                android:inputType="textPostalAddress" />
+                android:inputType="textPostalAddress"
+                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/edtALreqProduct"
                 android:layout_width="392dp"
                 android:layout_height="61dp"
                 android:ems="10"
+                android:fontFamily="serif"
                 android:hint="Product or amount user wants"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="#FFFFFF" />
 
             <Spinner
                 android:id="@+id/spinner2"
@@ -75,6 +83,7 @@
                 android:layout_marginLeft="2dip"
                 android:layout_marginTop="0dp"
                 android:backgroundTint="#808080"
+                android:fontFamily="serif"
                 android:text="Upload" />
         </LinearLayout>
     </ScrollView>

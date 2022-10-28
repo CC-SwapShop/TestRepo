@@ -81,8 +81,8 @@ public class Chat2 extends AppCompatActivity {
         imgMProduct = findViewById(R.id.imgMProduct1);
         edtMessage = findViewById(R.id.edtMessage1);
         fbtnMSend = findViewById(R.id.fbtnMSend1);
-        btnMAccept = findViewById(R.id.btnMAccept1);
-        btnMDecline = findViewById(R.id.btnMDecline1);
+        btnMAccept = findViewById(R.id.btnMAccept);
+        btnMDecline = findViewById(R.id.btnMDecline);
         cardView = findViewById(R.id.cvButtons1);
 
         //Getting user

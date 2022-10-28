@@ -4,26 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     android:orientation="vertical"
     tools:context=".Home">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="279dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="serif"
         android:text="SWAPSHOP"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/flFragment"
-        android:layout_width="411dp"
-        android:layout_height="530dp"
+        android:layout_width="410dp"
+        android:layout_height="527dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="7dp"
@@ -35,13 +36,43 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_width="413dp"
+        android:layout_height="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="107dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="224dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imageedit_16_9518787658" />
+
+    <TextView
+        android:id="@+id/txt_wits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
+        android:text="WITS"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="121dp"
+        android:layout_height="88dp"
+        app:srcCompat="@drawable/dd"
+        tools:layout_editor_absoluteX="-9dp"
+        tools:layout_editor_absoluteY="19dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

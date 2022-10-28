@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     android:orientation="vertical"
     tools:context=".update_details_activity">
 
@@ -13,9 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="33dp"
         android:layout_marginTop="24dp"
-        android:text="Input new username"
-        android:textSize="25dp"
+        android:fontFamily="serif"
         android:gravity="center"
+        android:text="Input new username"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -27,8 +29,10 @@
         android:layout_marginStart="54dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:gravity="center"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         tools:hint="Name" />
 
     <Button
@@ -37,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginTop="9dp"
-        android:backgroundTint="#77572A"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="change username" />
 
     <TextView
@@ -45,8 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="39dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="serif"
         android:gravity="center"
         android:text="Enter email for password reset"
+        android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,17 +66,20 @@
         android:layout_marginStart="54dp"
         android:layout_marginTop="9dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:gravity="center"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnsendemail"
         android:layout_width="281dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
-        android:backgroundTint="#77572A"
         android:layout_marginTop="18dp"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="send password reset email" />
 
     <TextView
@@ -77,8 +87,10 @@
         android:layout_width="match_parent"
         android:layout_height="39dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="serif"
         android:gravity="center"
         android:text="Enter email for password reset"
+        android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,10 +106,11 @@
     <Button
         android:id="@+id/btnuploaddp"
         android:layout_width="283dp"
-        android:backgroundTint="#77572A"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginTop="18dp"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="Change display picture" />
 
 </LinearLayout>
