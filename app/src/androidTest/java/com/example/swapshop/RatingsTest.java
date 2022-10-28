@@ -90,12 +90,6 @@ public class RatingsTest extends TestCase {
         setUp();
     }
 
-    @Test
-    public void G_testCancel(){
-        onView(withId(R.id.btnCancel)).perform(click());
-        ratings.finish();
-    }
-
 
     @After
     public void tearDown() throws Exception {

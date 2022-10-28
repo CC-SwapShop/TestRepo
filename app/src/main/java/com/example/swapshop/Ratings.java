@@ -149,21 +149,11 @@ public class Ratings extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(Ratings.this, "Tansaction Failed", Toast.LENGTH_SHORT).show();
-                        //setContentView(R.layout.activity_home);
-                        startActivity(new Intent(getApplicationContext(), UserMenu.class));
                     }
                 });
             }
         });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Ratings.this, "Rating dismissed", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
-        });
 
     }
 
