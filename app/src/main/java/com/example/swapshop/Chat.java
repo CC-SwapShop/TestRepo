@@ -53,10 +53,10 @@ public class Chat extends AppCompatActivity {
         objOnGoingSwap = intent.getParcelableExtra("Extra_ongoing");
 
         //Find ID with interface
-        txtMProdDesc = findViewById(R.id.txtMProdDesc);
-        txtMProdName = findViewById(R.id.txtMProdName);
-        edtMessage = findViewById(R.id.edtMessage);
-        fbtnMSend = findViewById(R.id.fbtnMSend);
+        txtMProdDesc = findViewById(R.id.txtMProdDesc1);
+        txtMProdName = findViewById(R.id.txtMProdName1);
+        edtMessage = findViewById(R.id.edtMessage1);
+        fbtnMSend = findViewById(R.id.fbtnMSend1);
         btnMAccept = findViewById(R.id.btnMAccept);
         btnMDecline = findViewById(R.id.btnMDecline);
 

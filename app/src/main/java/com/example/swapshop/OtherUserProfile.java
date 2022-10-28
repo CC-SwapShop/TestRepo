@@ -45,13 +45,14 @@ public class OtherUserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_other_user_profile);
 
         Bundle extras = getIntent().getExtras();
-        objProduct = extras.getParcelable("Select_Product");
+        //objProduct = extras.getParcelable("Select_Product");
         //Get data from another activity
         Intent intent = getIntent();
         //objProduct = intent.getParcelableExtra("Select_Product");
         sPID = intent.getStringExtra("Select_ID");
         //sOGID = intent.getStringExtra("Extra_ongoingID");
         //objOnGoingSwap = intent.getParcelableExtra("Extra_ongoing");
+        String userUID = "ht1bHCU5GAWHUgpkdfz5vmBUcid2";
 
         uname = findViewById(R.id.txtNameOther);
         uEmail= findViewById(R.id.txtEmailOther);
@@ -65,7 +66,7 @@ public class OtherUserProfile extends AppCompatActivity {
         star5 = findViewById(R.id.btn_star_OU5);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users")
-                .child(objProduct.UID);
+                .child(userUID);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -109,7 +110,7 @@ public class OtherUserProfile extends AppCompatActivity {
 
 
                     //Adding product to list
-                    if(ojProduct.UID.equals(objProduct.UID) && ojProduct.checkSwapped() == false ){
+                    if(ojProduct.UID.equals(userUID) && ojProduct.checkSwapped() == false ){
                         productIDs.add(postsnapshot.getKey());
                         mUploads.add(ojProduct);
                     }
@@ -157,9 +158,7 @@ public class OtherUserProfile extends AppCompatActivity {
                     star3.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
                     if(rating < 2){
                         star2.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
-                        if(rating < 1){
-                            star1.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
-                        }
+
                     }
                 }
             }

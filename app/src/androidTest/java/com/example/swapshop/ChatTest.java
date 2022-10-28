@@ -47,7 +47,7 @@ public class ChatTest extends TestCase {
 
     @Test
     public void isActivityInView(){
-        onView(withId(R.id.Chat)).check(matches(isDisplayed()));
+        onView(withId(R.id.chat)).check(matches(isDisplayed()));
     }
 
 
