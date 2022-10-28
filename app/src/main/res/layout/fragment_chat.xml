@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     tools:context=".ChatFragment">
 
     <TextView
@@ -22,8 +22,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_Ongoing"
-        android:layout_width="match_parent"
-        android:layout_height="647dp"
+        android:layout_width="410dp"
+        android:layout_height="659dp"
         android:layout_marginTop="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

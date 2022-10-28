@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gnew"
+    android:background="#0E387A"
     tools:context=".ViewProduct">
 
 
@@ -14,7 +14,8 @@
         android:layout_height="54dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="27dp"
-        android:backgroundTint="#B5700B"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="Swap"
         app:layout_constraintStart_toEndOf="@+id/textStatus"
         app:layout_constraintTop_toBottomOf="@+id/txtVP_ItemSwap" />
@@ -26,7 +27,8 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="30dp"
-        android:backgroundTint="#E47979"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="View profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgVP_Prod"
@@ -49,6 +51,7 @@
         android:layout_height="95dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="serif"
         android:text="SWAPSHOP"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
@@ -72,17 +75,21 @@
         android:layout_marginStart="13dp"
 
         android:layout_marginTop="12dp"
+        android:fontFamily="serif"
         android:text="About this item"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/txtVP_Name"
-        android:layout_width="165dp"
-        android:layout_height="41dp"
+        android:layout_width="185dp"
+        android:layout_height="38dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="serif"
         android:text="Name of product"
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imgVP_Prod"
@@ -95,7 +102,9 @@
         android:layout_marginStart="16dp"
 
         android:layout_marginTop="12dp"
+        android:fontFamily="serif"
         android:text="Location"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textStatus" />
 
@@ -115,9 +124,11 @@
         android:id="@+id/txtVP_ItemSwap"
         android:layout_width="165dp"
         android:layout_height="41dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="serif"
         android:text="What user wants"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/txtVP_Desc"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -127,7 +138,8 @@
         android:layout_height="61dp"
         android:layout_marginStart="49dp"
         android:layout_marginTop="7dp"
-        android:backgroundTint="#C39610"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="Add to Watchlist"
         app:layout_constraintStart_toEndOf="@+id/txtVP_Loc"
         app:layout_constraintTop_toBottomOf="@+id/btnVP_Swap" />
@@ -139,7 +151,9 @@
         android:layout_marginStart="16dp"
 
         android:layout_marginTop="9dp"
+        android:fontFamily="serif"
         android:text="Status"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtVP_Desc" />
 
@@ -149,7 +163,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
+        android:fontFamily="serif"
         android:text="Description"
+        android:textColor="#FFFFFF"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,6 +178,7 @@
         android:layout_marginStart="125dp"
         android:layout_marginTop="53dp"
         android:text="What user wants"
+        android:textColor="#FFFFFF"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView2"
