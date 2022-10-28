@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     android:orientation="vertical"
     tools:context=".Search">
 
@@ -15,7 +15,7 @@
         android:layout_height="46dp"
 
         android:layout_marginTop="35dp"
-        android:background="#EDA437"
+        android:background="#808080"
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_sort_by_size"
@@ -29,6 +29,7 @@
         android:layout_marginTop="35dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Product Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
@@ -78,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:fontFamily="serif"
                 android:text="Other" />
 
             <Button
@@ -86,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:fontFamily="serif"
                 android:text="Sports" />
 
             <Button
@@ -94,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:fontFamily="serif"
                 android:text="Games" />
 
             <Button
@@ -102,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:fontFamily="serif"
                 android:text="Toys" />
 
             <Button
@@ -109,6 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:fontFamily="monospace"
                 android:text="Home and Appliance" />
         </LinearLayout>
     </HorizontalScrollView>

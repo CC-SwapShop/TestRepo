@@ -15,6 +15,7 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="92dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColor="#FFFFFF"
@@ -27,6 +28,7 @@
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Password"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
@@ -39,6 +41,7 @@
         android:layout_height="58dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="Log in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLPassword" />
@@ -49,6 +52,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="92dp"
         android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="Register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLPassword" />
