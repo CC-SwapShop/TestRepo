@@ -58,6 +58,7 @@ public class UserInfoTest {
         String actual = txtUIEmail.getText().toString();
         String expected = "Email:";
 
+
         assertEquals(actual,expected);
     }
 
