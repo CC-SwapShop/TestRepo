@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,9 +70,12 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
                         String UID = postsnapshot.child("UID").getValue().toString();
                         Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                         String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
+                        String status = postsnapshot.child("status").getValue().toString();
+                        String category = postsnapshot.child("category").getValue().toString();
+                        String swappedUID = postsnapshot.child("swappedUID").getValue().toString();
 
                         //new Product
-                        Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
+                        Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category,swappedUID);
 
                         //Adding to list
                         mUploads.add(objProduct);
@@ -100,13 +104,18 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
     public void onItemClick(int position) {
         Product currProduct = mUploads.get(position);
         String pID = objWatchlist.ProductIDs.get(position);
+
+        if(currProduct.checkSwapped()==true){
+            FirebaseDatabase.getInstance().getReference("Watchlist")
+                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    .child(pID).child("SwappedChecked").setValue(true);
+        }
         Intent intent = new Intent(getApplicationContext(), ViewProduct.class);
-        intent.putExtra("Curr_Product", currProduct);
         intent.putExtra("Extra_ID",pID);
         startActivity(intent);
     }
 
-    @Override
+    /*@Override
     public void onWishlistClick(int position) {
         Toast.makeText(Watchlist.this,"Wishlist click at: " + position,Toast.LENGTH_SHORT).show();
     }
@@ -114,6 +123,6 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
     @Override
     public void onSwapped(int position) {
         Toast.makeText(Watchlist.this,"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-    }
+    }*/
 
 }

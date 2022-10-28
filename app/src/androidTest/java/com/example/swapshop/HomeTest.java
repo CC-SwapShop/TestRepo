@@ -41,7 +41,6 @@ public class HomeTest {
     public void SwapShopTextView(){
         View view =  home.findViewById(R.id.textView);
         assertNotNull(view);
-
     }
 
     @Test

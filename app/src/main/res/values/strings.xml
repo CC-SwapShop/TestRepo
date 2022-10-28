@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">SwapShop</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="categories">
+        <item>Toys</item>
+        <item>Home/Appliance</item>
+        <item>Games</item>
+        <item>Sport</item>
+    </string-array>
 </resources>

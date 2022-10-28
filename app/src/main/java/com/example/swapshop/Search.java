@@ -36,6 +36,7 @@ Search extends Fragment {
     LinearLayout llSearch;
     ImageButton btnSearchProduct;
     Button btnAll;
+    Button btnHome1,btnToys1,btnGames1,btnSport1, btnOther1;
 
     //Private variables
     private RecyclerView mRecyclerView;
@@ -43,6 +44,7 @@ Search extends Fragment {
     private DatabaseReference reference;
     private List<Product> mUploads;
     private List<String> productIDs;
+    private String sCategory;
 
 
     //Empty constructor needed for fragment
@@ -56,16 +58,90 @@ Search extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_search, container, false);
 
+
+        //pass data between fragments
+
+       Bundle bundle = this.getArguments();
+        sCategory = bundle.getString("sCategory");
+
+
         //Finding the corresponding Views
         edtSProductName = view.findViewById(R.id.edtSProductName);
         //llSearch = view.findViewById(R.id.llSearchProduct);
         btnSearchProduct = view.findViewById(R.id.button);
         btnAll = view.findViewById(R.id.ded);
         mRecyclerView = view.findViewById(R.id.recycler_view);
-
+        btnHome1 = view.findViewById(R.id.button2);
+        btnToys1 = view.findViewById(R.id.button3);
+        btnGames1 = view.findViewById(R.id.button4);
+        btnSport1 = view.findViewById(R.id.button5);
+        btnOther1= view.findViewById(R.id.button11);
 
         //Calling method
         listAll();
+        btnOther1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Other");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+        btnHome1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Home & Appliance");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+
+        btnToys1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Toys");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+
+        btnGames1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Games");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
+
+        btnSport1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change view
+                Bundle bundle = new Bundle();
+                bundle.putString("sCategory","Sport");
+
+                Search fragment = new Search();
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
+            }
+        });
 
         //Using the search function
         btnSearchProduct.setOnClickListener(new android.view.View.OnClickListener() {
@@ -104,20 +180,26 @@ Search extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mUploads.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
-                    productIDs.add(postsnapshot.getKey());
+
                     String name = postsnapshot.child("name").getValue().toString();
                     String description = postsnapshot.child("description").getValue().toString();
                     String location = postsnapshot.child("location").getValue().toString();
                     String img = postsnapshot.child("img").getValue().toString();
                     String UID = postsnapshot.child("UID").getValue().toString();
-                    Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
+                    String status = postsnapshot.child("status").getValue().toString();
+                    String category = postsnapshot.child("category").getValue().toString();
+                    String swappedUID = postsnapshot.child("swappedUID").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category,swappedUID);
 
                     //Adding product to list
-                    mUploads.add(objProduct);
+                    if(objProduct.checkSwapped() == false && category.equals(sCategory) ){
+                        productIDs.add(postsnapshot.getKey());
+                        mUploads.add(objProduct);
+                    }
                 }
 
                 //Getting image
@@ -131,14 +213,13 @@ Search extends Fragment {
                         Product currProduct = mUploads.get(position);
                         String pID = productIDs.get(position);
                         Intent intent = new Intent(getContext(), ViewProduct.class);
-                        intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
                         startActivity(intent);
 
                     }
 
                     //Wishlist
-                    @Override
+                    /*@Override
                     public void onWishlistClick(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                     }
@@ -147,7 +228,7 @@ Search extends Fragment {
                     @Override
                     public void onSwapped(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);
@@ -192,16 +273,20 @@ Search extends Fragment {
                     String location = postsnapshot.child("location").getValue().toString();
                     String img = postsnapshot.child("img").getValue().toString();
                     String UID = postsnapshot.child("UID").getValue().toString();
-                    Boolean bSwap = (Boolean) postsnapshot.child("swapped").getValue();
                     String reqProduct = postsnapshot.child("reqProduct").getValue().toString();
+                    String status = postsnapshot.child("status").getValue().toString();
+                    String category = postsnapshot.child("category").getValue().toString();
+                    String swappedUID = postsnapshot.child("swappedUID").getValue().toString();
 
-                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,bSwap);
+                    Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category,swappedUID);
                     if(name.contains(pName)){
                         //if found
                         //Displaying the product
-                        iFound = 1;
-                        mUploads.add(objProduct);
-                        productIDs.add(postsnapshot.getKey());
+                        if(objProduct.checkSwapped() == false){
+                            iFound = 1;
+                            mUploads.add(objProduct);
+                            productIDs.add(postsnapshot.getKey());
+                        }
                     }
 
 
@@ -226,13 +311,12 @@ Search extends Fragment {
                         String pID = productIDs.get(position);
                         Toast.makeText(getContext(), currProduct.name + " " + pID,Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getContext(), ViewProduct.class);
-                        intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
                         startActivity(intent);
 
                     }
 
-                    @Override
+                    /*@Override
                     public void onWishlistClick(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
                     }
@@ -240,7 +324,7 @@ Search extends Fragment {
                     @Override
                     public void onSwapped(int position) {
                         Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);
