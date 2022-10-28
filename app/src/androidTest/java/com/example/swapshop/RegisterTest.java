@@ -52,7 +52,7 @@ public class RegisterTest extends TestCase {
 
     @Before
     public void setUp() throws Exception {
-        register = registerActivityTestRule.getActivity();
+        register = registerActivityTestRule.getActivity();+
     }
 
     public void isActivityInView(){

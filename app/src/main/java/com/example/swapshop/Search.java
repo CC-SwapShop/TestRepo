@@ -28,7 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Search extends Fragment {
+public class
+Search extends Fragment {
 
     //Variables for Search class
     EditText edtSProductName;
