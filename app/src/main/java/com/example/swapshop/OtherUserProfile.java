@@ -29,6 +29,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OtherUserProfile extends AppCompatActivity {
 
+    //Variables defined
     public Product objProduct;
     public String sPID;
     private CircleImageView user_profile;
@@ -43,11 +44,13 @@ public class OtherUserProfile extends AppCompatActivity {
     long rating=5;
 
 
+    //OnCreate method for OtherUserProfile
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_user_profile);
 
+        //Bundles create to get information from previous activity
         Bundle extras = getIntent().getExtras();
         objProduct = extras.getParcelable("Select_Product");
         //Get data from another activity
@@ -57,20 +60,25 @@ public class OtherUserProfile extends AppCompatActivity {
         //sOGID = intent.getStringExtra("Extra_ongoingID");
         //objOnGoingSwap = intent.getParcelableExtra("Extra_ongoing");
 
+        //Getting text views
         uname = findViewById(R.id.txtNameOther);
         uEmail= findViewById(R.id.txtEmailOther);
         user_profile = findViewById(R.id.profile_image);
         mRecyclerView = findViewById(R.id.recycle_view_OtherUser);
 
+        //Buttons for star view
         star1 = findViewById(R.id.btn_star_OU1);
         star2 = findViewById(R.id.btn_star_OU2);
         star3 = findViewById(R.id.btn_star_OU3);
         star4 = findViewById(R.id.btn_star_OU4);
         star5 = findViewById(R.id.btn_star_OU5);
 
+        //Database reference
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users")
                 .child(objProduct.UID);
         reference.addValueEventListener(new ValueEventListener() {
+
+            //Getting information from databsase
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 uname.setText("" + snapshot.child("name").getValue().toString());
@@ -86,11 +94,13 @@ public class OtherUserProfile extends AppCompatActivity {
             }
         });
 
+        //Recycle views
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(OtherUserProfile.this, 2, RecyclerView.VERTICAL, false));
         mUploads = new ArrayList<>();
         productIDs = new ArrayList<>();
 
+        //Reference to database
         reference = FirebaseDatabase.getInstance().getReference().child("Products");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -99,6 +109,7 @@ public class OtherUserProfile extends AppCompatActivity {
                 mUploads.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
 
+                    //Getting information from database
                     String name = postsnapshot.child("name").getValue().toString();
                     String description = postsnapshot.child("description").getValue().toString();
                     String location = postsnapshot.child("location").getValue().toString();
@@ -119,6 +130,7 @@ public class OtherUserProfile extends AppCompatActivity {
                     }
                 }
 
+                //Adapters
                 mAdapter = new UserInfoAdapter(OtherUserProfile.this,mUploads);
                 mAdapter.setOnItemClickListener(new UserInfoAdapter.OnItemClickListener() {
                     @Override
@@ -133,6 +145,7 @@ public class OtherUserProfile extends AppCompatActivity {
                     }
                 });
 
+                //Setting the products view
                 mRecyclerView.setAdapter(mAdapter);
 
             }
@@ -145,6 +158,7 @@ public class OtherUserProfile extends AppCompatActivity {
 
 
         }
+        //Method to fill stars
     public void FillStars(long rated){
         int rating = (int) Math.round(rated);
         star1.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
@@ -153,6 +167,7 @@ public class OtherUserProfile extends AppCompatActivity {
         star4.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
         star5.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_on));
 
+        //Depending on rating
         if(rating < 5){
             star5.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.btn_star_big_off));
             if(rating < 4){

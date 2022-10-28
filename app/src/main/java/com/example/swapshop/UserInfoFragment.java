@@ -34,6 +34,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class UserInfoFragment extends Fragment {
+
+    //Variables defined
     TextView txtUI_name,txtEmailOther;
     CircleImageView imgUIimage;
     Button btnSignOut, btnupdate;
@@ -45,10 +47,12 @@ public class UserInfoFragment extends Fragment {
     ImageButton star1, star2, star3, star4, star5;
     long rating=5;
 
+    // Required empty public constructor
     public UserInfoFragment() {
         // Required empty public constructor
     }
 
+    //OnCreate method for UserInfoFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,6 +67,7 @@ public class UserInfoFragment extends Fragment {
         imgUIimage = view.findViewById(R.id.imgYIimage);
         txtEmailOther=view.findViewById(R.id.txtEmailOther2);
 
+        //Buttons for star view
         star1 = view.findViewById(R.id.btn_star_CU1);
         star2 = view.findViewById(R.id.btn_star_CU2);
         star3 = view.findViewById(R.id.btn_star_CU3);
@@ -70,9 +75,11 @@ public class UserInfoFragment extends Fragment {
         star5 = view.findViewById(R.id.btn_star_CU5);
 
         //initialise values
+        //Database reference
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference refs = FirebaseDatabase.getInstance().getReference().child("Users").child(user);
         refs.addValueEventListener(new ValueEventListener() {
+            //Getting information from databsase
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 txtUI_name.setText(snapshot.child("name").getValue().toString());
@@ -89,11 +96,13 @@ public class UserInfoFragment extends Fragment {
             }
         });
 
+        //Recycle views
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false));
         mUploads = new ArrayList<>();
         productIDs = new ArrayList<>();
 
+        //Reference to database
         reference = FirebaseDatabase.getInstance().getReference().child("Products");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -102,6 +111,7 @@ public class UserInfoFragment extends Fragment {
                 mUploads.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
 
+                    //Getting information from database
                     String name = postsnapshot.child("name").getValue().toString();
                     String description = postsnapshot.child("description").getValue().toString();
                     String location = postsnapshot.child("location").getValue().toString();
@@ -122,6 +132,7 @@ public class UserInfoFragment extends Fragment {
                     }
                 }
 
+                //Adapters
                 mAdapter = new UserInfoAdapter(getActivity(),mUploads);
                 mAdapter.setOnItemClickListener(new UserInfoAdapter.OnItemClickListener() {
                     @Override
@@ -136,6 +147,7 @@ public class UserInfoFragment extends Fragment {
                     }
                 });
 
+                //Setting the products view
                 mRecyclerView.setAdapter(mAdapter);
 
             }
@@ -154,9 +166,11 @@ public class UserInfoFragment extends Fragment {
             }
         });
 
+        //On click for go to update details
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Changing activity
                 startActivity(new Intent(getContext(), update_details_activity.class));
             }
         });
@@ -164,11 +178,13 @@ public class UserInfoFragment extends Fragment {
         return view;
     }
 
+    //User sign out
     public void SignUserOut(){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getContext(), Home.class));
     }
 
+    //Filling stars
     public void FillStars(long rated){
         int rating = (int) Math.round(rated);
         star1.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
@@ -177,6 +193,7 @@ public class UserInfoFragment extends Fragment {
         star4.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
         star5.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_on));
 
+        //Depending on rating
         if(rating < 5){
             star5.setImageDrawable(ContextCompat.getDrawable(getContext(),android.R.drawable.btn_star_big_off));
             if(rating < 4){

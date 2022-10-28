@@ -50,12 +50,15 @@
         <entry key="app/src/main/res/layout/activity_view_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_watchlist.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_catergory_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_search_everyone.xml" value="0.129981884057971" />
+        <entry key="app/src/main/res/layout/fragment_swaps.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_user_catergory.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.165" />
         <entry key="app/src/main/res/layout/image_item.xml" value="0.129981884057971" />
+        <entry key="app/src/main/res/layout/ongoing_item.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/watchlist_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.215625" />
         <entry key="app/src/main/res/menu/user_menu_nav.xml" value="0.215625" />
