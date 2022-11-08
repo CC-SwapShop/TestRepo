@@ -140,7 +140,7 @@ public class OtherUserProfile extends AppCompatActivity {
                         Intent intent = new Intent(OtherUserProfile.this, ViewProduct.class);
                         intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
-                        //intent.putExtra("Extra_login",false);
+                        intent.putExtra("Extra_login",false);
                         startActivity(intent);
                     }
                 });

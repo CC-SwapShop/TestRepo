@@ -64,7 +64,7 @@ public class SearchEveryone extends Fragment {
         //Finding the corresponding Views
         edtSProductName1 = view.findViewById(R.id.edtSProductName1);
         //llSearch = view.findViewById(R.id.llSearchProduct);
-        btnSearchProduct1 = view.findViewById(R.id.ded1);
+        btnSearchProduct1 = view.findViewById(R.id.btnSEsearch2);
         btnAll = view.findViewById(R.id.ded1);
         mRecyclerView3 = view.findViewById(R.id.recycler_view3);
         btnHome3 = view.findViewById(R.id.button6);
@@ -153,6 +153,7 @@ public class SearchEveryone extends Fragment {
         btnSearchProduct1.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 findProduct();
             }
         });
