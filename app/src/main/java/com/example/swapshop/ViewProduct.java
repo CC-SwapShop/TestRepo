@@ -193,9 +193,9 @@ public class ViewProduct extends AppCompatActivity {
         //Add to OngoingSwaps table
         OnGoingSwaps onGoingSwaps = new OnGoingSwaps(FirebaseAuth.getInstance().getCurrentUser().getUid()
                 ,objProduct.UID,sPID,true);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
-        String key = ref.push().getKey();
-        ref.child(key).setValue(onGoingSwaps);
+        String onGoingSwapsKey = FirebaseAuth.getInstance().getCurrentUser().getUid() + sPID + objProduct.UID;
+        FirebaseDatabase.getInstance().getReference().child("ProductOngoingSwaps").child(onGoingSwapsKey).setValue(onGoingSwaps);
+
         //Database reference
         DatabaseReference wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -219,12 +219,12 @@ public class ViewProduct extends AppCompatActivity {
         });
 
 
-
+        String key = "-NGMkH9tT85OpIjQUsmW";
         //Go to chat class for user to chat with user
-        Intent intent = new Intent(getApplicationContext(), Chat.class);
-        intent.putExtra("Select_Product",objProduct);
+        Intent intent = new Intent(getApplicationContext(), Chat2.class);
+        //intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);
-        intent.putExtra("Extra_ongoingID",key);
+        intent.putExtra("Extra_ongoingID",onGoingSwapsKey);
         intent.putExtra("Extra_ongoing",onGoingSwaps);
         startActivity(intent);
 

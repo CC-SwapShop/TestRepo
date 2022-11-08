@@ -3,6 +3,7 @@ package com.example.swapshop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,6 +40,9 @@ public class Chat extends AppCompatActivity {
     DatabaseReference reference;
     DatabaseReference referenceChat;
     CardView cardView;
+    List<String> arrMesssages;
+    private MessageAdapter mAdapter;
+    RecyclerView recyclerView_ChatMesage1;
 
     @Override
     //Java class for chat function to be implemented in future
@@ -54,6 +58,7 @@ public class Chat extends AppCompatActivity {
         sPID = intent.getStringExtra("Select_ID");
         sOGID = intent.getStringExtra("Extra_ongoingID");
         objOnGoingSwap = intent.getParcelableExtra("Extra_ongoing");
+        Toast.makeText(Chat.this, sOGID, Toast.LENGTH_SHORT).show();
 
         //Find ID with interface
         txtMProdDesc = findViewById(R.id.txtMProdDesc);
@@ -64,6 +69,7 @@ public class Chat extends AppCompatActivity {
         btnMAccept = findViewById(R.id.btnMAccept);
         btnMDecline = findViewById(R.id.btnMDecline);
         cardView = findViewById(R.id.cvButtons);
+        recyclerView_ChatMesage1 = findViewById(R.id.recyclerView_ChatMesage1);
 
         //initialise the texts on the interface
         txtMProdName.setText(objProduct.name);
@@ -92,6 +98,31 @@ public class Chat extends AppCompatActivity {
                     }
                 }
             }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        arrMesssages =  new ArrayList<>();
+        referenceChat = FirebaseDatabase.getInstance().getReference().child("ChatMessages");
+        referenceChat.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot  postsnapshot: snapshot.getChildren()){
+                    String Message = postsnapshot.child("message").getValue().toString();
+                    String chatID = postsnapshot.child("chatID").getKey().toString();
+
+                    Toast.makeText(Chat.this, Message, Toast.LENGTH_SHORT).show();
+                    arrMesssages.add(Message);
+
+                }
+                //Adapter
+                mAdapter = new MessageAdapter(Chat.this,arrMesssages);
+
+                recyclerView_ChatMesage1.setAdapter(mAdapter);
+            }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -168,19 +199,24 @@ public class Chat extends AppCompatActivity {
         }
         //ChatMessage chatMessage = new ChatMessage(user,sMessage,provider);
         //Database references
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
+        /*DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
         String key = ref.push().getKey();
         ref.child(key).child("message").setValue(sMessage);
         ref.child(key).child("from").setValue(user);
-        ref.child(key).child("to").setValue(provider);
+        ref.child(key).child("to").setValue(provider);*/
+
+        DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference().child("ChatMessages");
+        String key = chatRef.push().getKey();
+        ChatMessage objChatMessage = new ChatMessage(user,sMessage,provider,sOGID);
+        chatRef.child(key).setValue(objChatMessage);
 
 
         //Starting chat 2
-        Intent intent = new Intent( getApplicationContext(), Chat2.class);
+        /*Intent intent = new Intent( getApplicationContext(), Chat2.class);
         intent.putExtra("Select_ID",sPID);
         intent.putExtra("Extra_ongoingID",sOGID);
         intent.putExtra("Extra_ongoing",objOnGoingSwap);
 
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }

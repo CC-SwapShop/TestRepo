@@ -62,7 +62,7 @@ public class ChatFragment extends Fragment {
         mUploads = new ArrayList<>();
         onGoingSwapsIDs = new ArrayList<>();
         onGoingSwaps = new ArrayList<>();
-        wReference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+        wReference = FirebaseDatabase.getInstance().getReference().child("ProductOngoingSwaps");
         wReference.addValueEventListener(new ValueEventListener() {
             //From database
             @Override

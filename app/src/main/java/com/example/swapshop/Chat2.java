@@ -39,7 +39,7 @@ public class Chat2 extends AppCompatActivity {
     private Product objProduct;
     private OnGoingSwaps objOnGoingSwap;
     private RecyclerView mRecyclerView;
-    private MessageAdapter mAdapter;
+    private ChatMessageAdapter mAdapter;
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
@@ -55,7 +55,7 @@ public class Chat2 extends AppCompatActivity {
     FloatingActionButton fbtnMSend;
     Button btnMDecline, btnMAccept;
     List<String> productOngoing;
-    List<String> arrMesssages;
+    List<ChatMessage> arrMesssages;
     DatabaseReference reference;
     DatabaseReference pReference;
     DatabaseReference referenceChat;
@@ -125,8 +125,8 @@ public class Chat2 extends AppCompatActivity {
         //populate array for ongoing
         productOngoing = new ArrayList<>();
 
-        //Database reference
-        reference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+        //Database reference ongoing swaps
+        reference = FirebaseDatabase.getInstance().getReference().child("ProductOngoingSwaps");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -146,24 +146,29 @@ public class Chat2 extends AppCompatActivity {
 
         //Array list
         arrMesssages =  new ArrayList<>();
-        referenceChat = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
+        referenceChat = FirebaseDatabase.getInstance().getReference().child("ChatMessages");
         referenceChat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrMesssages.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
-                    //String to = postsnapshot.child("to").getValue().toString();
-                    String sMessage = postsnapshot.child("message").getValue().toString();
-                    //String from = postsnapshot.child("from").getValue().toString();
-                    //ChatMessage chatMessage = new ChatMessage(from,sMessage,to);
-                    //arrChatMessages.add(chatMessage);
-                    //Toast.makeText(Chat2.this,sMessage,Toast.LENGTH_SHORT).show();
-                    arrMesssages.add(sMessage);
+                    String Message = postsnapshot.child("message").getValue().toString();
+                    String to = postsnapshot.child("messageTo").getValue().toString();
+                    String chatID = postsnapshot.child("chatID").getValue().toString();
+                    String from = postsnapshot.child("messageFrom").getValue().toString();
+
+                    ChatMessage chatMessage = new ChatMessage(from,Message,to,chatID);
+
+                    if(chatID.equals(sOGID)) {
+                        arrMesssages.add(chatMessage);
+                    }
+
 
                 }
 
                 //Adapter
-                mAdapter = new MessageAdapter(Chat2.this,arrMesssages);
+                mAdapter = new ChatMessageAdapter(Chat2.this,arrMesssages,
+                        FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                 mRecyclerView.setAdapter(mAdapter);
             }
@@ -203,7 +208,7 @@ public class Chat2 extends AppCompatActivity {
 
     //Functions
     public void DeclineOffer(){
-        FirebaseDatabase.getInstance().getReference("OngoingSwaps").child(sOGID)
+        FirebaseDatabase.getInstance().getReference("ProductOngoingSwaps").child(sOGID)
                 .child("ongoing").setValue(false);
 
         //Message to say product has been declined
@@ -221,7 +226,7 @@ public class Chat2 extends AppCompatActivity {
 
         //Set all ongoing offers for product to false
         for (String temp : productOngoing) {
-            FirebaseDatabase.getInstance().getReference("OngoingSwaps").child(temp)
+            FirebaseDatabase.getInstance().getReference("ProductOngoingSwaps").child(temp)
                     .child("ongoing").setValue(false);
         }
         //add item to Accepted swap
@@ -341,7 +346,7 @@ public class Chat2 extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(Chat2.this, "Tansaction Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Chat2.this, "Transaction Failed", Toast.LENGTH_SHORT).show();
                         //setContentView(R.layout.activity_home);
                         startActivity(new Intent(getApplicationContext(), UserMenu.class));
                     }
@@ -369,20 +374,11 @@ public class Chat2 extends AppCompatActivity {
             provider = objOnGoingSwap.customer;
         }
 
+        DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference().child("ChatMessages");
+        String key = chatRef.push().getKey();
+        ChatMessage objChatMessage = new ChatMessage(user,sMessage,provider,sOGID);
+        chatRef.child(key).setValue(objChatMessage);
 
-
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
-        String key = ref.push().getKey();
-        ref.child(key).child("message").setValue(sMessage);
-        ref.child(key).child("from").setValue(user);
-        ref.child(key).child("to").setValue(provider);
-
-        /*Intent intent = new Intent( getApplicationContext(), Chat2.class);
-        intent.putExtra("Select_ID",sPID);
-        intent.putExtra("Extra_ongoingID",sOGID);
-        intent.putExtra("Extra_ongoing",objOnGoingSwap);
-
-        startActivity(intent);*/
+        edtMessage.setText("");
     }
 }
