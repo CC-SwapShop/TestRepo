@@ -152,8 +152,9 @@ public class ViewProduct extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), OtherUserProfile.class);
         intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);
-        intent.putExtra("Extra_ongoingID",key);
-        intent.putExtra("Extra_ongoing",onGoingSwaps);
+        //intent.putExtra("Extra_ongoingID",key);
+        //intent.putExtra("Extra_ongoing",onGoingSwaps);
+        intent.putExtra("Extra_NOtLogin",bLogin);
         startActivity(intent);
     }
 
