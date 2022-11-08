@@ -1,9 +1,9 @@
 name: Android CI
 on:
   push:
-    branches: [ newMain ]
+    branches: [ Kiaran ]
   pull_request:
-    branches: [ newMain ]
+    branches: [ Kiaran ]
 
 jobs:
   build:
@@ -27,3 +27,11 @@ jobs:
       - name: Run Debug Tests
         run: ./gradlew testDebugUnitTest
 
+      - name: Run espresso tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 24
+          script: ./gradlew connectedCheck
+
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
