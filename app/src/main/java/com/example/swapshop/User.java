@@ -4,7 +4,7 @@ public class User {
 
     //Variables to use
     public String name, email, img;
-    public int totalrating, rcount;
+    public int totalratings, rcount;
     public long rating;
 
 
@@ -20,6 +20,6 @@ public class User {
         this.img = img;
         this.rating = rating;
         this.rcount = rcount;
-        this.totalrating = totalrating;
+        this.totalratings = totalrating;
     }
 }
