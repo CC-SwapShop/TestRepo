@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/red"
+    android:background="#0E387A"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-1dp">
 
@@ -17,6 +17,7 @@
         android:text="Congrats on your successful swap!"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +29,7 @@
         android:layout_marginTop="28dp"
         android:text="Please rate this customer on your experience"
         android:textSize="14sp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_thanks" />

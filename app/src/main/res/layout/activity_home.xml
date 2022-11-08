@@ -10,14 +10,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="279dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="116dp"
+        android:layout_width="251dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="48dp"
         android:fontFamily="serif"
         android:text="SWAPSHOP"
         android:textColor="#ffffff"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +38,8 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="413dp"
         android:layout_height="62dp"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -48,7 +50,7 @@
         android:id="@+id/imageView4"
         android:layout_width="107dp"
         android:layout_height="58dp"
-        android:layout_marginStart="224dp"
+        android:layout_marginStart="240dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/imageedit_16_9518787658" />
@@ -57,7 +59,7 @@
         android:id="@+id/txt_wits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
+        android:layout_marginStart="195dp"
         android:layout_marginTop="16dp"
         android:fontFamily="serif"
         android:text="WITS"

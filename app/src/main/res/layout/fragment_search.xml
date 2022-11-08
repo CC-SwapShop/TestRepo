@@ -43,7 +43,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="35dp"
 
-        android:background="#F6B85B"
+        android:background="#808080"
         app:layout_constraintStart_toEndOf="@+id/edtSProductName"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search"

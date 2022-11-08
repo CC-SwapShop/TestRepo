@@ -13,7 +13,7 @@
         android:layout_width="282dp"
         android:layout_height="67dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="-10dp"
         android:fontFamily="serif"
         android:text="SWAPSHOP"
@@ -38,6 +38,8 @@
         android:id="@+id/bottomNavigationView2"
         android:layout_width="wrap_content"
         android:layout_height="75dp"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -46,17 +48,18 @@
 
     <ImageButton
         android:id="@+id/btnWatch"
-        android:layout_width="95dp"
-        android:layout_height="59dp"
+        android:layout_width="77dp"
+        android:layout_height="67dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#808080"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#651717"
         app:srcCompat="@android:drawable/stat_notify_sync_noanim"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:backgroundTint="#808080"
-        app:rippleColor="#651717"/>
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

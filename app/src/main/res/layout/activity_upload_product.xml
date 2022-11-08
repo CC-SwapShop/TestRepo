@@ -36,7 +36,8 @@
                 android:fontFamily="serif"
                 android:hint="Product Name"
                 android:inputType="textPersonName"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
 
             <EditText
                 android:id="@+id/edtADescription"
@@ -47,7 +48,8 @@
                 android:gravity="start|top"
                 android:hint="Description"
                 android:inputType="textMultiLine"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
 
             <EditText
                 android:id="@+id/edtALocation"
@@ -57,7 +59,8 @@
                 android:fontFamily="serif"
                 android:hint="Location"
                 android:inputType="textPostalAddress"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
 
             <EditText
                 android:id="@+id/edtALreqProduct"
@@ -67,16 +70,18 @@
                 android:fontFamily="serif"
                 android:hint="Product or amount user wants"
                 android:inputType="text"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
 
             <Spinner
                 android:id="@+id/spinner2"
                 android:layout_width="399dp"
-                android:layout_height="57dp" />
+                android:layout_height="57dp"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/btnAUpload"
-
+                android:textColor="#FFFFFF"
                 android:layout_width="456dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
