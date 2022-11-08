@@ -5,26 +5,27 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     tools:context=".SwapsFragment">
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="326dp"
         android:layout_height="38dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="28dp"
-        android:text="List of swaps completed and ongoing (record)"
+        android:fontFamily="serif"
+        android:text="List of swaps completed "
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="264dp"
-        android:layout_height="135dp"
-
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="114dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_CompletedSwaps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />

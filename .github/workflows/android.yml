@@ -1,9 +1,9 @@
 name: Android CI
 on:
   push:
-    branches: [ master ]
+    branches: [ Kiaran ]
   pull_request:
-    branches: [ master ]
+    branches: [ Kiaran ]
 
 jobs:
   build:

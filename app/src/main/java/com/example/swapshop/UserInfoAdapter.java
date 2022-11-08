@@ -15,16 +15,20 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserInfoHolder> {
+
+    //Variables
     private Context mContext;
     private List<Product> mUploads;
     private OnItemClickListener mListener;
 
+    //Contructor
     public UserInfoAdapter(Context context, List<Product> uploads){
         mContext = context;
         mUploads = uploads;
     }
 
 
+    //Oncreate place holder
     @NonNull
     @Override
     public UserInfoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,6 +36,7 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserIn
         return new UserInfoHolder(v);
     }
 
+    //Bind holder
     @Override
     public void onBindViewHolder(@NonNull UserInfoHolder holder, int position) {
         Product currProduct = mUploads.get(position);
@@ -45,6 +50,7 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserIn
 
     }
 
+    //Getting item count
     @Override
     public int getItemCount() {
         return mUploads.size();
@@ -54,6 +60,7 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserIn
         public ImageView imageView;
         public TextView txtName;
 
+        //Getting information about user
         public UserInfoHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -62,6 +69,7 @@ public class UserInfoAdapter extends RecyclerView.Adapter<UserInfoAdapter.UserIn
             itemView.setOnClickListener(this);
         }
 
+            //Onlick
         @Override
         public void onClick(View view) {
             if(mListener != null){

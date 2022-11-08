@@ -32,6 +32,7 @@ public class WatchlistAdapter extends RecyclerView.Adapter<WatchlistAdapter.Watc
         mUploads = uploads;
     }
 
+    //Holder
     @NonNull
     @Override
     public WatchlistHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +40,8 @@ public class WatchlistAdapter extends RecyclerView.Adapter<WatchlistAdapter.Watc
         return new WatchlistHolder(v);
     }
 
+
+    //Image
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull WatchlistHolder holder, int position) {
@@ -54,6 +57,8 @@ public class WatchlistAdapter extends RecyclerView.Adapter<WatchlistAdapter.Watc
 
     }
 
+
+    //Getting item count
     @Override
     public int getItemCount() {
         return mUploads.size();
@@ -67,10 +72,10 @@ public class WatchlistAdapter extends RecyclerView.Adapter<WatchlistAdapter.Watc
         public WatchlistHolder(@NonNull View itemView) {
             super(itemView);
 
+            //Getting views
             textViewName = itemView.findViewById(R.id.text_view_name1);
             imageView = itemView.findViewById(R.id.image_view_upload1);
             cardView = itemView.findViewById(R.id.card_view);
-
             itemView.setOnClickListener(this);
 
         }

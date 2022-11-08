@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     tools:context=".LoginFrag">
 
     <EditText
@@ -15,8 +15,11 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="92dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,29 +29,32 @@
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLEmail" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="169dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="124dp"
+        android:layout_width="410dp"
+        android:layout_height="58dp"
         android:layout_marginTop="20dp"
-        android:text="Log in"
         android:backgroundTint="#808080"
+        android:fontFamily="serif"
+        android:text="Log in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLPassword" />
 
     <Button
         android:id="@+id/btnLRegister"
-        android:layout_width="169dp"
-        android:layout_height="63dp"
-        android:backgroundTint="#808080"
-        android:layout_marginStart="124dp"
+        android:layout_width="410dp"
+        android:layout_height="61dp"
         android:layout_marginTop="92dp"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="Register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLPassword" />

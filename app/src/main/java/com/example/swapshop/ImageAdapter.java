@@ -37,10 +37,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return new ImageViewHolder(v);
     }
 
+    //Binding
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         Product currProduct = mUploads.get(position);
         holder.textViewName.setText(currProduct.name);
+        holder.textViewW.setText("           "+ currProduct.reqProduct);
         Picasso.with(mContext)
                 .load(currProduct.img)
                 .placeholder(R.mipmap.ic_launcher)
@@ -55,18 +57,21 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return mUploads.size();
     }
 
+    //Image holder
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView textViewName;
+        public TextView textViewName,textViewW;
         public ImageView imageView;
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textViewName = itemView.findViewById(R.id.text_view_name);
+            textViewW = itemView.findViewById(R.id.textViewR);
             imageView = itemView.findViewById(R.id.image_view_upload);
 
             itemView.setOnClickListener(this);
         }
 
+        //Positions
         @Override
         public void onClick(View v){
             if(mListener != null){

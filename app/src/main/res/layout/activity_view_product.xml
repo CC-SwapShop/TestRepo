@@ -4,19 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/g"
+    android:background="#0E387A"
     tools:context=".ViewProduct">
+
 
     <Button
         android:id="@+id/btnVP_Swap"
-        android:layout_width="115dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="162dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="27dp"
         android:backgroundTint="#808080"
+        android:fontFamily="serif"
         android:text="Swap"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textStatus" />
+        app:layout_constraintStart_toEndOf="@+id/textStatus"
+        app:layout_constraintTop_toBottomOf="@+id/txtVP_ItemSwap" />
+
+    <Button
+        android:id="@+id/btnVP_Swap2"
+        android:layout_width="171dp"
+        android:layout_height="48dp"
+        android:textColor="@color/white"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
+        android:text="View profile"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgVP_Prod"
+        app:layout_constraintTop_toBottomOf="@+id/txtVP_UID" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -35,6 +53,7 @@
         android:layout_height="95dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="serif"
         android:text="SWAPSHOP"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
@@ -43,33 +62,38 @@
 
     <ImageView
         android:id="@+id/imgVP_Prod"
-        android:layout_width="156dp"
-        android:layout_height="142dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="27dp"
+        android:layout_width="147dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVP_UID"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/txtVP_Desc"
         android:layout_width="167dp"
         android:layout_height="58dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Description"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imgVP_Prod"
-        app:layout_constraintTop_toBottomOf="@+id/txtVP_Name" />
+        android:layout_marginStart="13dp"
+
+        android:layout_marginTop="12dp"
+        android:fontFamily="serif"
+        android:text="About this item"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/txtVP_Name"
-        android:layout_width="165dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="102dp"
-        android:textStyle="bold"
+        android:layout_width="185dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
         android:text="Name of product"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imgVP_Prod"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -77,54 +101,106 @@
         android:id="@+id/txtVP_Loc"
         android:layout_width="165dp"
         android:layout_height="41dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="12dp"
+        android:fontFamily="serif"
         android:text="Location"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imgVP_Prod"
-        app:layout_constraintTop_toBottomOf="@+id/txtVP_Desc" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStatus" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="27dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVP_Swap2" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/txtVP_UID"
-        android:layout_width="163dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:textStyle="bold"
+        android:layout_width="162dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="9dp"
         android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        android:textSize="18dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgVP_Prod"
+        app:layout_constraintTop_toBottomOf="@+id/txtVP_Name" />
 
     <TextView
         android:id="@+id/txtVP_ItemSwap"
         android:layout_width="165dp"
         android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="serif"
         android:text="What user wants"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgVP_Prod" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/txtVP_Desc"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/btnVP_AddWishlist"
-        android:layout_width="121dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="113dp"
-        android:layout_marginTop="157dp"
+        android:layout_width="165dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="7dp"
         android:backgroundTint="#808080"
-        android:text="Add Watchlist"
-        app:layout_constraintStart_toEndOf="@+id/btnVP_Swap"
-        app:layout_constraintTop_toBottomOf="@+id/txtVP_Loc" />
+        android:fontFamily="serif"
+        android:text="Add to Watchlist"
+        app:layout_constraintStart_toEndOf="@+id/txtVP_Loc"
+        app:layout_constraintTop_toBottomOf="@+id/btnVP_Swap" />
 
     <TextView
         android:id="@+id/textStatus"
         android:layout_width="164dp"
         android:layout_height="41dp"
-        android:layout_marginStart="17dp"
-        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="9dp"
+        android:fontFamily="serif"
         android:text="Status"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVP_ItemSwap" />
+        app:layout_constraintTop_toBottomOf="@+id/txtVP_Desc" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="serif"
+        android:text="Description"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgVP_Prod" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="53dp"
+        android:text="What user wants"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/btnVP_Swap2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

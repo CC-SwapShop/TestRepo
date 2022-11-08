@@ -23,11 +23,13 @@ public class CatergoryHomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_catergory_home, container, false);
 
+        //variables
         btnHome = view.findViewById(R.id.btnHomeAplliances);
         btnToys = view.findViewById(R.id.btnToys);
         btnGames = view.findViewById(R.id.btnGames);
         btnSport = view.findViewById(R.id.btnSport);
 
+        //Home and appliances
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,32 +43,36 @@ public class CatergoryHomeFragment extends Fragment {
             }
         });
 
+        //Toys
         btnToys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //changeview
                 Bundle bundle = new Bundle();
+                //Sending string to next class
                 bundle.putString("sCategory","Toys");
-
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
             }
         });
 
+        //Games
         btnGames.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //changeview
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Games");
-
+                //Sending string to next class
                 SearchEveryone fragment = new SearchEveryone();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment,fragment).commit();
             }
         });
 
+        //Sport
         btnSport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

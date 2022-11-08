@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0E387A"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-1dp">
+
+    <TextView
+        android:id="@+id/txt_thanks"
+        android:layout_width="331dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Congrats on your successful swap!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_rate"
+        android:layout_width="382dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="Please rate this customer on your experience"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_thanks" />
+
+    <ImageButton
+        android:id="@+id/btn_star3"
+        android:layout_width="53dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:background="#00ffffff"
+        app:layout_constraintStart_toEndOf="@+id/btn_star2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rate"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star1"
+        android:layout_width="53dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="#00ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rate"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star2"
+        android:layout_width="53dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:background="#00ffffff"
+        app:layout_constraintStart_toEndOf="@+id/btn_star1"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rate"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star4"
+        android:layout_width="53dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:background="#00ffffff"
+        app:layout_constraintStart_toEndOf="@+id/btn_star3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rate"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/btn_star5"
+        android:layout_width="53dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:background="#00ffffff"
+        app:layout_constraintStart_toEndOf="@+id/btn_star4"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rate"
+        app:srcCompat="@android:drawable/btn_star" />
+
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="119dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_button"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_star1" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="119dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_button"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/btnDone"
+        app:layout_constraintTop_toBottomOf="@+id/btn_star4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@ public class Search extends Fragment {
     EditText edtSProductName;
     LinearLayout llSearch;
     ImageButton btnSearchProduct;
-    Button btnAll;
+    ImageButton btnAll;
     Button btnHome1,btnToys1,btnGames1,btnSport1, btnOther1;
 
     //Private variables
@@ -59,8 +59,7 @@ public class Search extends Fragment {
 
 
         //pass data between fragments
-
-       Bundle bundle = this.getArguments();
+        Bundle bundle = this.getArguments();
         sCategory = bundle.getString("sCategory");
 
 
@@ -85,6 +84,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Other");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -97,6 +97,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Home & Appliance");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -110,6 +111,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Toys");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -122,7 +124,7 @@ public class Search extends Fragment {
                 //change view
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Games");
-
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -136,6 +138,7 @@ public class Search extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("sCategory","Sport");
 
+                //New fragment with arguments
                 Search fragment = new Search();
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().replace(R.id.flFragment2,fragment).commit();
@@ -162,6 +165,7 @@ public class Search extends Fragment {
     }
 
 
+    //Listing all
     public void listAll()
     {
         //getting data from database
@@ -194,6 +198,7 @@ public class Search extends Fragment {
 
                     Product objProduct = new Product(name,description,location,reqProduct,img,UID,status,category,swappedUID);
 
+
                     //Adding product to list
                     if(objProduct.checkSwapped() == false && category.equals(sCategory) ){
                         productIDs.add(postsnapshot.getKey());
@@ -212,6 +217,7 @@ public class Search extends Fragment {
                         Product currProduct = mUploads.get(position);
                         String pID = productIDs.get(position);
                         Intent intent = new Intent(getContext(), ViewProduct.class);
+                        intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
                         startActivity(intent);
 
@@ -310,6 +316,7 @@ public class Search extends Fragment {
                         String pID = productIDs.get(position);
                         Toast.makeText(getContext(), currProduct.name + " " + pID,Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getContext(), ViewProduct.class);
+                        intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
                         startActivity(intent);
 

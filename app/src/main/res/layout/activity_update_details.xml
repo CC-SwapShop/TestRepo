@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0E387A"
+    android:orientation="vertical"
+    tools:context=".update_details_activity">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Input new username"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edit_newname"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        tools:hint="Name" />
+
+    <Button
+        android:id="@+id/btnchguname"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="9dp"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
+        android:text="change username" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Enter email for password reset"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edtsndemail"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnsendemail"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
+        android:text="send password reset email" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Enter email for password reset"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imgpicture"
+        android:layout_width="382dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/image_to_upload" />
+
+    <Button
+        android:id="@+id/btnuploaddp"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#808080"
+        android:fontFamily="serif"
+        android:text="Change display picture" />
+
+</LinearLayout>
