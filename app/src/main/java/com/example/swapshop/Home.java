@@ -74,7 +74,8 @@ public class Home extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public static String TestUnit(String Name){
-        return Name;
+    @Override
+    public void onBackPressed(){
+        return;
     }
 }
