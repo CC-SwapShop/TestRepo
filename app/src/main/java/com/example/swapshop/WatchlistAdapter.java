@@ -2,6 +2,7 @@ package com.example.swapshop;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -53,7 +54,7 @@ public class WatchlistAdapter extends RecyclerView.Adapter<WatchlistAdapter.Watc
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
-        if(currProduct.checkSwapped() == true) holder.cardView.setCardBackgroundColor(R.color.red);
+        if(currProduct.checkSwapped() == true) holder.cardView.setCardBackgroundColor(Color.RED);
 
     }
 

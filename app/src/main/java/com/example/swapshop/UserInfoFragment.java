@@ -180,7 +180,7 @@ public class UserInfoFragment extends Fragment {
 
     //User sign out
     public void SignUserOut(){
-        FirebaseAuth.getInstance().signOut();
+        //FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getContext(), Home.class));
     }
 

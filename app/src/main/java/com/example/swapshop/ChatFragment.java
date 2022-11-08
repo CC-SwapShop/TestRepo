@@ -67,6 +67,8 @@ public class ChatFragment extends Fragment {
             //From database
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                onGoingSwaps.clear();
+                onGoingSwapsIDs.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
                     String customer = postsnapshot.child("customer").getValue().toString();
                     String productId = postsnapshot.child("productId").getValue().toString();
