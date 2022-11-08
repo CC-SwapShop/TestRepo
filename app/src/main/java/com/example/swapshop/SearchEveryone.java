@@ -319,15 +319,6 @@ public class SearchEveryone extends Fragment {
 
                     }
 
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
                 });
 
                 mRecyclerView3.setAdapter(mAdapter);

@@ -56,6 +56,7 @@ public class Chat2 extends AppCompatActivity {
     Button btnMDecline, btnMAccept;
     List<String> productOngoing;
     List<ChatMessage> arrMesssages;
+    List<String> arrMessageID;
     DatabaseReference reference;
     DatabaseReference pReference;
     DatabaseReference referenceChat;
@@ -146,11 +147,13 @@ public class Chat2 extends AppCompatActivity {
 
         //Array list
         arrMesssages =  new ArrayList<>();
+        arrMessageID =new ArrayList<>();
         referenceChat = FirebaseDatabase.getInstance().getReference().child("ChatMessages");
         referenceChat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrMesssages.clear();
+                arrMessageID.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
                     String Message = postsnapshot.child("message").getValue().toString();
                     String to = postsnapshot.child("messageTo").getValue().toString();
@@ -161,6 +164,8 @@ public class Chat2 extends AppCompatActivity {
 
                     if(chatID.equals(sOGID)) {
                         arrMesssages.add(chatMessage);
+                        arrMessageID.add(postsnapshot.getKey());
+
                     }
 
 
@@ -211,8 +216,17 @@ public class Chat2 extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference("ProductOngoingSwaps").child(sOGID)
                 .child("ongoing").setValue(false);
 
+        FirebaseDatabase.getInstance().getReference("ProductOngoingSwaps").child(sOGID).removeValue();
+        if(arrMessageID.size()>0){
+            for (String temp : arrMessageID){
+                FirebaseDatabase.getInstance().getReference("ChatMessages").child(temp).removeValue();
+            }
+        }
+
         //Message to say product has been declined
         Toast.makeText(Chat2.this,"Offer has been declined",Toast.LENGTH_SHORT).show();
+
+        startActivity(new Intent(Chat2.this,UserMenu.class));
     }
 
     public void AcceptOffer(){
