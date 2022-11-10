@@ -232,17 +232,6 @@ public class Search extends Fragment {
 
                         }
 
-                        //Wishlist
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    //Swapped
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
                     });
 
                     mRecyclerView.setAdapter(mAdapter);
@@ -256,15 +245,7 @@ public class Search extends Fragment {
             }
         });
 
-
-
-
-
     }
-
-
-
-
 
     public void findProduct(){
 
@@ -332,15 +313,6 @@ public class Search extends Fragment {
 
                     }
 
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);

@@ -78,40 +78,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 }
             }
         }
-
-        /*@Override
-        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-            contextMenu.setHeaderTitle("Select Action");
-            MenuItem AddWishlist = contextMenu.add(Menu.NONE,1,1,"Add to Wishlist");
-            MenuItem Swap = contextMenu.add(Menu.NONE,2,2,"Swap");
-
-            AddWishlist.setOnMenuItemClickListener(this);
-            Swap.setOnMenuItemClickListener(this);
-        }
-
-        @Override
-        public boolean onMenuItemClick(MenuItem menuItem) {
-            if(mListener != null){
-                int position = getAdapterPosition();
-                if(position != RecyclerView.NO_POSITION){
-                    switch (menuItem.getItemId()){
-                        case 1:
-                            mListener.onWishlistClick(position);
-                        case 2:
-                            mListener.onSwapped(position);
-                    }
-                }
-            }
-            return false;
-        }*/
     }
 
     public interface OnItemClickListener{
         void onItemClick(int position);
-
-        //void onWishlistClick(int position);
-
-        //void onSwapped(int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){

@@ -116,14 +116,4 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
         startActivity(intent);
     }
 
-    /*@Override
-    public void onWishlistClick(int position) {
-        Toast.makeText(Watchlist.this,"Wishlist click at: " + position,Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onSwapped(int position) {
-        Toast.makeText(Watchlist.this,"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-    }*/
-
 }

@@ -99,7 +99,7 @@ public class UploadProduct extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 //Uploading to database
-                                //ToDo: add a dropdown for categories
+                                // add a dropdown for categories
                                 Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,"","Toys","");
                                 product.setStatusAvailable();
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products");

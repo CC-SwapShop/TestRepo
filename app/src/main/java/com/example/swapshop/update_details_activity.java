@@ -124,18 +124,6 @@ public class update_details_activity extends AppCompatActivity {
                     }
                 });
 
-         /*UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                 .setDisplayName(new_uname)
-                 .build();
-         user.updateProfile(profileUpdates)
-                 .addOnCompleteListener(new OnCompleteListener<Void>() {
-                     @Override
-                     public void onComplete(@NonNull Task<Void> task) {
-                         if (task.isSuccessful()) {
-                             Toast.makeText(update_details_activity.this,"Username changed",Toast.LENGTH_LONG).show();
-                         }
-                     }
-                 });*/
 
     }
 
@@ -216,7 +204,7 @@ public class update_details_activity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 //Uploading to database
-                                //ToDo: add a dropdown for categories
+                                //add a dropdown for categories
                                 FirebaseDatabase.getInstance().getReference("Users")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("img").setValue(uri.toString())
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
