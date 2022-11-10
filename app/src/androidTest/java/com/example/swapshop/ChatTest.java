@@ -28,9 +28,9 @@ import org.junit.runner.RunWith;
 public class ChatTest extends TestCase {
 
     @Rule
-    public ActivityTestRule<Chat> ChatActivityTestRule = new ActivityTestRule<>(Chat.class);
+    public ActivityTestRule<Chat2> ChatActivityTestRule = new ActivityTestRule<>(Chat2.class);
 
-    private Chat chat = null;
+    private Chat2 chat = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
@@ -45,11 +45,6 @@ public class ChatTest extends TestCase {
     public void setUp() throws Exception {
         chat = ChatActivityTestRule.getActivity();
     }
-
-    //@Test
-    //public void isActivityInView(){
-    //    onView(withId(R.id.chat)).check(matches(isDisplayed()));
-    //}
 
     @Test
     public void testTextView(){
