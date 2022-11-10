@@ -44,6 +44,7 @@
         <entry key="app/src/main/res/drawable-v24/ic_action_swap.xml" value="0.173" />
         <entry key="app/src/main/res/drawable-v24/ic_action_upload.xml" value="0.173" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.1685" />
+        <entry key="app/src/main/res/layout/activity_chat2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/activity_other_user_profile.xml" value="0.25" />
@@ -60,11 +61,12 @@
         <entry key="app/src/main/res/layout/fragment_swaps.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/fragment_upload.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/fragment_user_catergory.xml" value="0.129981884057971" />
-        <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_user_info.xml" value="0.25" />
         <entry key="app/src/main/res/layout/image_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/layout/message_item.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/ongoing_item.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/rating_popup.xml" value="0.12364130434782608" />
+        <entry key="app/src/main/res/layout/userproduct_item.xml" value="0.12364130434782608" />
         <entry key="app/src/main/res/layout/watchlist_item.xml" value="0.129981884057971" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.215625" />
         <entry key="app/src/main/res/menu/user_menu_nav.xml" value="0.215625" />
