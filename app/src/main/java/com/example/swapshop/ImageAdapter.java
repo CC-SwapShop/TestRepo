@@ -1,10 +1,7 @@
 package com.example.swapshop;
 
 import android.content.Context;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -64,8 +61,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textViewName = itemView.findViewById(R.id.text_view_name);
-            textViewW = itemView.findViewById(R.id.textViewR);
+            textViewName = itemView.findViewById(R.id.text_view_name1);
+            textViewW = itemView.findViewById(R.id.textViewR1);
             imageView = itemView.findViewById(R.id.image_view_upload);
 
             itemView.setOnClickListener(this);

@@ -54,7 +54,7 @@ public class WatchlistAdapter extends RecyclerView.Adapter<WatchlistAdapter.Watc
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
-        if(currProduct.checkSwapped() == true) holder.cardView.setCardBackgroundColor(Color.RED);
+        if(currProduct.checkSwapped() == true) holder.cardView.setCardBackgroundColor(Color.GRAY);
 
     }
 
