@@ -1,10 +1,5 @@
 package com.example.swapshop;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -16,6 +11,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -152,8 +152,9 @@ public class ViewProduct extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), OtherUserProfile.class);
         intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);
-        intent.putExtra("Extra_ongoingID",key);
-        intent.putExtra("Extra_ongoing",onGoingSwaps);
+        //intent.putExtra("Extra_ongoingID",key);
+        //intent.putExtra("Extra_ongoing",onGoingSwaps);
+        intent.putExtra("Extra_NOtLogin",bLogin);
         startActivity(intent);
     }
 
@@ -193,9 +194,9 @@ public class ViewProduct extends AppCompatActivity {
         //Add to OngoingSwaps table
         OnGoingSwaps onGoingSwaps = new OnGoingSwaps(FirebaseAuth.getInstance().getCurrentUser().getUid()
                 ,objProduct.UID,sPID,true);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
-        String key = ref.push().getKey();
-        ref.child(key).setValue(onGoingSwaps);
+        String onGoingSwapsKey = FirebaseAuth.getInstance().getCurrentUser().getUid() + sPID + objProduct.UID;
+        FirebaseDatabase.getInstance().getReference().child("ProductOngoingSwaps").child(onGoingSwapsKey).setValue(onGoingSwaps);
+
         //Database reference
         DatabaseReference wReference = FirebaseDatabase.getInstance().getReference().child("Watchlist")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -219,11 +220,13 @@ public class ViewProduct extends AppCompatActivity {
         });
 
 
-
+        String key = "-NGMkH9tT85OpIjQUsmW";
         //Go to chat class for user to chat with user
-        Intent intent = new Intent(getApplicationContext(), Chat.class);
+        Intent intent = new Intent(getApplicationContext(), Chat2.class);
+        //intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);
-        intent.putExtra("Extra_ongoingID",key);
+        intent.putExtra("Extra_ongoingID",onGoingSwapsKey);
+        intent.putExtra("Extra_ongoing",onGoingSwaps);
         startActivity(intent);
 
         //Message to say product has been requested as confirmation

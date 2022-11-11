@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/activity_home.xml" value="0.18802083333333333" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/activity_update_details.xml" value="0.18802083333333333" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/activity_view_product.xml" value="0.33" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/activity_watchlist.xml" value="0.18802083333333333" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/fragment_swaps.xml" value="0.18802083333333333" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/fragment_upload.xml" value="0.18802083333333333" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/image_item.xml" value="0.18802083333333333" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/ongoing_item.xml" value="0.18802083333333333" />
+        <entry key="..\:/Kiaran/Third year/Sem2/TestRepo/app/src/main/res/layout/userproduct_item.xml" value="0.18802083333333333" />
         <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_home.xml" value="0.35280797101449274" />
         <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_register.xml" value="0.35280797101449274" />
         <entry key="..\:/Kiaran/Third year/Sem2/TestRepo1/app/src/main/res/layout/activity_update_details.xml" value="0.35280797101449274" />

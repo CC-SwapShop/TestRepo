@@ -40,7 +40,6 @@
         android:id="@+id/imageView3"
         android:layout_width="99dp"
         android:layout_height="69dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
 
@@ -74,9 +73,9 @@
         android:id="@+id/txtVP_Desc"
         android:layout_width="167dp"
         android:layout_height="58dp"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="12dp"
 
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="serif"
         android:text="About this item"
         android:textColor="#FFFFFF"

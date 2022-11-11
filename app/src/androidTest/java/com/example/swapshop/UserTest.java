@@ -1,13 +1,11 @@
 package com.example.swapshop;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.rule.ActivityTestRule;
 
 import junit.framework.TestCase;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -21,7 +19,7 @@ public class UserTest extends TestCase {
 
     @Before
     public void setUp() throws Exception {
-        user = new User(name, email);
+        user = new User(name, email," ", 3,4,5);
         userEmpty = new User();
     }
 
