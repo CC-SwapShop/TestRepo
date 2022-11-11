@@ -90,10 +90,10 @@ public class Chat2 extends AppCompatActivity {
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
-        if(user.equals(objOnGoingSwap.customer)){
-            btnMAccept.setVisibility(View.INVISIBLE);
-            btnMDecline.setVisibility(View.INVISIBLE);
-        }
+        //if(user.equals(objOnGoingSwap.customer)){
+        //    btnMAccept.setVisibility(View.INVISIBLE);
+        //    btnMDecline.setVisibility(View.INVISIBLE);
+        //}
 
         //message view
         mRecyclerView = findViewById(R.id.recyclerView_message1);
