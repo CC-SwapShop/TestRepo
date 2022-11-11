@@ -25,14 +25,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Chat2 extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity {
 
     //Variables
     private String sPID,sOGID;
@@ -67,7 +65,7 @@ public class Chat2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat2);
+        setContentView(R.layout.activity_chat);
 
         //From previous class
         Intent intent = getIntent();
@@ -172,8 +170,8 @@ public class Chat2 extends AppCompatActivity {
                 }
 
                 //Adapter
-                mAdapter = new ChatMessageAdapter(Chat2.this,arrMesssages,
-                        FirebaseAuth.getInstance().getCurrentUser().getUid());
+                mAdapter = new ChatMessageAdapter(ChatActivity.this,arrMesssages,
+                        "U13UWwzr6uMtsZj2lHTDYMnlyDn2");
 
                 mRecyclerView.setAdapter(mAdapter);
             }
@@ -224,9 +222,9 @@ public class Chat2 extends AppCompatActivity {
         }
 
         //Message to say product has been declined
-        Toast.makeText(Chat2.this,"Offer has been declined",Toast.LENGTH_SHORT).show();
+        Toast.makeText(ChatActivity.this,"Offer has been declined",Toast.LENGTH_SHORT).show();
 
-        startActivity(new Intent(Chat2.this,UserMenu.class));
+        startActivity(new Intent(ChatActivity.this,UserMenu.class));
     }
 
     public void AcceptOffer(){
@@ -252,7 +250,7 @@ public class Chat2 extends AppCompatActivity {
         ref.child(key).setValue(acceptedSwap);
 
         //Message to say product has been declined
-        Toast.makeText(Chat2.this,"Offer has been Accepted",Toast.LENGTH_SHORT).show();
+        Toast.makeText(ChatActivity.this,"Offer has been Accepted",Toast.LENGTH_SHORT).show();
         //rating pop up here
         createNewRatingDialog();
     }
@@ -351,7 +349,7 @@ public class Chat2 extends AppCompatActivity {
                                 FirebaseDatabase.getInstance().getReference().child("Users")
                                         .child(objOnGoingSwap.customer).child("rcount").setValue(rcount+1);
 
-                                Toast.makeText(Chat2.this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ChatActivity.this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
                                 //setContentView(R.layout.activity_home);
                                 startActivity(new Intent(getApplicationContext(), UserMenu.class));
                             }
@@ -360,7 +358,7 @@ public class Chat2 extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(Chat2.this, "Transaction Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChatActivity.this, "Transaction Failed", Toast.LENGTH_SHORT).show();
                         //setContentView(R.layout.activity_home);
                         startActivity(new Intent(getApplicationContext(), UserMenu.class));
                     }
@@ -371,7 +369,7 @@ public class Chat2 extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Chat2.this, "Rating dismissed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChatActivity.this, "Rating dismissed", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

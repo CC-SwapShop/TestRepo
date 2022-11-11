@@ -1,18 +1,12 @@
 package com.example.swapshop;
 
-import static android.content.Intent.getIntent;
-import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import android.app.Instrumentation;
-import android.os.Bundle;
 import android.widget.TextView;
 
-import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -28,9 +22,9 @@ import org.junit.runner.RunWith;
 public class ChatTest extends TestCase {
 
     @Rule
-    public ActivityTestRule<Chat2> ChatActivityTestRule = new ActivityTestRule<>(Chat2.class);
+    public ActivityTestRule<ChatActivity> ChatActivityTestRule = new ActivityTestRule<>(ChatActivity.class);
 
-    private Chat2 chat = null;
+    private ChatActivity chat = null;
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 

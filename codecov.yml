@@ -1,4 +1,8 @@
 ignore:
-  - "**/UserInfoFragment"
+  - "**/UserInfoFragment"               # Converted into UserInfoActivity for testing
+  - "**/LoginFrag"                      # Converted into Login_Activity for testing
+  - "**/ChatFragment"                   # Converted into Chat_Activity for testing
+
+
   -  "**/CatagoryHomeFragment"
   -  "**/UserCatagoryFragment"

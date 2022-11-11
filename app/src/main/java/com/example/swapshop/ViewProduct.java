@@ -222,7 +222,7 @@ public class ViewProduct extends AppCompatActivity {
 
         String key = "-NGMkH9tT85OpIjQUsmW";
         //Go to chat class for user to chat with user
-        Intent intent = new Intent(getApplicationContext(), Chat2.class);
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
         //intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);
         intent.putExtra("Extra_ongoingID",onGoingSwapsKey);
