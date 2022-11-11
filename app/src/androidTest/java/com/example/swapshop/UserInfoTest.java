@@ -2,6 +2,7 @@ package com.example.swapshop;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
@@ -37,6 +38,7 @@ public class UserInfoTest {
     @Before
     public void setUp() throws Exception {
         userInfoActivity = userInfoActivityActivityTestRule.getActivity();
+
     }
 
     @Test
