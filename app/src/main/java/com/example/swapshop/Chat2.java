@@ -87,7 +87,7 @@ public class Chat2 extends AppCompatActivity {
         cardView = findViewById(R.id.cvButtons1);
 
         //Getting user
-        String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+       // String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
         //if(user.equals(objOnGoingSwap.customer)){

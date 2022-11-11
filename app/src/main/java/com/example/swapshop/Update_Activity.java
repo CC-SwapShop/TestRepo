@@ -10,7 +10,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,9 +21,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -34,7 +30,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
-public class update_details_activity extends AppCompatActivity {
+public class Update_Activity extends AppCompatActivity {
 
     //Variables
     private EditText edtFName,edtsemail;
@@ -116,10 +112,10 @@ public class update_details_activity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         //What to do if task was not success
                         if(task.isSuccessful()){
-                            Toast.makeText(update_details_activity.this,"Username changed",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Update_Activity.this,"Username changed",Toast.LENGTH_LONG).show();
                         }
                         else{
-                            Toast.makeText(update_details_activity.this,"Error occurred",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Update_Activity.this,"Error occurred",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -148,7 +144,7 @@ public class update_details_activity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(update_details_activity.this,"Password reset email sent",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Update_Activity.this,"Password reset email sent",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -212,10 +208,10 @@ public class update_details_activity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
                                                     progressDialog.dismiss();
-                                                    Toast.makeText(update_details_activity.this,"Profile picture changed",Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(Update_Activity.this,"Profile picture changed",Toast.LENGTH_LONG).show();
                                                 }
                                                 else{
-                                                    Toast.makeText(update_details_activity.this,"Error occurred",Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(Update_Activity.this,"Error occurred",Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                         });
@@ -223,14 +219,14 @@ public class update_details_activity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(update_details_activity.this, "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Update_Activity.this, "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(update_details_activity.this, "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Update_Activity.this, "Error has occured" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

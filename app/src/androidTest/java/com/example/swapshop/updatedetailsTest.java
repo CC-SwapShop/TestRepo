@@ -2,8 +2,6 @@ package com.example.swapshop;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -13,17 +11,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import android.app.Activity;
 import android.app.Instrumentation;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.test.rule.ActivityTestRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-
-import com.google.common.base.Verify;
 
 import junit.framework.TestCase;
 
@@ -31,18 +22,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+
 //@RunWith(AndroidJUnit4.class)
 public class updatedetailsTest extends TestCase{
 /*
-
         @Rule
-        public ActivityTestRule<update_details_activity> updatedetailsActivityTestRule = new ActivityTestRule<Register>(update_details_activity.class);
+        public ActivityTestRule<Update_Activity> updatedetailsActivityTestRule = new ActivityTestRule<Update_Activity>(Update_Activity.class);
 
-        private update_details_activity updets = null;
+        private Update_Activity updets = null;
 
-        Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+        Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
         public static final String STRING_TO_BE_TYPED_FULL_NAME = "Jared McCallum";
 
@@ -56,7 +45,7 @@ public class updatedetailsTest extends TestCase{
         }
 
         public void isActivityInView(){
-            onView(withId(R.id.activity_update_details)).check(matches(isDisplayed()));
+            onView(withId(R.id.)).check(matches(isDisplayed()));
         }
 
         @Test
@@ -101,7 +90,5 @@ public class updatedetailsTest extends TestCase{
             register = null;
         }
     }
-
-
- */
+*/
 }
