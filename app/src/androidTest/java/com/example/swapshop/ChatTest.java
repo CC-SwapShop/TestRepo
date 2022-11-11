@@ -32,7 +32,7 @@ public class ChatTest extends TestCase {
 
     private Chat2 chat = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_ProdDesc = "drives";
     public static final String STRING_TO_BE_TYPED_ProdName = "car";

@@ -42,7 +42,7 @@ public class UploadProductTest extends TestCase {
 
     UploadProduct uploadProduct = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_PRODUCT = "Keyboard";
 

@@ -29,7 +29,7 @@ public class UserInfoTest {
 
     private UserInfoActivity userInfoActivity = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
     @Before
     public void setUp() throws Exception {

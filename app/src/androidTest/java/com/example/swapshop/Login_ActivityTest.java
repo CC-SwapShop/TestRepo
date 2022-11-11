@@ -36,8 +36,7 @@ public class Login_ActivityTest extends TestCase {
 
     private Login_Activity login_activity = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
-    Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_EMAIL = "bobparker@gmail.com";
     public static final String STRING_TO_BE_TYPED_PASSWORD = "12345678";
