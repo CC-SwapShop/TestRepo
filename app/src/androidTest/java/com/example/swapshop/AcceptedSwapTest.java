@@ -36,12 +36,13 @@ public class AcceptedSwapTest extends TestCase {
         assertEquals(acceptedSwap.provider, "You");
     }
 
-    //Test if the swap
+    //Test if the swap correctly assigned the product id element to the object
     @Test
     public void TestProductId() throws Exception{
         assertEquals(acceptedSwap.productId, "123");
     }
 
+    //After the test is completed assign null to the swap object again
     @After
     public void tearDown() throws Exception {
         acceptedSwap = null;

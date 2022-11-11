@@ -16,3 +16,4 @@ ignore:
   - "**/SearchEveryone"
   - "**/Search"
   - "**/ChatMessageAdapter"
+  - "**/UserWatchlist"

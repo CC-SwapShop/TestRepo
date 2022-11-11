@@ -80,7 +80,7 @@ public class RatingsTest extends TestCase {
         int result = ratings.rating;
         assertEquals(expected, result);
     }
-
+/*
     //Test rating a user 5 stars
     @Test
     public void E_test5Stars(){
@@ -94,10 +94,10 @@ public class RatingsTest extends TestCase {
     //Test when you finished to assign new rating to user
     @Test
     public void F_testDone() throws Exception {
-        onView(withId(R.id.btnDone)).perform(click());
         setUp();
+        onView(withId(R.id.btnDone)).perform(click());
     }
-
+*/
     //After test is complete set object to null again
     @After
     public void tearDown() throws Exception {
