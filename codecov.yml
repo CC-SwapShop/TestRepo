@@ -1,2 +1,4 @@
 ignore:
   - "**/UserInfoFragment"
+  -  "**/CatagoryHomeFragment"
+  -  "**/UserCatagoryFragment"
