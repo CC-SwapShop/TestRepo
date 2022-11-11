@@ -43,7 +43,7 @@ public class UserInfoTest {
     public void AtestNameTextView(){
         TextView txtUIName = userInfoActivity.findViewById(R.id.txtUI_name);
         String actual = txtUIName.getText().toString();
-        String expected = "TextView";
+        String expected = "Rashay";
 
         assertEquals(actual,expected);
     }
