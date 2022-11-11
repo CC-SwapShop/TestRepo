@@ -12,25 +12,31 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class AcceptedSwapTest extends TestCase {
 
-    public String customer="me", provider="you",productId="123";
+    //Create variables which will be used for testing
+    public String customer="Me", provider="You",productId="123";
 
+    //Create acceptedSwap object and set it to null
     private AcceptedSwap acceptedSwap = null;
 
+    //Before the test runs set it to a new accepted swap object with the variables created
     @Before
     public void setUp() throws Exception {
         acceptedSwap = new AcceptedSwap(customer, provider, productId);
     }
 
+    //Test if the swap correctly assigned the customer element to the object
     @Test
     public void TestCustomer() throws Exception{
-        assertEquals(acceptedSwap.customer, "me");
+        assertEquals(acceptedSwap.customer, "Me");
     }
 
+    //Test if the swap correctly assigned the provider element to the object
     @Test
     public void TestProvider() throws Exception{
-        assertEquals(acceptedSwap.provider, "you");
+        assertEquals(acceptedSwap.provider, "You");
     }
 
+    //Test if the swap
     @Test
     public void TestProductId() throws Exception{
         assertEquals(acceptedSwap.productId, "123");

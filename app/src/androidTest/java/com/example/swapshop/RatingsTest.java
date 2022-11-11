@@ -29,25 +29,29 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 
 @RunWith(AndroidJUnit4.class)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING) //Run tests in ascending order
 public class RatingsTest extends TestCase {
+
+    //Set Activity to Ratings class
     @Rule
     public ActivityTestRule<Ratings> RatingsActivityTestRule = new ActivityTestRule<>(Ratings.class);
 
+    //Set new ratings object to null
     private Ratings ratings = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
-
+    //On seting up the test set the ratings object to the ratings activity
     @Before
     public void setUp() throws Exception {
         ratings = RatingsActivityTestRule.getActivity();
     }
 
+    //Test to see whether the ratings activitys layout is the current layout being presented
     @Test
     public void A_isActivityInView(){
         onView(withId(R.id.view_rating)).check(matches(isDisplayed()));
     }
 
+    //Test rating a user 2 stars
     @Test
     public void B_test2Stars(){
         int expected = 2;
@@ -57,6 +61,7 @@ public class RatingsTest extends TestCase {
         assertEquals(expected, result);
     }
 
+    //Test raing a user 3 stars
     @Test
     public void C_test3Stars(){
         int expected = 3;
@@ -66,6 +71,7 @@ public class RatingsTest extends TestCase {
         assertEquals(expected, result);
     }
 
+    //Test rating a user 4 stars
     @Test
     public void D_test4Stars(){
         int expected = 4;
@@ -75,6 +81,7 @@ public class RatingsTest extends TestCase {
         assertEquals(expected, result);
     }
 
+    //Test rating a user 5 stars
     @Test
     public void E_test5Stars(){
         int expected = 5;
@@ -84,12 +91,14 @@ public class RatingsTest extends TestCase {
         assertEquals(expected, result);
     }
 
+    //Test when you finished to assign new rating to user
     @Test
     public void F_testDone() throws Exception {
         onView(withId(R.id.btnDone)).perform(click());
         setUp();
     }
 
+    //After test is complete set object to null again
     @After
     public void tearDown() throws Exception {
         ratings = null;

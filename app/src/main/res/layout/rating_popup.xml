@@ -5,7 +5,7 @@
     android:id="@+id/view_rating"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0E387A"
+    android:background="@drawable/red"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-1dp">
 
@@ -15,9 +15,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:fontFamily="serif"
         android:text="Congrats on your successful swap!"
-        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,22 +27,20 @@
         android:layout_height="29dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:fontFamily="serif"
         android:text="Please rate this customer on your experience"
-        android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_thanks" />
 
     <ImageButton
-        android:id="@+id/btn_star5"
+        android:id="@+id/btn_star3"
         android:layout_width="53dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:background="#00ffffff"
-        app:layout_constraintStart_toEndOf="@+id/btn_star4"
+        app:layout_constraintStart_toEndOf="@+id/btn_star2"
         app:layout_constraintTop_toBottomOf="@+id/txt_rate"
         app:srcCompat="@android:drawable/btn_star" />
 
@@ -52,7 +48,7 @@
         android:id="@+id/btn_star1"
         android:layout_width="53dp"
         android:layout_height="50dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:background="#00ffffff"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,17 +67,6 @@
         app:srcCompat="@android:drawable/btn_star" />
 
     <ImageButton
-        android:id="@+id/btn_star3"
-        android:layout_width="53dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
-        android:background="#00ffffff"
-        app:layout_constraintStart_toEndOf="@+id/btn_star2"
-        app:layout_constraintTop_toBottomOf="@+id/txt_rate"
-        app:srcCompat="@android:drawable/btn_star" />
-
-    <ImageButton
         android:id="@+id/btn_star4"
         android:layout_width="53dp"
         android:layout_height="50dp"
@@ -92,11 +77,22 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_rate"
         app:srcCompat="@android:drawable/btn_star" />
 
+    <ImageButton
+        android:id="@+id/btn_star5"
+        android:layout_width="53dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:background="#00ffffff"
+        app:layout_constraintStart_toEndOf="@+id/btn_star4"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rate"
+        app:srcCompat="@android:drawable/btn_star" />
+
     <Button
         android:id="@+id/btnDone"
         android:layout_width="119dp"
         android:layout_height="43dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_button"
         android:text="Done"
