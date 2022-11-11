@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,12 +28,15 @@ public class user_home_test {
     public ActivityTestRule<UserMenu> homeActivityTestRule = new ActivityTestRule<UserMenu>(UserMenu.class);
 
     private UserMenu Umenu = null;
+    private String Email ="test1@gmail.com";
+    private String Pass ="123456";
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
 
 
     @Before
     public void setUp() throws Exception {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(Email,Pass);
         Umenu = homeActivityTestRule.getActivity();
     }
 
