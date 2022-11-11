@@ -76,7 +76,7 @@ public class RatingsTest extends TestCase {
     }
 
     @Test
-    public void E_test5Stars(){
+    public void A_test5Stars(){
         int expected = 5;
 
         onView(withId(R.id.btn_star5)).perform(click());

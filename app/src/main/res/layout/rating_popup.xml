@@ -5,7 +5,7 @@
     android:id="@+id/view_rating"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/red"
+    android:background="#0E387A"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-1dp">
 
@@ -15,7 +15,9 @@
         android:layout_height="33dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:fontFamily="serif"
         android:text="Congrats on your successful swap!"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +29,9 @@
         android:layout_height="29dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
+        android:fontFamily="serif"
         android:text="Please rate this customer on your experience"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
