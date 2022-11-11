@@ -62,7 +62,7 @@ public class Login_ActivityTest extends TestCase {
     public void loginTextTest2(){
         TextView textViewTest = login_activity.findViewById(R.id.TV_login);
         String actual = textViewTest.getText().toString();
-        String expected = "Login Page";
+        String expected = "Log in";
 
         assertEquals(actual,expected);
         login_activity.finish();
