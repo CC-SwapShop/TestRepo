@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">#BA696F</item>
+        <item name="android:statusBarColor">#0E387A</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="Theme.SwapShop.NoActionBar">

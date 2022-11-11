@@ -2,24 +2,30 @@ package com.example.swapshop;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import android.app.Instrumentation;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 @RunWith(AndroidJUnit4.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserInfoTest {
 
     @Rule
@@ -27,11 +33,12 @@ public class UserInfoTest {
 
     private UserInfoActivity userInfoActivity = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
     @Before
     public void setUp() throws Exception {
         userInfoActivity = userInfoActivityActivityTestRule.getActivity();
+
     }
 
     @Test
@@ -55,6 +62,7 @@ public class UserInfoTest {
         TextView txtUIEmail = userInfoActivity.findViewById(R.id.textView10);
         String actual = txtUIEmail.getText().toString();
         String expected = "Email:";
+
 
         assertEquals(actual,expected);
     }
@@ -87,6 +95,12 @@ public class UserInfoTest {
     public void testUpdateButton(){
         onView(withId(R.id.btnupdate)).perform(click());
         userInfoActivity.finish();
+    }
+
+    @Test
+    public void testRecycleView(){
+        RecyclerView recyclerView = userInfoActivity.findViewById(R.id.recyclerView_UserInfo);
+        assertNotNull(recyclerView);
     }
 
 

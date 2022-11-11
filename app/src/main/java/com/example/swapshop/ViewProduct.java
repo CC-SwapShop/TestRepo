@@ -1,5 +1,10 @@
 package com.example.swapshop;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -11,11 +16,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -222,7 +222,7 @@ public class ViewProduct extends AppCompatActivity {
 
         String key = "-NGMkH9tT85OpIjQUsmW";
         //Go to chat class for user to chat with user
-        Intent intent = new Intent(getApplicationContext(), Chat2.class);
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
         //intent.putExtra("Select_Product",objProduct);
         intent.putExtra("Select_ID",sPID);
         intent.putExtra("Extra_ongoingID",onGoingSwapsKey);

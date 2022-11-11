@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PrimitiveIterator;
 
 
 public class ChatFragment extends Fragment {
@@ -62,11 +60,13 @@ public class ChatFragment extends Fragment {
         mUploads = new ArrayList<>();
         onGoingSwapsIDs = new ArrayList<>();
         onGoingSwaps = new ArrayList<>();
-        wReference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+        wReference = FirebaseDatabase.getInstance().getReference().child("ProductOngoingSwaps");
         wReference.addValueEventListener(new ValueEventListener() {
             //From database
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                onGoingSwaps.clear();
+                onGoingSwapsIDs.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
                     String customer = postsnapshot.child("customer").getValue().toString();
                     String productId = postsnapshot.child("productId").getValue().toString();
@@ -107,7 +107,7 @@ public class ChatFragment extends Fragment {
                             String key = onGoingSwapsIDs.get(position);
                             String sPID = currOnGoingSwaps.productId;
 
-                            Intent intent = new Intent( getContext(), Chat2.class);
+                            Intent intent = new Intent( getContext(), ChatActivity.class);
                             intent.putExtra("Select_ID",sPID);
                             intent.putExtra("Extra_ongoingID",key);
                             intent.putExtra("Extra_ongoing",currOnGoingSwaps);

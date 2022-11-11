@@ -116,15 +116,16 @@
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/txtSENoItems"
+        android:id="@+id/txtSENoItemsSE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
         android:text="No Items found"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recycler_view3" />
+        app:layout_constraintTop_toTopOf="@+id/recycler_view3"
+        app:layout_constraintVertical_bias="0.213" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

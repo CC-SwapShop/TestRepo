@@ -1,17 +1,12 @@
 package com.example.swapshop;
 
-import static android.content.Intent.getIntent;
-import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 
 import android.app.Instrumentation;
-import android.os.Bundle;
+import android.widget.TextView;
 
-import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
@@ -27,11 +22,11 @@ import org.junit.runner.RunWith;
 public class ChatTest extends TestCase {
 
     @Rule
-    public ActivityTestRule<Chat> ChatActivityTestRule = new ActivityTestRule<>(Chat.class);
+    public ActivityTestRule<ChatActivity> ChatActivityTestRule = new ActivityTestRule<>(ChatActivity.class);
 
-    private Chat chat = null;
+    private ChatActivity chat = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_ProdDesc = "drives";
     public static final String STRING_TO_BE_TYPED_ProdName = "car";
@@ -45,10 +40,13 @@ public class ChatTest extends TestCase {
         chat = ChatActivityTestRule.getActivity();
     }
 
+
     @Test
-    public void isActivityInView(){
-        onView(withId(R.id.Chat)).check(matches(isDisplayed()));
+    public void testTextView(){
+        TextView textView = chat.findViewById(R.id.txtMProdDesc1);
+        assertNotNull(textView);
     }
+
 
 
     @After

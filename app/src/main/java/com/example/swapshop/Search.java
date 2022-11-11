@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,6 +45,7 @@ public class Search extends Fragment {
     private List<Product> mUploads;
     private List<String> productIDs;
     private String sCategory;
+    private TextView txtNoItems;
 
 
     //Empty constructor needed for fragment
@@ -74,6 +76,7 @@ public class Search extends Fragment {
         btnGames1 = view.findViewById(R.id.button4);
         btnSport1 = view.findViewById(R.id.button5);
         btnOther1= view.findViewById(R.id.button11);
+        txtNoItems = view.findViewById(R.id.txtSNoItemsS);
 
         //Calling method
         listAll();
@@ -168,6 +171,8 @@ public class Search extends Fragment {
     //Listing all
     public void listAll()
     {
+        txtNoItems.setVisibility(View.INVISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
         //getting data from database
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -205,38 +210,32 @@ public class Search extends Fragment {
                         mUploads.add(objProduct);
                     }
                 }
+                if(productIDs.isEmpty()){
+                    //Toast.makeText(getContext(),"empty",Toast.LENGTH_SHORT).show();
+                    txtNoItems.setVisibility(View.VISIBLE);
+                    mRecyclerView.setVisibility(View.INVISIBLE);
+                }else {
+                    //Getting image
+                    mAdapter = new ImageAdapter(getActivity(), mUploads);
 
-                //Getting image
-                mAdapter = new ImageAdapter(getActivity(),mUploads);
+                    //Getting product
+                    mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            //Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
+                            Product currProduct = mUploads.get(position);
+                            String pID = productIDs.get(position);
+                            Intent intent = new Intent(getContext(), ViewProduct.class);
+                            intent.putExtra("Curr_Product", currProduct);
+                            intent.putExtra("Extra_ID", pID);
+                            startActivity(intent);
 
-                //Getting product
-                mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        //Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                        Product currProduct = mUploads.get(position);
-                        String pID = productIDs.get(position);
-                        Intent intent = new Intent(getContext(), ViewProduct.class);
-                        intent.putExtra("Curr_Product", currProduct);
-                        intent.putExtra("Extra_ID",pID);
-                        startActivity(intent);
+                        }
 
-                    }
+                    });
 
-                    //Wishlist
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    //Swapped
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
-                });
-
-                mRecyclerView.setAdapter(mAdapter);
+                    mRecyclerView.setAdapter(mAdapter);
+                }
 
             }
 
@@ -246,15 +245,7 @@ public class Search extends Fragment {
             }
         });
 
-
-
-
-
     }
-
-
-
-
 
     public void findProduct(){
 
@@ -322,15 +313,6 @@ public class Search extends Fragment {
 
                     }
 
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
                 });
 
                 mRecyclerView.setAdapter(mAdapter);

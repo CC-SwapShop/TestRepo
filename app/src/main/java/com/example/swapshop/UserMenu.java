@@ -150,4 +150,9 @@ public class UserMenu extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    @Override
+    public void onBackPressed(){
+        return;
+    }
+
 }

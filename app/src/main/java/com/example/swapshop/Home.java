@@ -73,4 +73,9 @@ public class Home extends AppCompatActivity {
         fragmentTransaction.replace(R.id.flFragment,fragment);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void onBackPressed(){
+        return;
+    }
 }

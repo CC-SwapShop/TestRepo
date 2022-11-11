@@ -30,8 +30,8 @@ public class MainActivityTest extends TestCase {
     }
 
     @Test
-    public void isActivityInView(){
-        onView(withId(R.id.layout)).check(matches(isDisplayed()));
+    public void A_isActivityInView(){
+        onView(withId(R.id.m_layout)).check(matches(isDisplayed()));
     }
 
     @After

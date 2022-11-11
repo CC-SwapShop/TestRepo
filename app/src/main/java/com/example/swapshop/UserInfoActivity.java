@@ -45,7 +45,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
         //find view components
         txtUI_name = findViewById(R.id.txtUI_name);
-        btnSignOut = findViewById(R.id.btnUI_Signout);
+        btnSignOut = findViewById(R.id.btnUI_SignOut1);
         btnupdate = findViewById(R.id.btnupdate);
         mRecyclerView = findViewById(R.id.recyclerView_UserInfo);
         imgUIimage = findViewById(R.id.imgYIimage);
@@ -134,13 +134,6 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         });
 
-        //on click events
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SignUserOut();
-            }
-        });
 
         btnupdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,9 +143,6 @@ public class UserInfoActivity extends AppCompatActivity {
         });
     }
 
-    public void SignUserOut(){
-
-    }
 
     public void FillStars(long rated){
         int rating = (int) Math.round(rated);

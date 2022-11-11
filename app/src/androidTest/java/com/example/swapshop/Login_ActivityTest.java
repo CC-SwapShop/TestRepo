@@ -36,8 +36,7 @@ public class Login_ActivityTest extends TestCase {
 
     private Login_Activity login_activity = null;
 
-    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(MainActivity.class.getName(),null ,false);
-    Instrumentation.ActivityMonitor monitor2 = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
+    Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(Home.class.getName(),null ,false);
 
     public static final String STRING_TO_BE_TYPED_EMAIL = "bobparker@gmail.com";
     public static final String STRING_TO_BE_TYPED_PASSWORD = "12345678";
@@ -62,7 +61,7 @@ public class Login_ActivityTest extends TestCase {
     public void loginTextTest2(){
         TextView textViewTest = login_activity.findViewById(R.id.TV_login);
         String actual = textViewTest.getText().toString();
-        String expected = "Login Page";
+        String expected = "Log In";
 
         assertEquals(actual,expected);
         login_activity.finish();
@@ -123,10 +122,6 @@ public class Login_ActivityTest extends TestCase {
         login_activity.finish();
     }
 
-    @Test
-    public void testLoginButton2(){
-        onView(withId(R.id.btnLogin)).perform(click());
-    }
 
     @Test
     public void testLoginButton3(){

@@ -83,7 +83,7 @@ public class UploadFrag extends Fragment {
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, items);
 //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
-//item= adapter.toString();
+
         dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -93,16 +93,9 @@ public class UploadFrag extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
+                // Auto-generated method stub
             }
         });
-
-
-
-
-
-
-
 
         //Firebase
         storage = FirebaseStorage.getInstance();
@@ -165,7 +158,7 @@ public class UploadFrag extends Fragment {
                             //If successful
                             public void onSuccess(Uri uri) {
                                 //Uploading to database
-                                //ToDo: add a dropdown for categories
+                                // add a dropdown for categories
                                 Product product = new Product(name,description,location,sReqProduct, uri.toString(),UID,"",item,"");
                                 product.setStatusAvailable();
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Products");

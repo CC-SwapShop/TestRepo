@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,6 +43,7 @@ public class SearchEveryone extends Fragment {
     private List<Product> mUploads;
     private List<String> productIDs;
     private String sCategory2;
+    private TextView txtNoItems;
 
     //Empty constructor needed for fragment
     public SearchEveryone() {
@@ -64,7 +66,7 @@ public class SearchEveryone extends Fragment {
         //Finding the corresponding Views
         edtSProductName1 = view.findViewById(R.id.edtSProductName1);
         //llSearch = view.findViewById(R.id.llSearchProduct);
-        btnSearchProduct1 = view.findViewById(R.id.ded1);
+        btnSearchProduct1 = view.findViewById(R.id.btnSEsearch2);
         btnAll = view.findViewById(R.id.ded1);
         mRecyclerView3 = view.findViewById(R.id.recycler_view3);
         btnHome3 = view.findViewById(R.id.button6);
@@ -72,6 +74,7 @@ public class SearchEveryone extends Fragment {
         btnGames3 = view.findViewById(R.id.button8);
         btnSport3 = view.findViewById(R.id.button9);
         btnOther3 =view.findViewById(R.id.button10);
+        txtNoItems = view.findViewById(R.id.txtSENoItemsSE);
         //Calling method
         listAll();
 
@@ -153,6 +156,7 @@ public class SearchEveryone extends Fragment {
         btnSearchProduct1.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 findProduct();
             }
         });
@@ -171,6 +175,8 @@ public class SearchEveryone extends Fragment {
     //List all
     public void listAll()
     {
+        txtNoItems.setVisibility(View.INVISIBLE);
+        mRecyclerView3.setVisibility(View.VISIBLE);
         //getting data from database
         mRecyclerView3.setHasFixedSize(false);
         mRecyclerView3.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -209,7 +215,9 @@ public class SearchEveryone extends Fragment {
                 }
 
                 if(productIDs.isEmpty()){
-                    Toast.makeText(getContext(),"empty",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(),"empty",Toast.LENGTH_SHORT).show();
+                    txtNoItems.setVisibility(View.VISIBLE);
+                    mRecyclerView3.setVisibility(View.INVISIBLE);
                 }else{
                     //Getting image
                     mAdapter = new ImageAdapter(getActivity(),mUploads);
@@ -318,15 +326,6 @@ public class SearchEveryone extends Fragment {
 
                     }
 
-                    /*@Override
-                    public void onWishlistClick(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onSwapped(int position) {
-                        Toast.makeText(getContext(),"Swap click at: " + position,Toast.LENGTH_SHORT).show();
-                    }*/
                 });
 
                 mRecyclerView3.setAdapter(mAdapter);

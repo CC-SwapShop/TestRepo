@@ -25,21 +25,19 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Chat2 extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity {
 
     //Variables
     private String sPID,sOGID;
     private Product objProduct;
     private OnGoingSwaps objOnGoingSwap;
     private RecyclerView mRecyclerView;
-    private MessageAdapter mAdapter;
+    private ChatMessageAdapter mAdapter;
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
@@ -55,7 +53,8 @@ public class Chat2 extends AppCompatActivity {
     FloatingActionButton fbtnMSend;
     Button btnMDecline, btnMAccept;
     List<String> productOngoing;
-    List<String> arrMesssages;
+    List<ChatMessage> arrMesssages;
+    List<String> arrMessageID;
     DatabaseReference reference;
     DatabaseReference pReference;
     DatabaseReference referenceChat;
@@ -66,7 +65,7 @@ public class Chat2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat2);
+        setContentView(R.layout.activity_chat);
 
         //From previous class
         Intent intent = getIntent();
@@ -86,13 +85,13 @@ public class Chat2 extends AppCompatActivity {
         cardView = findViewById(R.id.cvButtons1);
 
         //Getting user
-        String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+       // String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
-        if(user.equals(objOnGoingSwap.customer)){
-            btnMAccept.setVisibility(View.INVISIBLE);
-            btnMDecline.setVisibility(View.INVISIBLE);
-        }
+        //if(user.equals(objOnGoingSwap.customer)){
+        //    btnMAccept.setVisibility(View.INVISIBLE);
+        //    btnMDecline.setVisibility(View.INVISIBLE);
+        //}
 
         //message view
         mRecyclerView = findViewById(R.id.recyclerView_message1);
@@ -125,8 +124,8 @@ public class Chat2 extends AppCompatActivity {
         //populate array for ongoing
         productOngoing = new ArrayList<>();
 
-        //Database reference
-        reference = FirebaseDatabase.getInstance().getReference().child("OngoingSwaps");
+        //Database reference ongoing swaps
+        reference = FirebaseDatabase.getInstance().getReference().child("ProductOngoingSwaps");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -146,24 +145,33 @@ public class Chat2 extends AppCompatActivity {
 
         //Array list
         arrMesssages =  new ArrayList<>();
-        referenceChat = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
+        arrMessageID =new ArrayList<>();
+        referenceChat = FirebaseDatabase.getInstance().getReference().child("ChatMessages");
         referenceChat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrMesssages.clear();
+                arrMessageID.clear();
                 for(DataSnapshot postsnapshot: snapshot.getChildren()){
-                    //String to = postsnapshot.child("to").getValue().toString();
-                    String sMessage = postsnapshot.child("message").getValue().toString();
-                    //String from = postsnapshot.child("from").getValue().toString();
-                    //ChatMessage chatMessage = new ChatMessage(from,sMessage,to);
-                    //arrChatMessages.add(chatMessage);
-                    //Toast.makeText(Chat2.this,sMessage,Toast.LENGTH_SHORT).show();
-                    arrMesssages.add(sMessage);
+                    String Message = postsnapshot.child("message").getValue().toString();
+                    String to = postsnapshot.child("messageTo").getValue().toString();
+                    String chatID = postsnapshot.child("chatID").getValue().toString();
+                    String from = postsnapshot.child("messageFrom").getValue().toString();
+
+                    ChatMessage chatMessage = new ChatMessage(from,Message,to,chatID);
+
+                    if(chatID.equals(sOGID)) {
+                        arrMesssages.add(chatMessage);
+                        arrMessageID.add(postsnapshot.getKey());
+
+                    }
+
 
                 }
 
                 //Adapter
-                mAdapter = new MessageAdapter(Chat2.this,arrMesssages);
+                mAdapter = new ChatMessageAdapter(ChatActivity.this,arrMesssages,
+                        "U13UWwzr6uMtsZj2lHTDYMnlyDn2");
 
                 mRecyclerView.setAdapter(mAdapter);
             }
@@ -203,11 +211,20 @@ public class Chat2 extends AppCompatActivity {
 
     //Functions
     public void DeclineOffer(){
-        FirebaseDatabase.getInstance().getReference("OngoingSwaps").child(sOGID)
+        FirebaseDatabase.getInstance().getReference("ProductOngoingSwaps").child(sOGID)
                 .child("ongoing").setValue(false);
 
+        FirebaseDatabase.getInstance().getReference("ProductOngoingSwaps").child(sOGID).removeValue();
+        if(arrMessageID.size()>0){
+            for (String temp : arrMessageID){
+                FirebaseDatabase.getInstance().getReference("ChatMessages").child(temp).removeValue();
+            }
+        }
+
         //Message to say product has been declined
-        Toast.makeText(Chat2.this,"Offer has been declined",Toast.LENGTH_SHORT).show();
+        Toast.makeText(ChatActivity.this,"Offer has been declined",Toast.LENGTH_SHORT).show();
+
+        startActivity(new Intent(ChatActivity.this,UserMenu.class));
     }
 
     public void AcceptOffer(){
@@ -221,7 +238,7 @@ public class Chat2 extends AppCompatActivity {
 
         //Set all ongoing offers for product to false
         for (String temp : productOngoing) {
-            FirebaseDatabase.getInstance().getReference("OngoingSwaps").child(temp)
+            FirebaseDatabase.getInstance().getReference("ProductOngoingSwaps").child(temp)
                     .child("ongoing").setValue(false);
         }
         //add item to Accepted swap
@@ -233,7 +250,7 @@ public class Chat2 extends AppCompatActivity {
         ref.child(key).setValue(acceptedSwap);
 
         //Message to say product has been declined
-        Toast.makeText(Chat2.this,"Offer has been Accepted",Toast.LENGTH_SHORT).show();
+        Toast.makeText(ChatActivity.this,"Offer has been Accepted",Toast.LENGTH_SHORT).show();
         //rating pop up here
         createNewRatingDialog();
     }
@@ -332,7 +349,7 @@ public class Chat2 extends AppCompatActivity {
                                 FirebaseDatabase.getInstance().getReference().child("Users")
                                         .child(objOnGoingSwap.customer).child("rcount").setValue(rcount+1);
 
-                                Toast.makeText(Chat2.this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ChatActivity.this, "Thank you for your feedback!", Toast.LENGTH_SHORT).show();
                                 //setContentView(R.layout.activity_home);
                                 startActivity(new Intent(getApplicationContext(), UserMenu.class));
                             }
@@ -341,7 +358,7 @@ public class Chat2 extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(Chat2.this, "Tansaction Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChatActivity.this, "Transaction Failed", Toast.LENGTH_SHORT).show();
                         //setContentView(R.layout.activity_home);
                         startActivity(new Intent(getApplicationContext(), UserMenu.class));
                     }
@@ -352,7 +369,7 @@ public class Chat2 extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Chat2.this, "Rating dismissed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChatActivity.this, "Rating dismissed", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
@@ -369,20 +386,11 @@ public class Chat2 extends AppCompatActivity {
             provider = objOnGoingSwap.customer;
         }
 
+        DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference().child("ChatMessages");
+        String key = chatRef.push().getKey();
+        ChatMessage objChatMessage = new ChatMessage(user,sMessage,provider,sOGID);
+        chatRef.child(key).setValue(objChatMessage);
 
-
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Chats").child(sOGID);
-        String key = ref.push().getKey();
-        ref.child(key).child("message").setValue(sMessage);
-        ref.child(key).child("from").setValue(user);
-        ref.child(key).child("to").setValue(provider);
-
-        /*Intent intent = new Intent( getApplicationContext(), Chat2.class);
-        intent.putExtra("Select_ID",sPID);
-        intent.putExtra("Extra_ongoingID",sOGID);
-        intent.putExtra("Extra_ongoing",objOnGoingSwap);
-
-        startActivity(intent);*/
+        edtMessage.setText("");
     }
 }

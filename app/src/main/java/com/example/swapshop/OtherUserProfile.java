@@ -42,6 +42,7 @@ public class OtherUserProfile extends AppCompatActivity {
     private List<String> productIDs;
     ImageButton star1, star2, star3, star4, star5;
     long rating=5;
+    private Boolean isbLogin;
 
 
     //OnCreate method for OtherUserProfile
@@ -52,13 +53,11 @@ public class OtherUserProfile extends AppCompatActivity {
 
         //Bundles create to get information from previous activity
         Bundle extras = getIntent().getExtras();
-        objProduct = extras.getParcelable("Select_Product");
-        //Get data from another activity
         Intent intent = getIntent();
-        //objProduct = intent.getParcelableExtra("Select_Product");
+        objProduct = intent.getParcelableExtra("Select_Product");
         sPID = intent.getStringExtra("Select_ID");
-        //sOGID = intent.getStringExtra("Extra_ongoingID");
-        //objOnGoingSwap = intent.getParcelableExtra("Extra_ongoing");
+        bLogin = intent.getBooleanExtra("Extra_NOtLogin",true);
+
 
         //Getting text views
         uname = findViewById(R.id.txtNameOther);
@@ -140,7 +139,7 @@ public class OtherUserProfile extends AppCompatActivity {
                         Intent intent = new Intent(OtherUserProfile.this, ViewProduct.class);
                         intent.putExtra("Curr_Product", currProduct);
                         intent.putExtra("Extra_ID",pID);
-                        //intent.putExtra("Extra_login",false);
+                        intent.putExtra("Extra_login",bLogin);
                         startActivity(intent);
                     }
                 });

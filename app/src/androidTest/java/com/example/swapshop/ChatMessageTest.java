@@ -11,13 +11,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 public class ChatMessageTest extends TestCase {
-    String messageFrom="me", message="sup", messageTo="you";
+    String messageFrom="me", message="sup", messageTo="you", chatID="123";
 
     private ChatMessage chatMessage = null;
 
     @Before
     public void setUp() throws Exception {
-        chatMessage = new ChatMessage(messageFrom, message, messageTo);
+        chatMessage = new ChatMessage(messageFrom, message, messageTo, chatID);
     }
 
     @Test
@@ -33,6 +33,11 @@ public class ChatMessageTest extends TestCase {
     @Test
     public void TestMessageTo() throws Exception{
         assertEquals(chatMessage.messageTo, "you");
+    }
+
+    @Test
+    public void TestChatID() throws Exception{
+        assertEquals(chatMessage.chatID, "123");
     }
 
     @Test
