@@ -69,13 +69,27 @@ public class RatingsTest extends TestCase {
     @Test
     public void D_test4Stars(){
         int expected = 4;
-        onView(withId(R.id.btn_star5)).perform(click());
+
         onView(withId(R.id.btn_star4)).perform(click());
         int result = ratings.rating;
-        onView(withId(R.id.btnDone)).perform(click());
+        assertEquals(expected, result);
+    }
+/*
+    @Test
+    public void E_test5Stars(){
+        int expected = 5;
+
+        onView(withId(R.id.btn_star5)).perform(click());
+        int result = ratings.rating;
         assertEquals(expected, result);
     }
 
+    @Test
+    public void F_testDone() throws Exception {
+        onView(withId(R.id.btnDone)).perform(click());
+        setUp();
+    }
+*/
     @After
     public void tearDown() throws Exception {
         ratings = null;
