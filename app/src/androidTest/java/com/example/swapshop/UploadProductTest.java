@@ -62,6 +62,7 @@ public class UploadProductTest extends TestCase {
         onView(withId(R.id.upload_product)).check(matches(isDisplayed()));
     }
 
+    /*
     @Test
     public void Testimgadd(){
         onView(withId(R.id.edtAName)).perform(typeText(STRING_TO_BE_TYPED_PRODUCT), closeSoftKeyboard());
@@ -69,7 +70,7 @@ public class UploadProductTest extends TestCase {
         onView(withId(R.id.edtALocation)).perform(typeText(STRING_TO_BE_TYPED_LOCATION), closeSoftKeyboard());
         onView(withId(R.id.edtALreqProduct)).perform(typeText(STRING_TO_BE_TYPED_REQ_PRODUCT), closeSoftKeyboard());
         onView(withId(R.id.btnAUpload)).perform(click());
-    }
+    }*/
 
     @Test
     public void ProductTextView(){

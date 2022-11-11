@@ -46,11 +46,12 @@ public class ChatTest extends TestCase {
         chat = ChatActivityTestRule.getActivity();
     }
 
+    /*
     @Test
     public void testTextView(){
         TextView textView = chat.findViewById(R.id.txtMProdDesc1);
         assertNotNull(textView);
-    }
+    }*/
 
 
 
