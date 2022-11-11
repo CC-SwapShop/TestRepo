@@ -61,7 +61,7 @@ public class Login_ActivityTest extends TestCase {
     public void loginTextTest2(){
         TextView textViewTest = login_activity.findViewById(R.id.TV_login);
         String actual = textViewTest.getText().toString();
-        String expected = "Log in";
+        String expected = "Log In";
 
         assertEquals(actual,expected);
         login_activity.finish();
@@ -122,10 +122,6 @@ public class Login_ActivityTest extends TestCase {
         login_activity.finish();
     }
 
-    @Test
-    public void testLoginButton2(){
-        onView(withId(R.id.btnLogin)).perform(click());
-    }
 
     @Test
     public void testLoginButton3(){
