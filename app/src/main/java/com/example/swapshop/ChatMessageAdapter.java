@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+
+//This class has been tested in Chat Test when instatiating a new Chat Activity, it creates a chatmessageadapter object
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageAdapter.ChatMessageHolder> {
     //Variables
     private Context mContext;

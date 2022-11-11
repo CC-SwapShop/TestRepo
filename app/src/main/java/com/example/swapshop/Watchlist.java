@@ -45,6 +45,7 @@ public class Watchlist extends AppCompatActivity implements WatchlistAdapter.OnI
         //Adapter
         objWatchlist = getIntent().getParcelableExtra("Extra_Watchlist");
 
+
         //Recyclers
         mRecyclerView = findViewById(R.id.recycler_view1);
         mRecyclerView.setHasFixedSize(true);

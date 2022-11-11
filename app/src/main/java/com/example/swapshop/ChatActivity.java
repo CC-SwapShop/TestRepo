@@ -70,10 +70,9 @@ public class ChatActivity extends AppCompatActivity {
         //From previous class
         Intent intent = getIntent();
         //objProduct = intent.getParcelableExtra("Select_Product");
-        sPID = intent.getStringExtra("Select_ID");
+        sPID = intent.getStringExtra("Select_ID"); //static -NGYMfZOvXE8ozKjI2Yz
         sOGID = intent.getStringExtra("Extra_ongoingID");
         objOnGoingSwap = intent.getParcelableExtra("Extra_ongoing");
-
         //Find ID with interface
         txtMProdDesc = findViewById(R.id.txtMProdDesc1);
         txtMProdName = findViewById(R.id.txtMProdName1);
@@ -85,13 +84,13 @@ public class ChatActivity extends AppCompatActivity {
         cardView = findViewById(R.id.cvButtons1);
 
         //Getting user
-       // String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String user = "U13UWwzr6uMtsZj2lHTDYMnlyDn2";
 
 
-        //if(user.equals(objOnGoingSwap.customer)){
-        //    btnMAccept.setVisibility(View.INVISIBLE);
-        //    btnMDecline.setVisibility(View.INVISIBLE);
-        //}
+        if(user.equals("U13UWwzr6uMtsZj2lHTDYMnlyDn2")){
+            btnMAccept.setVisibility(View.INVISIBLE);
+            btnMDecline.setVisibility(View.INVISIBLE);
+        }
 
         //message view
         mRecyclerView = findViewById(R.id.recyclerView_message1);
