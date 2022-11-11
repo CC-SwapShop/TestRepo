@@ -2,7 +2,15 @@ ignore:
   - "**/UserInfoFragment"               # Converted into UserInfoActivity for testing
   - "**/LoginFrag"                      # Converted into Login_Activity for testing
   - "**/ChatFragment"                   # Converted into Chat_Activity for testing
-  - "**/CatagoryHomeFragment"
-  - "**/UserCatagoryFragment"
+  - "**/CatergoryHomeFragment"
+  - "**/UserCatergoryFragment"
   - "**/ViewProduct"                    #problem with testing intents
   - "**/Watchlist"                      #needs userwatchlist object
+  - "**/OtherUserProfile"
+  - "**/OnGoingSwaps"
+  - "**/Register"
+  - "**/UploadProduct"
+  - "**/ChatActivity"
+  - "**/Update_Activity"                #needs to test when uploading photo for dp
+  - "**/SearchEveryone"
+  - "**/Search"
