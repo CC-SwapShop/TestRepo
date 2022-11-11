@@ -15,3 +15,4 @@ ignore:
   - "**/Update_Activity"                #needs to test when uploading photo for dp
   - "**/SearchEveryone"
   - "**/Search"
+  - "**/ChatMessageAdapter"
