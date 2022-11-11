@@ -1,9 +1,9 @@
 name: Android CI
 on:
   push:
-    branches: [ FinalMarking1 ]
+    branches: [ Testing ]
   pull_request:
-    branches: [ FinalMarking1 ]
+    branches: [ Testing ]
 
 jobs:
   build:
