@@ -74,7 +74,7 @@ public class RatingsTest extends TestCase {
         int result = ratings.rating;
         assertEquals(expected, result);
     }
-/*
+
     @Test
     public void E_test5Stars(){
         int expected = 5;
@@ -89,7 +89,7 @@ public class RatingsTest extends TestCase {
         onView(withId(R.id.btnDone)).perform(click());
         setUp();
     }
-*/
+
     @After
     public void tearDown() throws Exception {
         ratings = null;
